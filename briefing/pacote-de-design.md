@@ -22,7 +22,9 @@ Regra deste documento: todo texto entre aspas vai para o site exatamente como es
 | Dirigente | Quase invisível: aparece só pelo nome, na linhagem |
 | Formulário | Nenhum. A ação final é o WhatsApp com mensagem pronta |
 
-**Desvio declarado da skill (avisado ao cliente):** a skill pede uma página única. A CUCA também precisa da Área da Corrente. Então serão duas páginas estáticas (`index.html` e `corrente.html`), sem framework e sem build.
+**Estrutura definida pelo cliente:** o site segue a arquitetura do protótipo feito no AI Studio a partir do Guia do Médium. São 9 páginas em 4 grupos de menu (mapa completo na seção 6A). Isso substitui a ideia anterior de "site enxuto + área da corrente".
+
+**Desvio declarado da skill (avisado ao cliente):** a skill pede uma página única. Aqui serão 9 páginas estáticas em HTML, CSS e JavaScript puros, sem framework e sem build. A abertura cinematográfica com vídeo fica só no Início. As páginas internas usam o mesmo sistema visual, com aberturas de foto real.
 
 **Painel simples de edição:** sem servidor e sem build, a edição pelo próprio pessoal da casa funciona assim:
 - **Agenda:** uma Google Agenda da CUCA, mostrada no site automaticamente.
@@ -129,7 +131,30 @@ Sobre o quadro final (a roda vista de cima):
 
 ---
 
-## 6. A página abaixo da abertura
+## 6A. Mapa do site (estrutura do protótipo AI Studio)
+
+| Menu | Página | Arquivo | Seções (do protótipo, conteúdo do Guia do Médium) |
+|---|---|---|---|
+| Início | Início | `index.html` | abertura com vídeo, faixa de horário e endereço, elos 01 a 08 abaixo |
+| A Casa | História e Linha do Tempo | `historia.html` | linha do tempo (1987 a 2025), Raízes e Pai Fernando, Caminho de Forja, A Promessa Espiritual, O Milagre da Aroeira, Convite ao Caboclo Akuan |
+| A Casa | Guias Dirigentes | `guias.html` | Caboclo Akuan e os mentores da casa, busca e filtro, página de cada guia (raízes, o encontro, identidade, ensinamento) |
+| Fundamentos | Orixás e Linhas | `orixas.html` | Orixá e guia (a diferença), busca e filtro, os 9 Orixás, as linhas de trabalho (direita, neutras, esquerda tratada com cuidado), ficha de cada um |
+| Fundamentos | Rituais e Preceitos | `rituais.html` | visão geral, O Preceito, A Vela e a Oração, O Amalá, O Banho de Ervas |
+| Fundamentos | Ervas Sagradas | `ervas.html` | como funcionam, busca e intenção, Ar, Fogo, Terra e Água, ficha de cada erva com foto |
+| Vivência | Primeira Vez? | `primeira-vez.html` | passo a passo da visita, frentes de atendimento (passe, descarrego, cura, consulta), orientações de ouro, o que não fazemos |
+| Vivência | Quero Ser Médium | `medium.html` | mediunidade como autodescobrimento, os passos de ingresso, dicas de ouro, pilares e deveres, tipos de médiuns |
+| Vivência | Documentos e Pontos | `documentos.html` | Guia do Médium, Livro de Pontos Cantados, Ritual de Abertura (leitura e download) |
+| Botão fixo | Visitar / Contato | âncora `index.html#venha` | endereço, horário, mapa, WhatsApp, agenda, PIX |
+
+Regras comuns a todas as páginas internas:
+- Abertura com uma foto real da casa, título, uma frase de síntese e o rótulo do grupo.
+- Índice flutuante de capítulos nas páginas longas (História, Rituais, Ervas, Primeira Vez, Médium), como no protótipo.
+- No fim de toda página, o mesmo convite: "Te esperamos na segunda." e o botão "Falar no WhatsApp".
+- A busca geral do protótipo continua, agora como lista estática pesquisável, sem servidor.
+- O texto de cada página vem do protótipo, revisado contra o Guia do Médium e passado pela regra de texto da seção 9.
+- O formulário de contato do protótipo sai. Ele não enviava mensagens para lugar nenhum. Entra o WhatsApp.
+
+## 6. O Início, abaixo da abertura
 
 Cada seção é um elo numerado. Uma linha de corrente desenhada liga os elos enquanto a pessoa rola.
 
@@ -205,9 +230,17 @@ Título: "Uma corrente de três gerações."
 - "Posso levar criança?" · "Pode, sempre acompanhada de um responsável e em silêncio respeitoso."
 - "Posso filmar ou fotografar?" · "Não, sem autorização da casa. O que acontece na gira é sagrado e confidencial."
 - "Tenho prioridade?" · "Pessoas idosas, gestantes e pessoas com condição especial têm prioridade. Avise na chegada."
-- "Quero entrar para a corrente. Como faço?" · "O caminho começa como consulente. Veja a Área da Corrente."
+- "Quero entrar para a corrente. Como faço?" · "O caminho começa como consulente. Veja a página Quero Ser Médium."
 
-### Elo 07 · Venha (fundo escuro, chamada final)
+### Elo 07 · Conheça a casa (fundo algodão, acesso rápido às páginas)
+
+Título: "Para estudar e conhecer a fundo."
+
+Oito cartões com foto real, um por página: História, Guias Dirigentes, Orixás e Linhas, Rituais e Preceitos, Ervas Sagradas, Primeira Vez?, Quero Ser Médium, Documentos e Pontos. Cada um com a frase de síntese da página.
+
+Ao lado: os momentos recentes do Instagram @cuca_terreirodeumbanda, como no protótipo.
+
+### Elo 08 · Venha (fundo escuro, chamada final)
 
 Título: "Te esperamos na segunda."
 
@@ -226,24 +259,13 @@ Apoie a casa: "A CUCA se mantém com a ajuda de quem acredita nela." · chave PI
 
 ### Rodapé
 
-"CUCA · Casa de Umbanda Corrente de Akuan · Curitiba, PR" · Instagram @cuca_terreirodeumbanda · link "Área da Corrente".
-
-### Área da Corrente (`corrente.html`)
-
-Aberta a todos e separada no menu. Contém:
-- o caminho para entrar na corrente (5 passos do manual);
-- documentos: Guia do Médium, Livro de Pontos, Ritual de Abertura;
-- rituais (preceito, banho de ervas, vela e água);
-- Orixás e linhas;
-- Ervas.
-
-O texto vem do manual e do site atual, revisado.
+"CUCA · Casa de Umbanda Corrente de Akuan · Curitiba, PR" · Instagram @cuca_terreirodeumbanda · links para as 9 páginas, organizados nos 4 grupos do menu.
 
 ---
 
 ## 7. Camada de desenho (SVG feito à mão)
 
-- **Elemento assinatura: a corrente.** Uma linha de elos desenhada à mão desce pela lateral da página e se traça sozinha conforme a rolagem. Cada seção começa num elo numerado (01 a 07). No final, os elos fecham uma roda, a mesma forma da gira vista de cima no vídeo.
+- **Elemento assinatura: a corrente.** Uma linha de elos desenhada à mão desce pela lateral da página e se traça sozinha conforme a rolagem. No Início, cada seção começa num elo numerado (01 a 08). No final, os elos fecham uma roda, a mesma forma da gira vista de cima no vídeo.
 - **Folhas de Aroeira** em traço fino, como divisórias raras.
 - **Ambiente de fundo:** grão de papel e uma fumaça de defumação muito lenta (ciclo de 60 s ou mais) nas seções escuras.
 - Nada de pontos riscados desenhados: são fundamento da casa.
