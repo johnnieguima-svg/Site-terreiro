@@ -230,6 +230,7 @@ Título: "Uma corrente de três gerações."
 - "Posso levar criança?" · "Pode, sempre acompanhada de um responsável e em silêncio respeitoso."
 - "Posso filmar ou fotografar?" · "Não, sem autorização da casa. O que acontece na gira é sagrado e confidencial."
 - "Tenho prioridade?" · "Pessoas idosas, gestantes e pessoas com condição especial têm prioridade. Avise na chegada."
+- "Tem estacionamento?" · "Tem, no local, por R$ 12,00. Estacione onde a equipe indicar."
 - "Quero entrar para a corrente. Como faço?" · "O caminho começa como consulente. Veja a página Quero Ser Médium."
 
 ### Elo 07 · Conheça a casa (fundo algodão, acesso rápido às páginas)
@@ -299,9 +300,9 @@ Recursos de estilo deliberados deste pacote ficam. Exemplo: o trio "Casa. Corren
 
 ---
 
-## Pendências para o dirigente confirmar
+## Confirmado pelo dirigente
 
-1. O nome "Jardim Botânico" e o endereço Av. Prefeito Maurício Fruet, 1230 estão corretos para a sede atual?
-2. O estacionamento é pago? O manual cita acertar o valor antes. Se for, entra no Elo 06.
-3. A chave PIX continua sendo correntedeakuan@gmail.com?
-4. Nada sobre o roncó, os alguidares, as entregas detalhadas e as consultas será publicado. Confirma que é isso que não pode aparecer?
+1. Endereço: Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico · Curitiba. Confirmado.
+2. Estacionamento: pago, R$ 12,00. Entra no Elo 06 e na página Primeira Vez.
+3. Chave PIX: correntedeakuan@gmail.com. Confirmado.
+4. Os rituais ficam abertos e disponíveis ao público: preceito, vela e oração, amalás e entregas (incluindo as listas por Orixá e por linha), banho de ervas e Jardim dos Orixás entram na página Rituais e Preceitos. Continua fora do site só o que o próprio manual protege: o conteúdo das consultas, a identidade de quem foi atendido e fotos ou vídeos da gira sem autorização da casa.
