@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/ailerons');
+@import "tailwindcss";
+
+@theme {
+  --color-creme: #FBF9F5;
+  --color-alabastro: #F3EFE6;
+  --color-vinho: #6B0F0F;
+  --color-dourado: #C0A080;
+  --color-charcoal: #292524;
+  --color-border-vinho: rgba(107, 15, 15, 0.12);
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-body-serif: "Lora", Georgia, serif;
+  --font-ailerons: "Ailerons", sans-serif;
+}
+
+body {
+  background-color: var(--color-creme);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  margin: 0;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, .serif {
+  font-family: var(--font-serif);
+  text-wrap: balance;
+}
+
+.prose-editorial {
+  font-family: var(--font-body-serif);
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   APPLE-INSPIRED LIQUID CRYSTAL / GLASSMORPHISM DESIGN SYSTEM
+   ========================================================================== */
+
+/* Primary Translucent Crystal Card (Light) */
+.crystal-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.64) 50%,
+    rgba(251, 249, 245, 0.76) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 10px 35px -10px rgba(41, 37, 36, 0.07),
+    0 2px 10px -2px rgba(107, 15, 15, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92),
+    inset 0 0 0 1px rgba(107, 15, 15, 0.06);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crystal-card:hover {
+  box-shadow:
+    0 20px 45px -12px rgba(41, 37, 36, 0.12),
+    0 4px 16px -4px rgba(107, 15, 15, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    inset 0 0 0 1px rgba(107, 15, 15, 0.16);
+}
+
+/* Warm Alabaster Crystal Panel (Container / Section Surface) */
+.crystal-panel {
+  background: linear-gradient(
+    145deg,
+    rgba(246, 242, 233, 0.78) 0%,
+    rgba(255, 255, 255, 0.62) 100%
+  );
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 18px 50px -15px rgba(41, 37, 36, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(107, 15, 15, 0.08);
+}
+
+/* Floating Navigation / Pill Bar Crystal */
+.crystal-pill {
+  background: rgba(251, 249, 245, 0.78);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 12px 32px -8px rgba(41, 37, 36, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Dark Obsidian Crystal (For dark sections & sacred highlights) */
+.crystal-dark {
+  background: linear-gradient(
+    145deg,
+    rgba(34, 30, 28, 0.88) 0%,
+    rgba(24, 21, 20, 0.94) 100%
+  );
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 24px 60px -15px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(192, 160, 128, 0.12);
+}
+
+.crystal-dark-subcard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.09) 0%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 10px 30px -10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crystal-dark-subcard:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  border-color: rgba(192, 160, 128, 0.42);
+}
+
+/* Ruby / Vinho Crystal Card */
+.crystal-vinho {
+  background: linear-gradient(
+    135deg,
+    rgba(107, 15, 15, 0.92) 0%,
+    rgba(82, 10, 10, 0.96) 100%
+  );
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 20px 50px -12px rgba(107, 15, 15, 0.35),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3EFE6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(107, 15, 15, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 15, 15, 0.45);
+}
