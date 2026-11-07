@@ -1,0 +1,879 @@
+{
+ "frentes": [
+  {
+   "title": "Passe Energético",
+   "subtitle": "Transmissão Fluídica Silenciosa",
+   "summary": "Realizado pelos Médiuns de Passe no centro do terreiro para reequilíbrio vibratório imediato, sem necessidade de conversa verbal.",
+   "points": [
+    {
+     "label": "Quem realiza",
+     "text": "Médiuns de Passe (ou de Meio) incorporados por suas entidades, atuando em silêncio."
+    },
+    {
+     "label": "Como funciona",
+     "text": "Transmissão direta de energia vital através de movimentos serenos que limpam e recompõem seu campo vibratório."
+    },
+    {
+     "label": "Sua postura",
+     "text": "Apenas feche os olhos, descruze braços e pernas, respire fundo e mantenha o pensamento receptivo."
+    }
+   ],
+   "imageSrc": "/Header/Cópia (2).webp"
+  },
+  {
+   "title": "Descarrego",
+   "subtitle": "Limpeza Profunda & Libertação",
+   "summary": "Atuação segura e ordenada dos guias e Médiuns de Transporte para remover cargas densas, sem encenações ou exageros.",
+   "points": [
+    {
+     "label": "Quando ocorre",
+     "text": "Quando o consulente carrega cargas espirituais densas que exigem limpeza profunda apoiada pelo ponto cantado e atabaques."
+    },
+    {
+     "label": "Médiuns de Transporte",
+     "text": "Atuam como 'ponte' segura para que os guias dirigentes encaminhem espíritos sofredores ou energias estagnadas para a luz."
+    },
+    {
+     "label": "Regra de Ouro da CUCA",
+     "text": "'Descarrego não precisa ser exorcismo.' Tudo ocorre com ordem, amparo e total controle do guia chefe da gira."
+    }
+   ],
+   "imageSrc": "/Header/Cópia (4).webp"
+  },
+  {
+   "title": "Cura Espiritual",
+   "subtitle": "O Terreiro como Hospital da Alma",
+   "summary": "Alinhamento entre espírito, mente e corpo físico que caminha lado a lado com a medicina terrena.",
+   "points": [
+    {
+     "label": "Tudo está interligado",
+     "text": "Muitas dores físicas ou emocionais refletem feridas da alma; o passe reorganiza o campo sutil para favorecer a saúde integral."
+    },
+    {
+     "label": "Trabalho a quatro mãos",
+     "text": "A cura une o amparo dos guias à sua reforma íntima e disposição real de mudar hábitos nocivos."
+    },
+    {
+     "label": "Ciência e Fé juntas",
+     "text": "Jamais substituímos médicos ou psicólogos. O tratamento terreno deve ser mantido; o terreiro atua em paralelo fortalecendo você."
+    }
+   ],
+   "imageSrc": "/Header/Cópia (5).webp"
+  },
+  {
+   "title": "Consultas no Toco",
+   "subtitle": "Aconselhamento Individual",
+   "summary": "Conversa franca e privativa com a entidade incorporada para clareza moral, fortalecimento e tomada de decisão consciente.",
+   "points": [
+    {
+     "label": "O propósito do guia",
+     "text": "Inspirar reflexão e despertar sua sabedoria interior para que você tome as rédeas da própria vida, sem criar dependência."
+    },
+    {
+     "label": "Objetividade e Verdade",
+     "text": "Vá direto ao ponto que precisa de luz. Não tente 'testar' o guia nem sature a consulta com longos relatos desnecessários."
+    },
+    {
+     "label": "Um atendimento por gira",
+     "text": "Consulte-se apenas uma vez por gira. O segredo não é acumular conselhos, mas colocar a orientação recebida em prática."
+    }
+   ],
+   "imageSrc": "/Header/Cópia (1).webp"
+  }
+ ],
+ "orixas": [
+  {
+   "name": "Oxalá",
+   "category": "orixa",
+   "polarity": "Coroa · Princípio Criador",
+   "color": "#64748B",
+   "shortRole": "Paz profunda, fé, silêncio interior e reconciliação",
+   "atuacao": "A paz profunda, a fé e a pureza. É a energia que apazigua grandes brigas, acalma corações irados e traz luz divina máxima para onde há caos e escuridão.",
+   "mitologia": "O princípio da criação. Associado à sabedoria extrema, à calma e à figura crística (Jesus) no sincretismo. Representa o amor incondicional e o respeito absoluto por todas as criaturas.",
+   "efeito": "Traz esperança, tolerância e compaixão. Ajuda a vencer o ódio e o rancor, ensinando que o silêncio, a humildade e o perdão são muito mais fortes do que qualquer vingança.",
+   "elementos": "Canjica branca, arroz doce sem tempero, água mineral ou suco de uva verde. Rosas, lírios ou cravos brancos. Velas puramente brancas."
+  },
+  {
+   "name": "Ogum",
+   "category": "orixa",
+   "polarity": "Força Masculina · Orixá Regente da CUCA",
+   "color": "#DC2626",
+   "shortRole": "Abertura de caminhos, proteção, ordem e coragem de agir",
+   "atuacao": "Abertura de caminhos e proteção. É a força que 'corta' a negatividade, organiza a vida e traz ordem onde há confusão. É o Orixá regente do nosso terreiro.",
+   "mitologia": "O guerreiro e o ferreiro. Aquele que forja suas próprias ferramentas para o trabalho e para a defesa. A energia da ação reta.",
+   "efeito": "Traz coragem, atitude e foco. Cura a procrastinação e o medo de agir, ajudando a pessoa a sair da inércia e tomar as rédeas da própria vida.",
+   "elementos": "Frutas vermelhas (maçã e melancia), amendoim, cerveja branca. Flores vermelhas ou espadas-de-são-jorge. Velas vermelhas e brancas."
+  },
+  {
+   "name": "Oxóssi",
+   "category": "orixa",
+   "polarity": "Força Masculina · Sabedoria das Matas",
+   "color": "#16A34A",
+   "shortRole": "Conhecimento, foco certeiro, cura botânica e fartura",
+   "atuacao": "É a energia que limpa, nutre e cura através da força das matas. Promove o conhecimento, a fartura e a saúde espiritual.",
+   "mitologia": "O caçador certeiro. Aquele que detém o conhecimento das florestas e usa apenas uma flecha para atingir seu objetivo.",
+   "efeito": "Trabalha o foco, a concentração e a intuição. Ajuda a silenciar a ansiedade, estimula os estudos e direciona a pessoa a atingir suas metas com precisão.",
+   "elementos": "Frutas verdes (uva, abacate, maracujá), milho cozido, sucos naturais. Samambaias e flores do campo. Velas verdes."
+  },
+  {
+   "name": "Xangô",
+   "category": "orixa",
+   "polarity": "Força Masculina · Lei e Equilíbrio",
+   "color": "#78350F",
+   "shortRole": "Justiça divina, equilíbrio racional, maturidade e retidão",
+   "atuacao": "É a força da justiça, da lei e do equilíbrio. Corta injustiças, protege contra mentiras e 'pesa' nossas atitudes na balança da vida.",
+   "mitologia": "O rei sábio, o juiz, o senhor do fogo e das pedreiras. Representa uma base sólida que não se abala facilmente pelas dificuldades.",
+   "efeito": "Traz maturidade e razão. Ajuda a pessoa a sair da posição de vítima e assumir a responsabilidade pelos próprios atos com firmeza de caráter.",
+   "elementos": "Frutas intensas (abacaxi, banana-da-terra), quiabo, cerveja preta. Flores e cravos em tons de marrom ou vinho. Velas marrons."
+  },
+  {
+   "name": "Omulu",
+   "subtitle": "Obaluaiê",
+   "category": "orixa",
+   "polarity": "Força Masculina · Cura e Transmutação",
+   "color": "#1F2937",
+   "shortRole": "Cura profunda do físico e da alma, humildade e renascimento",
+   "atuacao": "É a força suprema da cura e da transformação. Atua fortemente na restauração da saúde física e espiritual, encerrando momentos de sofrimento agudo.",
+   "mitologia": "O curador que esconde suas marcas sob as palhas. O senhor da terra que conhece a dor da doença e tem o poder de transformá-la em renascimento.",
+   "efeito": "Ajuda a lidar com o luto, dores crônicas e o medo das perdas. Ensina a humildade e desperta uma imensa força de superação.",
+   "elementos": "Pipoca estourada na areia ou calor (sem óleo ou sal), água mineral. Flores do campo brancas como margaridas. Velas pretas e brancas."
+  },
+  {
+   "name": "Iansã",
+   "subtitle": "Oyá",
+   "category": "orixa",
+   "polarity": "Força Feminina · Ventos e Movimento",
+   "color": "#EA580C",
+   "shortRole": "Mudança rápida, coragem para encerrar ciclos e ânimo vital",
+   "atuacao": "Movimentação e mudança. É a energia que 'varre' as energias estagnadas, corta amarras tóxicas e afasta más influências com grande rapidez.",
+   "mitologia": "A guerreira valente, senhora dos ventos e das tempestades, dona de uma força indomável que encaminha os espíritos desorientados.",
+   "efeito": "Destrói a paralisia, a apatia e o desespero. Traz ânimo, força para recomeçar e coragem para encerrar ciclos que não fazem bem.",
+   "elementos": "Acarajé, laranja, maçã vermelha, sucos cítricos. Rosas e flores vermelhas ou laranjas. Velas cor de laranja ou vermelhas e brancas."
+  },
+  {
+   "name": "Oxum",
+   "category": "orixa",
+   "polarity": "Força Feminina · Águas Doces e Amor",
+   "color": "#D97706",
+   "shortRole": "Afeto, união familiar, amor-próprio, diplomacia e prosperidade",
+   "atuacao": "É a energia da harmonia, do amor e da união. Restaura laços familiares, protege as gestações e atrai prosperidade e caminhos abertos.",
+   "mitologia": "A senhora das cachoeiras e dos rios de água doce. Representa o afeto materno, a beleza, a diplomacia e a fluidez da vida.",
+   "efeito": "Cura carências afetivas e ensina o amor-próprio. Como o rio que contorna a pedra, Oxum ensina flexibilidade e inteligência emocional.",
+   "elementos": "Frutas doces (melão, pera), mel, canjica amarela, água mineral. Rosas e girassóis amarelos. Velas amarelas."
+  },
+  {
+   "name": "Iemanjá",
+   "category": "orixa",
+   "polarity": "Força Feminina · Grande Mãe dos Oceanos",
+   "color": "#0284C7",
+   "shortRole": "Acolhimento materno, limpeza emocional das mágoas e paz no lar",
+   "atuacao": "É o amparo universal e a limpeza profunda. Como o mar, lava as mágoas, reconforta o espírito cansado e traz estabilidade para lares em conflito.",
+   "mitologia": "A grande mãe do universo, senhora dos oceanos. Aquela que acolhe as tristezas e lágrimas do mundo em suas águas, devolvendo calmaria.",
+   "efeito": "Trata feridas profundas ligadas à família, rejeição e abandono. Traz um alívio profundo que acalma a mente ansiosa.",
+   "elementos": "Manjar de coco branco, frutas claras (uvas verdes, melão), água mineral. Rosas brancas e flores azuis. Velas brancas e azul-claras."
+  },
+  {
+   "name": "Nanã",
+   "subtitle": "Buruquê",
+   "category": "orixa",
+   "polarity": "Força Feminina · Sabedoria Ancestral",
+   "color": "#7E22CE",
+   "shortRole": "Decantação, paciência, perdão de dores antigas e maturidade",
+   "atuacao": "É a energia da decantação, da paciência e da sabedoria. Ajuda a desacelerar a vida, fechar ciclos dolorosos e acalmar ambientes endurecidos.",
+   "mitologia": "A avó divina, a mais velha e sábia. Senhora da lama primordial (encontro da terra com a água). Representa o respeito ao tempo.",
+   "efeito": "Cura o excesso de ansiedade e o apego ao passado. Traz o perdão de velhas dores e a paz de compreender que tudo tem sua hora certa.",
+   "elementos": "Batata-doce, beterraba cozida, suco de uva integral. Violetas e flores em tons de lilás. Velas lilás."
+  }
+ ],
+ "linhas": [
+  {
+   "name": "Caboclos(as)",
+   "category": "direita",
+   "polarity": "Linha da Direita · Doutrina e Cura",
+   "color": "#16A34A",
+   "shortRole": "Passes magnéticos potentes, cura pelas folhas e retidão moral",
+   "atuacao": "Grandes doutrinadores e curadores da Umbanda. Trabalham com intensa aplicação de passes magnéticos, quebrando feitiçarias e limpando o corpo espiritual com o vigor das folhas.",
+   "mitologia": "Representam os povos originários do Brasil: o guerreiro e guardião da floresta, imbuído de coragem, comunhão com a mata e palavra reta.",
+   "efeito": "Cura a estagnação. Insufla no consulente assertividade, foco, coragem de buscar o próprio sustento e reconexão com a natureza.",
+   "elementos": "Frutas brasileiras vibrantes, ervas maceradas, água de coco, folhagens como samambaia e guiné, e velas verdes ou brancas."
+  },
+  {
+   "name": "Pretos(as) Velhos(as)",
+   "category": "direita",
+   "polarity": "Linha da Direita · Sabedoria e Humildade",
+   "color": "#78350F",
+   "shortRole": "Benzedura, escuta acolhedora, consolo familiar e paciência",
+   "atuacao": "Senhores da benzedura e do aconselhamento. Desatam nós familiares, absorvem mágoas profundas e realizam limpezas densas de forma pacífica e contínua.",
+   "mitologia": "A ancestralidade que venceu a dor pela resiliência do espírito e pelo amor incondicional dos avós. Representam a misericórdia.",
+   "efeito": "Grandes terapeutas da alma: reduzem a ansiedade, ensinam a paciência, ajudam a elaborar traumas antigos e dissolvem o orgulho pela humildade.",
+   "elementos": "Café preto, tutu de feijão, rapadura, cocada, suco de milho, cigarro de palha, cravos e margaridas brancas. Velas brancas e pretas."
+  },
+  {
+   "name": "Erês",
+   "subtitle": "E Curumins",
+   "category": "direita",
+   "polarity": "Linha da Direita · Pureza e Renovação",
+   "color": "#0D9488",
+   "shortRole": "Limpeza veloz pela alegria, leveza e reconexão com a criança interior",
+   "atuacao": "Promovem uma assepsia energética extremamente veloz, purificando ambientes densos com vibrações de alta frequência, alegria e verdade.",
+   "mitologia": "O espírito encantado e a alma infantil pura; seres da natureza que manifestam a bondade sem máscaras.",
+   "efeito": "Desarmam a seriedade excessiva, a melancolia e o desespero adulto, devolvendo otimismo, leveza e esperança.",
+   "elementos": "Doces caseiros, bolos simples, balas de frutas, sucos naturais e flores coloridas. Velas brancas, azuis ou cor-de-rosa."
+  },
+  {
+   "name": "Baianos",
+   "subtitle": "E Zé Pelintra",
+   "category": "neutra",
+   "polarity": "Linhas Neutras · Jogo de Cintura e Fé",
+   "color": "#D97706",
+   "shortRole": "Superação de dificuldades materiais, resiliência alegre e abertura de portas",
+   "atuacao": "Quebradores de magias e removedores de obstáculos densos. Excelentes orientadores para as lutas de sobrevivência material e situações enroladas.",
+   "mitologia": "A sagacidade e a resistência do povo brasileiro que enfrenta as agruras do destino sem perder a fé, a dignidade e o sorriso.",
+   "efeito": "Ensinam o verdadeiro 'jogo de cintura', ajudando o consulente a sair da vitimização e encarar a vida com coragem prática.",
+   "elementos": "Coco, amendoim, aipim, água de coco, batidas, rosas vermelhas e brancas. Velas brancas ou vermelhas e brancas."
+  },
+  {
+   "name": "Marinheiros",
+   "category": "neutra",
+   "polarity": "Linhas Neutras · Povo d'Água",
+   "color": "#2563EB",
+   "shortRole": "Limpeza de angústias, equilíbrio emocional nas tormentas e desapego",
+   "atuacao": "Associados a Iemanjá e aos domínios do mar, lavam angústias, ilusões e desespero, estabilizando tonturas energéticas da alma.",
+   "mitologia": "O navegador que balança ao ritmo das ondas bravias, mas nunca cai e jamais perde o leme da vida.",
+   "efeito": "Trabalham nossa capacidade de soltar o que não podemos controlar, permitindo que a emoção flua e lave o coração.",
+   "elementos": "Frutas aquosas e claras (uvas, peras, melão), água mineral, rosas brancas ou flores azuis. Velas azuis e brancas."
+  },
+  {
+   "name": "Boiadeiros",
+   "category": "neutra",
+   "polarity": "Linhas Neutras · Força do Sertão",
+   "color": "#B45309",
+   "shortRole": "Foco, firmeza de propósito, proteção do lar e recolhimento de obsessores",
+   "atuacao": "Especialistas em laçar, conter e encaminhar espíritos sofredores e desorganizados, trabalhando sob a disciplina cabocla.",
+   "mitologia": "O homem do sertão, de trato direto e firme como o chão batido, que traz no laço sua ferramenta de ordem espiritual.",
+   "efeito": "Reúne as energias do consulente que estavam dispersas por confusão mental, devolvendo foco e vontade férrea de caminhar.",
+   "elementos": "Broa de milho, curau, pamonha, café preto quente, flores do campo. Velas amarelas e pretas ou brancas."
+  },
+  {
+   "name": "Ciganos",
+   "category": "neutra",
+   "polarity": "Linhas Neutras · Povo do Oriente",
+   "color": "#C026D3",
+   "shortRole": "Intuição, liberdade criativa, prosperidade e cura pelas essências",
+   "atuacao": "Trabalham as linhas da intuição, da abertura de caminhos comerciais e afetivos e da cura vibratória por cristais, fogo e perfumes.",
+   "mitologia": "O povo livre que celebra a existência, guardião dos saberes nômades, da alegria e da leitura espiritual dos caminhos.",
+   "efeito": "Libertam do medo da mudança, estimulam o senso de merecimento e despertam a alegria de viver.",
+   "elementos": "Frutas doces e perfumadas (maçãs, uvas, pêssegos), vinho ou suco de uva, mel, rosas vermelhas, incensos e velas coloridas."
+  },
+  {
+   "name": "Médicos",
+   "subtitle": "Orientais / Cura",
+   "category": "neutra",
+   "polarity": "Linhas Neutras · Medicina Astral",
+   "color": "#7C3AED",
+   "shortRole": "Reestruturação celular fluídica, alinhamento de chakras e paz mental",
+   "atuacao": "Atuam na remoção sutil de miasmas incrustados no perispírito, desobstrução de meridianos energéticos e passes cirúrgicos espirituais.",
+   "mitologia": "Médicos e sábios orientais/ocidentais que aliaram a ciência curativa à manipulação fluídica do plano espiritual.",
+   "efeito": "Induzem profunda paz, centramento, relaxamento do corpo astral e silenciamento do ruído mental crônico.",
+   "elementos": "Água mineral pura, flores brancas ou violetas, incensos de sândalo ou lótus e velas brancas."
+  },
+  {
+   "name": "Simiromba",
+   "subtitle": "Monges / Franciscanos",
+   "category": "neutra",
+   "polarity": "Linhas Neutras · Fraternidade Cristã",
+   "color": "#64748B",
+   "shortRole": "Desapego da vaidade, oração silenciosa e elevação coletiva",
+   "atuacao": "Trabalham em altíssima oitava vibracional ligada à Caridade Universal, à prece silenciosa e à elevação moral do grupo.",
+   "mitologia": "Monges franciscanos e velhos frades que simbolizam a simplicidade última da fé e o serviço despido de vaidade.",
+   "efeito": "Desarmam o materialismo e o orgulho, convidando à fraternidade sincera e à serenidade interior.",
+   "elementos": "Pão repartido, quartzo branco, água pura, incenso de olíbano e velas brancas simples."
+  },
+  {
+   "name": "Exus e Pombagiras",
+   "subtitle": "Guardiões da Esquerda",
+   "category": "esquerda",
+   "polarity": "Linha de Esquerda · Guardiões da Lei e Vitalidade",
+   "color": "#991B1B",
+   "shortRole": "Defesa da tronqueira, quebra de demandas, autoestima e verdade sem máscaras",
+   "atuacao": "Executores da Lei e guardiões da vitalidade. Desmancham magias negativas, rompem demandas, abrem caminhos terrenos e protegem o terreiro.",
+   "mitologia": "Espíritos francos e libertos da hipocrisia humana que atuam nas encruzilhadas e na escuridão para defender a luz e a verdade.",
+   "efeito": "Curam a baixa autoestima, a apatia depressiva e as ilusões afetivas, ensinando limites claros e empoderamento real.",
+   "elementos": "Padê (farofa), bebidas rituais, charutos/cigarrilhas, maçãs vermelhas, rosas vermelhas e velas pretas e vermelhas."
+  }
+ ],
+ "guias": [
+  {
+   "id": "akuan",
+   "name": "Caboclo Akuan",
+   "type": "caboclo",
+   "typeLabel": "Caboclos",
+   "line": "Mensageiro de Ogum e Oxalá",
+   "shortDesc": "Patrono e mentor chefe da casa, símbolo de retidão, força e disciplina moderada pelo afeto.",
+   "bgImage": "img:hero",
+   "quote": "O equilíbrio entre amor e disciplina é a maior das virtudes. A força aliada ao respeito ergue templos inabaláveis.",
+   "identity": "Patrono Geral da CUCA",
+   "description": "O patrono espiritual que orienta com régua reta os passos de nossa casa. Uma energia indomável de retidão, simbolizado pela águia dourada no alto e guardado pelas sublimes panteras negras da egrégora de defensores astrais.",
+   "teaching": "Cultivar uma integridade irrepreensível, falar com verdade reta e estender a mão aos aflitos sem com isso retirar-lhes os aprendizados necessários de sua própria caminhada espiritual."
+  },
+  {
+   "id": "itaquaratira",
+   "name": "Caboclo Itaquaratira",
+   "type": "caboclo",
+   "typeLabel": "Caboclos",
+   "line": "Vibração de Oxóssi",
+   "shortDesc": "Guia refinado da cura pelas matas sagradas, guardião das folhas secretas e mestre do silêncio medicinal.",
+   "bgImage": "/Guias/cab_itaquaratira.jpg",
+   "quote": "A mata fala com quem sabe escutar em silêncio. A cura divina está na folha e a paz na mente que sossega.",
+   "identity": "Doutrinador e Curador das Matas",
+   "description": "Espírito imponente de vasta sabedoria botânica astral. Atua diretamente na fluidificação e higienização psicoemocional, curando dores físicas e desatando amarras espirituais com o passe de folhas verdes e a seiva pura da mata.",
+   "teaching": "Aprender a calar os ruídos externos para ouvir a instrução sutil do Criador. A reverência à natureza e o autorrespeito restabelecem o equilíbrio vital."
+  },
+  {
+   "id": "urubata",
+   "name": "Caboclo Urubatã da Guia",
+   "type": "caboclo",
+   "typeLabel": "Caboclos",
+   "line": "Vibração de Oxalá",
+   "shortDesc": "Eminente mentor de altíssima evolução espiritual, conselheiro-mor e pilar de justiça inabalável.",
+   "bgImage": "/Header/corrente.webp",
+   "quote": "Onde habita a retidão, nenhuma treva permanece. Caminhai sob a luz da paciência primordial.",
+   "identity": "Conselheiro e Doutrinador Geral",
+   "description": "Um ancião de sublime presença espiritual. Apresenta-se com cabelos cor de neve e cocar alvo, emanando uma paz indescritível que desintegra pensamentos caóticos. É o guardião da integridade iniciática e ritualística do terreiro.",
+   "teaching": "A elevação espiritual requer o sacrifício do próprio ego. Agir com moderação, paciência e retidão é o escudo mais impenetrável que o médium possui."
+  },
+  {
+   "id": "joaquim",
+   "name": "Pai Joaquim de Angola",
+   "type": "pretovelho",
+   "typeLabel": "Pretos Velhos",
+   "line": "Linha das Almas",
+   "shortDesc": "Vovô acolhedor de sabedoria secular, mestre da paciência curadora e do afeto infinito que liberta.",
+   "bgImage": "/Guias/Generated Image May 22, 2026 - 1_09AM.jpg",
+   "quote": "O terço que o preto reza cura mais que mil discursos de orgulho. Humildade é a chave de ouro deste mundo.",
+   "identity": "Preto Velho de Sustentação",
+   "description": "Um comovente exemplo de humildade e amor espiritual. Com seu cachimbo purificador, o terço de contas naturais e seu olhar que enxerga o fundo da alma, afasta as obsessões espirituais e derrama bálsamo de esperança sobre os aflitos.",
+   "teaching": "A aceitação consciente não é covardia: é a inteligência de plantar o bem hoje com doçura para colher a libertação de amanhã. Caminhar com simplicidade descomplica a alma."
+  },
+  {
+   "id": "anacleto",
+   "name": "Pai Anacleto de Xangô",
+   "type": "pretovelho",
+   "typeLabel": "Pretos Velhos",
+   "line": "Preto Velho sob a Lei de Xangô",
+   "shortDesc": "A sabedoria ancestral aliada à justiça cármica, equilibrando as mentes e restabelecendo a Lei Divina.",
+   "bgImage": "/Header/obi.webp",
+   "quote": "A balança da Lei Espiritual não erra de prato. Faça a sua parte com retidão e confie o resto ao Criador.",
+   "identity": "Guardião da Justiça Doutrinária",
+   "description": "Firme e bondoso, Pai Anacleto manipula as forças consolidadoras da mente através da vibração das pedreiras de Xangô. É o espírito que acalma as revoltas interiores e ensina as leis do carma com doçura, mas absoluta firmeza.",
+   "teaching": "Toda ação gera uma reverberação eterna no tecido cósmico. Decidir pelo correto, mesmo quando difícil, é o que liberta a consciência do peso da culpa."
+  },
+  {
+   "id": "anastacia",
+   "name": "Vó Anastácia",
+   "type": "pretovelho",
+   "typeLabel": "Pretos Velhos",
+   "line": "Linha da Caridade e Cura Espiritual",
+   "shortDesc": "Alma acolhedora de aconchego materno incomparável, curadora de enfermidades sutis e aflições domésticas.",
+   "bgImage": "/Header/Generated (1).webp",
+   "quote": "A maior reza vem do silêncio do coração que ama sem pedir nada em troca.",
+   "identity": "Preta Velha Curadora",
+   "description": "A vovó que ouve com doçura indizível e cura através do amor fraternal. Com cheiro de erva-doce e flores do campo, recolhe as dores e tristezas do consulente, acalentando corações feridos e limpando miasmas espirituais do âmbito familiar.",
+   "teaching": "O amor incondicional dissolve qualquer amargura. Ser paciente com as imperfeições alheias é o caminho definitivo para pacificar a si mesmo."
+  },
+  {
+   "id": "juninho",
+   "name": "Erê Juninho",
+   "type": "ere",
+   "typeLabel": "Linhas Neutras & Erês",
+   "line": "Linha de Ibeji (Crianças)",
+   "shortDesc": "Pureza infantil transbordante de luz, alegria pura que desintegra o mal com riso franco e renovação sagrada.",
+   "bgImage": "/Header/Generated.webp",
+   "quote": "Quem sorri pro mundo de coração aberto não dá espaço pra sombra fazer ninho na cabeça.",
+   "identity": "Energia da Alegria e Renovação",
+   "description": "Uma força espiritual dotada de inocência avassaladora. Com suas risadas, brincadeiras de pés descalços e amor puro, atua na higienização rápida da egrégora do terreiro, desarmando feitiçarias e transmutando pesos de depressão em centelhas de vida.",
+   "teaching": "Reconectar-se com a sua criança interna e manter a vida leve. O riso verdadeiro e descompromissado é uma das ferramentas espirituais mais potentes de defesa."
+  },
+  {
+   "id": "zoio",
+   "name": "Marinheiro Zóio",
+   "type": "outros",
+   "typeLabel": "Linhas Neutras",
+   "line": "Povo da Água · Marinheiros",
+   "shortDesc": "Espírito valente das marés que equilibra nossas tormentas emocionais e limpa as águas da alma.",
+   "bgImage": "/Header/amacimeu.webp",
+   "quote": "O mar é balanço que limpa! Deixa as ondas levarem embora o que o peito não precisa mais guardar.",
+   "identity": "Guardião dos Oceanos e Limpeza Emocional",
+   "description": "Exímio limpador psíquico que atua descarregando mágoas, ressentimentos e culpas nas profundezas da calunga grande (o mar). Traz o balanço rítmico das ondas e a força revigorante do sal astral para renovar o ânimo dos consulentes.",
+   "teaching": "A correnteza da vida é mutável, mas o leme deve se apoiar na retidão moral. Não tema as tormentas passageiras: elas apenas limpam o convés para novas conquistas."
+  },
+  {
+   "id": "ramon",
+   "name": "Cigano Ramon",
+   "type": "outros",
+   "typeLabel": "Linhas Neutras",
+   "line": "Povo do Oriente · Ciganos",
+   "shortDesc": "Guia carismático de caminhos abertos, estimulador da prosperidade moral, liberdade e progresso criativo.",
+   "bgImage": "/Carrosel/CUCA-126.webp",
+   "quote": "Caminhar sob as estrelas é saber que o mundo é grande e a alma é livre para criar o seu próprio rumo dourado.",
+   "identity": "Orientador de Caminhos e Prosperidade",
+   "description": "Elegante e magnético, Ramon atua quebrando amarras de estagnação material e intelectual. Estimula a autoestima positiva, clareia escolhas de carreira e nos ensina o desapego saudável dos fardos supérfluos da jornada terrena.",
+   "teaching": "A verdadeira riqueza espiritual consiste em não temer recomeçar. Ser dono do próprio livre-arbítrio com responsabilidade abre caminhos em qualquer terreno difícil."
+  },
+  {
+   "id": "antonio",
+   "name": "Boiadeiro Antônio Matogrosso",
+   "type": "outros",
+   "typeLabel": "Linhas Neutras",
+   "line": "Linha de Boiadeiros",
+   "shortDesc": "Laçador audaz de energias densas, combatente implacável da inveja que resguarda o solo com bravura sagrada.",
+   "bgImage": "/Carrosel/CUCA-127.webp",
+   "quote": "Boi que desgarra na mata escura o boiadeiro laça e traz de volta pro pasto limpo. Firmeza na rédea, meu irmão!",
+   "identity": "Defensor das Fronteiras Espirituais",
+   "description": "Firme, intrépido e vigoroso. Boiadeiro Antônio estala seu laço no astral para isolar perturbações, recolher obsessores recalcitrantes e proteger o terreiro e seus médiuns de investidas de inveja crônica ou desequilíbrios psíquicos coletivos.",
+   "teaching": "Ter pés plantados firmes no chão, coragem para encarar as provações cotidianas e manter guarda severa sobre suas próprias companhias e pensamentos."
+  },
+  {
+   "id": "trancarua",
+   "name": "Exú Tranca Ruas das Almas",
+   "type": "esquerda",
+   "typeLabel": "Guardiões (Esquerda)",
+   "line": "Linha dos Guardiões · Esquerda",
+   "shortDesc": "Grande sentinela do terreiro, executor da lei cármica nas encruzilhadas, trancando o mal e abrindo luz.",
+   "bgImage": "/Header/cruzamento.webp",
+   "quote": "Eu tranco o mal que tenta entrar, mas abro o caminho de quem anda com verdade eterna nos pés.",
+   "identity": "Grande Guardião de Frente e Tronqueira",
+   "description": "Com uma dignidade nobre e elegância austera, reina nas fronteiras invisíveis do bem e da retidão. Tranca Ruas atua na purificação energética pesada, vigia a tronqueira da casa contra intromissões caóticas e corrige o engano e a hipocrisia espiritual.",
+   "teaching": "O respeito absoluto às leis espirituais é inegociável. Não há atalho oculto: apenas o esforço virtuoso sincero garante a verdadeira proteção espiritual."
+  },
+  {
+   "id": "mariapadilha",
+   "name": "Pomba-Gira Maria Padilha das Almas",
+   "type": "esquerda",
+   "typeLabel": "Guardiões (Esquerda)",
+   "line": "Linha de Esquerda · Equilíbrio Magnético",
+   "shortDesc": "Guardiã de altíssimo magnetismo sutil, purificadora do subconsciente e destruidora de ilusões tóxicas.",
+   "bgImage": "/Header/preceito.webp",
+   "quote": "A gargalhada da Padilha quebra espelho de ilusão e ergue a cabeça do humilhado com dignidade e amor.",
+   "identity": "Sentinela de Equilíbrio das Linhas do Amor",
+   "description": "Dona de um poder magnético purificador, ela age diluindo obsessões ligadas a orgulhos, paixões destrutivas, medos secretos e baixa autoestima crônica. Sua gargalhada límpida e elegante desmancha energias nocivas e limpa o ego de ilusões dolorosas.",
+   "teaching": "Olhar para as próprias fraquezas com coragem absoluta de transformá-las. Amar a si mesmo divinamente para que possa respeitar o sagrado que habita nos demais."
+  }
+ ],
+ "timeline": [
+  {
+   "id": "marco-1987",
+   "year": "1987",
+   "dateLabel": "2 de Fevereiro de 1987",
+   "title": "A Semente: Nasce o Terreiro do Pai Maneco",
+   "subtitle": "Pai Fernando de Ogum (1937 – 2012)",
+   "quote": "Umbanda simples e sem mistificações, onde prevaleça o respeito mútuo, a caridade e o amor fraterno.",
+   "summary": "Na garagem de uma prima, Fernando Macedo Guimarães abre a primeira gira e consolida o alicerce da 'Umbanda Pés no Chão'.",
+   "deepDetail": "Irmão do avô do dirigente, Pai Fernando de Ogum encantava pela seriedade e pelas convicções inabaláveis. Seu terreiro tornou-se uma extensão do próprio lar para toda a família, plantando a raiz ética que hoje sustenta a CUCA.",
+   "image": "/Header/Pai.webp",
+   "chapterTarget": "cap-raizes"
+  },
+  {
+   "id": "marco-2009",
+   "year": "2009",
+   "dateLabel": "Ano de 2009",
+   "title": "O Ingresso na Corrente de Aço",
+   "subtitle": "O Amaci e o Chamado na Juventude",
+   "quote": "Servir de instrumento para que o Caboclo Akuan e o Caboclo Tupinambá fundamentassem o axé.",
+   "summary": "Nascido e criado entre atabaques, o dirigente realiza seu amaci em 2009 e inicia o trabalho mediúnico ainda antes da maioridade.",
+   "deepDetail": "Desde cedo, a gira de Ogum às segundas-feiras já se encontrava sob a regência espiritual do Caboclo Akuan, moldando silenciosamente a disciplina e a entrega sacerdotal.",
+   "image": "/Header/amacimeu.webp",
+   "chapterTarget": "cap-forja"
+  },
+  {
+   "id": "marco-2017",
+   "year": "2017",
+   "dateLabel": "Ano de 2017",
+   "title": "Terreiro Filhos do Sol",
+   "subtitle": "Pai Léo de Oxóssi · Uma Umbanda Pulsante",
+   "quote": "Após quase três décadas de serviço no TPM, o chamado espiritual ergue uma nova seara de luz.",
+   "summary": "Ao lado de seu pai carnal e espiritual, vivencia a fundação do Terreiro Filhos do Sol, escola de dinamismo e firmeza mediúnica.",
+   "deepDetail": "Foi no Terreiro Filhos do Sol que a presença do Caboclo Akuan foi se afirmando gradualmente na coroa do dirigente, substituindo elementos metálicos por sementes, contas naturais e dentes.",
+   "image": "/Header/obi.webp",
+   "chapterTarget": "cap-forja"
+  },
+  {
+   "id": "marco-2022",
+   "year": "2022",
+   "dateLabel": "Abril de 2022",
+   "title": "O Cruzamento de Pai de Santo",
+   "subtitle": "Caboclo Tupinambá & Caboclo Akuan",
+   "quote": "Os guias já preparavam, no recolhimento e na fé, uma travessia decisiva para erguer nova casa.",
+   "summary": "Recebe o cruzamento sacerdotal de Pai de Santo pelas mãos do Caboclo Tupinambá e do Caboclo Akuan.",
+   "deepDetail": "Daquele recolhimento espiritual nasceu a inspiração para a Casa de Umbanda Corrente de Akuan (CUCA), unindo a herança do TPM e do Filhos do Sol.",
+   "image": "/Header/cruzamento.webp",
+   "chapterTarget": "cap-forja"
+  },
+  {
+   "id": "marco-2025-profecia",
+   "year": "Maio 2025",
+   "dateLabel": "1º Semestre de 2025",
+   "title": "A Profecia de Akuan & A Dívida à Aroeira",
+   "subtitle": "O Aviso Cravado pela Espiritualidade",
+   "quote": "A única coisa que peço é que cuidem da aroeira, pois abaixo dela deverá haver o tambor dos Pretos Velhos.",
+   "summary": "Em consulta no Terreiro do Pai Maneco, o Caboclo Akuan afirma que até setembro de 2025 estariam instalados na própria sede.",
+   "deepDetail": "Meses depois, a espiritualidade cravou a data e o sinal: a casa seria encontrada entre o final de junho e o começo de julho, e o único pedido dos Pretos Velhos era cuidar da Aroeira que haveria no local.",
+   "image": "/Header/tpm2.webp",
+   "chapterTarget": "cap-promessa"
+  },
+  {
+   "id": "marco-2025-aroeira",
+   "year": "Jun 2025",
+   "dateLabel": "Última Semana de Junho de 2025",
+   "title": "O Milagre da Aroeira-Vermelha",
+   "subtitle": "A Sede no Jardim Botânico",
+   "quote": "Seo Akuan, nos abençoa. E, se for pra ser aqui, que esse lugar nos aceite.",
+   "summary": "Na última semana de junho, o imóvel é encontrado. A dona aceita com alegria — sua filha era ex-médium do Pai Maneco!",
+   "deepDetail": "Ao retornarem ao terreno aprovados, avistaram logo na entrada uma única árvore imponente. Ao pesquisarem a espécie, veio a confirmação arrepiante: era uma Aroeira-vermelha. A promessa aos Pretos Velhos estava paga.",
+   "image": "/Header/IMG_4660.webp",
+   "chapterTarget": "cap-aroeira"
+  },
+  {
+   "id": "marco-2025-inauguracao",
+   "year": "Set 2025",
+   "dateLabel": "1º de Setembro de 2025",
+   "title": "A Inauguração no Dia de Pai Fernando",
+   "subtitle": "Não Existe Coincidência Diante de Deus",
+   "quote": "1º de setembro: a data escolhida para inaugurar a CUCA era exatamente o aniversário de Pai Fernando de Ogum.",
+   "summary": "Obras concluídas e templo consagrado em 1º de setembro, selando o elo sagrado com o tio-avô fundador do TPM.",
+   "deepDetail": "Apenas semanas após definir a meta de 1º de setembro, o dirigente percebeu que aquela data era o aniversário de nascimento de Pai Fernando Macedo Guimarães. A linhagem fechava um ciclo luminoso.",
+   "image": "/Header/inaug.webp",
+   "chapterTarget": "cap-aroeira"
+  }
+ ],
+ "ervas": [
+  {
+   "id": "ervas-aeradas",
+   "title": "Ervas Aeradas",
+   "subtitle": "O Sussurro do Céu e a Sublimação",
+   "element": "Ar",
+   "intentKey": "calma",
+   "intentLabel": "Paz Mental, Intuição & Amaci",
+   "temperamentName": "Sanguíneo",
+   "vitalQualities": "Quente e Úmido",
+   "applicationRule": "Liberadas para a Coroa (Amaci) e corpo todo",
+   "applicationWarning": false,
+   "oneLineSummary": "Flores e folhas aromáticas sutis que acalmam pensamentos acelerados, elevam a intuição e conectam a coroa aos Guias e Orixás.",
+   "humanBalanced": "Pessoas comunicativas, alegres, expansivas e de mente ágil — o calor da vida pulsante.",
+   "humanExcess": "Dispersão, ansiedade constante, pensamentos agitados e sensação de viver 'com a cabeça nas nuvens'.",
+   "desc": "Sutis, florais e delicadas, as Ervas Aeradas carregam o princípio de elevar a vibração. Seus aromas voláteis atuam rapidamente nas sinapses nervosas, limpando a confusão mental e trazendo leveza imediata.",
+   "biological": "Ricas em flavonoides e óleos essenciais finos. Atuam como neuromoduladores suaves, antiespasmódicos e calmantes naturais do sistema nervoso e digestório.",
+   "psychological": "Dissipam a nuvem da ansiedade, restauram a serenidade mental, despertam a criatividade e aliviam o peso emocional.",
+   "spiritual": "Ideais para lavar a coroa (Ori) e preparar Amacis. Elevam a sintonia do médium para a conexão sutil com o Anjo da Guarda e Guias de Luz.",
+   "theme": {
+    "panelBg": "bg-[#FCF8EE]/80 backdrop-blur-xl",
+    "cardBg": "crystal-card",
+    "border": "border-[#D97706]/20",
+    "borderStrong": "border-[#D97706]/45",
+    "headingText": "text-[#78350F]",
+    "accentText": "text-[#92400E]",
+    "badgeBg": "bg-[#FEF3C7]/90 backdrop-blur-sm",
+    "badgeText": "text-[#92400E]",
+    "pillActiveBg": "bg-[#92400E] text-white",
+    "iconBg": "bg-[#FEF3C7] text-[#92400E]",
+    "hex": "#B45309"
+   },
+   "herbs": [
+    {
+     "id": "camomila",
+     "name": "Camomila",
+     "scientificName": "Matricaria chamomilla",
+     "quickPurpose": "Paz profunda e alívio da ansiedade",
+     "orixas": "Oxalá · Oxum · Ibeji (Erês)",
+     "applicationPart": "Coroa e corpo todo",
+     "prepMethod": "Infusão morna (flores secas) ou maceração suave",
+     "bodyProperties": "Calmante, sedativo leve, espasmolítico e anti-inflamatório natural do sistema digestório.",
+     "imageSrc": "https://images.unsplash.com/photo-1605330836561-12502847b3ed?w=600&q=80",
+     "use": "Suas flores douradas promovem profunda paz de espírito, serenam o coração aflito e abrem conexão com as Linhas de Cura e Crianças."
+    },
+    {
+     "id": "alecrim",
+     "name": "Alecrim",
+     "scientificName": "Rosmarinus officinalis",
+     "quickPurpose": "Clareza mental, foco e alegria",
+     "orixas": "Oxalá · Oxóssi",
+     "applicationPart": "Coroa e corpo todo",
+     "prepMethod": "Maceração das folhas frescas em água fresca",
+     "bodyProperties": "Estimulante cognitivo, tônico revigorante, antioxidante potente e auxiliar da memória.",
+     "imageSrc": "https://images.unsplash.com/photo-1596500474668-cb86c2eac694?w=600&q=80",
+     "use": "De aroma volátil e luminoso, clareia a intuição, afasta a tristeza mental e 'abre o ar' para o pensamento elevado."
+    },
+    {
+     "id": "rosa-branca",
+     "name": "Rosa Branca",
+     "scientificName": "Rosa alba",
+     "quickPurpose": "Harmonia espiritual e elevação do Ori",
+     "orixas": "Oxalá · Iemanjá · Pretos Velhos",
+     "applicationPart": "Coroa (Amaci) e corpo todo",
+     "prepMethod": "Maceração delicada das pétalas em água mineral",
+     "bodyProperties": "Ação adstringente suave, propriedades calmantes para a pele e efeito relaxante sensorial.",
+     "imageSrc": "https://images.unsplash.com/photo-1518701005037-d53b1f67bb1c?w=600&q=80",
+     "use": "Símbolo maior de pureza na Umbanda; pacifica o espírito, harmoniza o lar e eleva a mente aos domínios de Oxalá."
+    },
+    {
+     "id": "macela",
+     "name": "Macela",
+     "scientificName": "Achyrocline satureioides",
+     "quickPurpose": "Sono tranquilo e consolo da alma",
+     "orixas": "Oxalá · Nanã · Pretos Velhos",
+     "applicationPart": "Coroa e corpo todo",
+     "prepMethod": "Infusão suave das inflorescências",
+     "bodyProperties": "Antiespasmódica, relaxante muscular suave, anti-inflamatória e protetora gástrica.",
+     "imageSrc": "https://images.unsplash.com/photo-1508344928928-7137b29de272?w=600&q=80",
+     "use": "Suas flores minúsculas acalmam tempestades mentais, acolhem o choro contido e trazem a paz serena dos Pretos Velhos."
+    }
+   ]
+  },
+  {
+   "id": "ervas-picantes",
+   "title": "Ervas Picantes",
+   "subtitle": "O Calor da Transmutação e a Calcinação",
+   "element": "Fogo",
+   "intentKey": "descarrego",
+   "intentLabel": "Descarrego Pesado, Coragem & Corte",
+   "temperamentName": "Colérico",
+   "vitalQualities": "Quente e Seco",
+   "applicationRule": "Apenas do pescoço para baixo (Nunca na coroa)",
+   "applicationWarning": true,
+   "oneLineSummary": "Plantas quentes e incisivas que queimam larvas astrais, cortam demandas e despertam a força de vontade e o movimento.",
+   "humanBalanced": "Liderança, coragem, atitude decidida e forte ímpeto realizador diante dos desafios.",
+   "humanExcess": "Irritabilidade, impaciência, autoritarismo, explosões de raiva e desgaste energético por tensão.",
+   "desc": "Guardiãs do elemento Fogo, são forjadas sob a vibração do Quente e Seco. Espiritualmente, agem como uma lâmina luminosa: queimam miasmas, cortam laços estagnados e despertam os centros vitais quando há apatia.",
+   "biological": "Ricas em alcaloides, capsaicina e compostos aromáticos intensos. São termogênicas, vasodilatadoras e potentes bactericidas e fungicidas naturais.",
+   "psychological": "Destroem a apatia e a inércia. Cortam pensamentos obsessivos ou derrotistas, devolvendo coragem visceral e foco ativo.",
+   "spiritual": "Banhos de descarrego pesado e defumações de limpeza. Queimam formas-pensamento densas e quebram feitiços. Jamais devem ser jogadas na cabeça.",
+   "theme": {
+    "panelBg": "bg-[#FDF3F2]/80 backdrop-blur-xl",
+    "cardBg": "crystal-card",
+    "border": "border-[#B91C1C]/20",
+    "borderStrong": "border-[#B91C1C]/45",
+    "headingText": "text-[#7F1D1D]",
+    "accentText": "text-[#991B1B]",
+    "badgeBg": "bg-[#FEE2E2]/90 backdrop-blur-sm",
+    "badgeText": "text-[#991B1B]",
+    "pillActiveBg": "bg-[#991B1B] text-white",
+    "iconBg": "bg-[#FEE2E2] text-[#991B1B]",
+    "hex": "#991B1B"
+   },
+   "herbs": [
+    {
+     "id": "arruda",
+     "name": "Arruda",
+     "scientificName": "Ruta graveolens",
+     "quickPurpose": "Quebra imediata de inveja e mau-olhado",
+     "orixas": "Ogum · Exu · Pretos Velhos",
+     "applicationPart": "Apenas do pescoço para baixo / Benzimento",
+     "prepMethod": "Maceração leve ou benzimento com galhos frescos",
+     "bodyProperties": "Estimulante circulatório e antimicrobiano tópico. Uso estritamente externo em banhos e benzeduras.",
+     "imageSrc": "https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&q=80",
+     "use": "No aroma forte de suas folhas reside a fogueira purificadora que desagrega miasmas, inveja e fluidos pesados."
+    },
+    {
+     "id": "aroeira-pimenta",
+     "name": "Aroeira Vermelha e Pimentas",
+     "scientificName": "Schinus terebinthifolia / Capsicum",
+     "quickPurpose": "Choque térmico astral e abertura de caminhos",
+     "orixas": "Ogum · Iansã · Exu",
+     "applicationPart": "Estritamente do pescoço para baixo (diluído)",
+     "prepMethod": "Infusão leve e bem coada (cuidado com olhos e mucosas)",
+     "bodyProperties": "Ação termogênica, vasodilatadora e revigorante periférica. Exige parcimônia para evitar irritação na pele.",
+     "imageSrc": "https://images.unsplash.com/photo-1589136125016-5627f12e8736?w=600&q=80",
+     "use": "Despertam o campo áurico instantaneamente, cortam paralisias espirituais e colocam a vida em movimento."
+    },
+    {
+     "id": "alho-cebola",
+     "name": "Cascas de Alho e Cebola",
+     "scientificName": "Allium sativum / Allium cepa",
+     "quickPurpose": "Defumação esterilizante de ambientes",
+     "orixas": "Ogum · Omulu · Guardiões",
+     "applicationPart": "Defumação do ambiente e do corpo",
+     "prepMethod": "Queima das cascas secas sobre brasa de carvão vegetal",
+     "bodyProperties": "Compostos sulfurados bactericidas e fungicidas potentes que purificam o ar do ambiente.",
+     "imageSrc": "https://images.unsplash.com/photo-1615477209377-a89fa7a909f1?w=600&q=80",
+     "use": "Tradicionais na defumação de descarrego para esterilizar o ambiente e dissolver formas-pensamento estagnadas."
+    },
+    {
+     "id": "canela",
+     "name": "Canela em Pau",
+     "scientificName": "Cinnamomum verum",
+     "quickPurpose": "Vitalidade, magnetismo e prosperidade",
+     "orixas": "Oxum · Iansã · Povo Cigano",
+     "applicationPart": "Do pescoço para baixo ou defumação",
+     "prepMethod": "Decocção (fervura leve das cascas por 5 minutos)",
+     "bodyProperties": "Termogênica, estimulante metabólica e aquecedora da circulação periférica.",
+     "imageSrc": "https://images.unsplash.com/photo-1550258169-7de47728cecc?w=600&q=80",
+     "use": "Aquece o ânimo abatido, atrai movimento próspero e restaura a autoconfiança e o magnetismo pessoal."
+    }
+   ]
+  },
+  {
+   "id": "ervas-fibrosas",
+   "title": "Ervas Fibrosas",
+   "subtitle": "A Força da Terra e a Coagulação",
+   "element": "Terra",
+   "intentKey": "protecao",
+   "intentLabel": "Aterramento, Escudo & Firmeza",
+   "temperamentName": "Melancólico",
+   "vitalQualities": "Frio e Seco",
+   "applicationRule": "Do pescoço para baixo · Banhos de Firmeza e Bate-Folha",
+   "applicationWarning": false,
+   "oneLineSummary": "Folhas rígidas, cascas e raízes que constroem um escudo protetor, aterram a mediunidade e trazem estrutura emocional.",
+   "humanBalanced": "Pessoas analíticas, silenciosas, resilientes, fiéis às suas raízes e dotadas de grande senso de dever.",
+   "humanExcess": "Rigidez excessiva, isolamento, apego a dores do passado e sensação de peso nos ombros.",
+   "desc": "Cascas firmes, caules lenhosos e fibras resistentes absorvem a força estruturante da Terra. Na Umbanda, são aplicadas quando precisamos 'aterrar' energias dispersas e fechar o corpo contra investidas externas.",
+   "biological": "Ricas em taninos, sais minerais e compostos adstringentes. Tonificam os tecidos, auxiliam na cicatrização e fortalecem a estrutura física.",
+   "psychological": "Promovem aterramento imediato ('pés no chão'). Combatem a dissociação mental, estabelecem limites saudáveis e fortalecem a resiliência.",
+   "spiritual": "Folhas de firmeza e escudo magnético. Criam uma malha protetora ao redor da aura do médium e do consulente, impedindo vazamentos energéticos.",
+   "theme": {
+    "panelBg": "bg-[#F3F7F2]/80 backdrop-blur-xl",
+    "cardBg": "crystal-card",
+    "border": "border-[#15803D]/20",
+    "borderStrong": "border-[#15803D]/45",
+    "headingText": "text-[#14532D]",
+    "accentText": "text-[#166534]",
+    "badgeBg": "bg-[#DCFCE7]/90 backdrop-blur-sm",
+    "badgeText": "text-[#166534]",
+    "pillActiveBg": "bg-[#166534] text-white",
+    "iconBg": "bg-[#DCFCE7] text-[#166534]",
+    "hex": "#166534"
+   },
+   "herbs": [
+    {
+     "id": "espada-sao-jorge",
+     "name": "Espada de São Jorge",
+     "scientificName": "Dracaena trifasciata",
+     "quickPurpose": "Escudo impenetrável e corte de demandas",
+     "orixas": "Ogum · Oxóssi · Iansã",
+     "applicationPart": "Do pescoço para baixo ou cruzamento de proteção",
+     "prepMethod": "Folha cortada em 3 ou 7 partes em água fresca (uso externo)",
+     "bodyProperties": "Planta purificadora do ar ambiente; de uso exclusivamente externo e ritualístico.",
+     "imageSrc": "https://images.unsplash.com/photo-1596547609652-9fc5d8d1309b?w=600&q=80",
+     "use": "Suas fibras retas e inquebráveis concedem a couraça protetora de Ogum, cortando projeções negativas."
+    },
+    {
+     "id": "jurema-preta",
+     "name": "Jurema Preta",
+     "scientificName": "Mimosa tenuiflora",
+     "quickPurpose": "Força ancestral e firmeza de Caboclo",
+     "orixas": "Oxóssi · Caboclos · Boiadeiros",
+     "applicationPart": "Banhos de firmeza (pescoço para baixo)",
+     "prepMethod": "Decocção leve das cascas ou maceração das folhas",
+     "bodyProperties": "Altíssima concentração de taninos com potente ação cicatrizante, adstringente e regeneradora tópica.",
+     "imageSrc": "https://images.unsplash.com/photo-1611915387288-fd8d1f5f928b?w=600&q=80",
+     "use": "Árvore sagrada da tradição brasileira; conecta o médium à firmeza inabalável dos Caboclos e mestres da mata."
+    },
+    {
+     "id": "aroeira-folha",
+     "name": "Aroeira (Folhas e Casca)",
+     "scientificName": "Schinus terebinthifolia",
+     "quickPurpose": "Limpeza profunda e guarda dos Pretos Velhos",
+     "orixas": "Ogum · Pretos Velhos · Exu",
+     "applicationPart": "Apenas do pescoço para baixo / Bate-folha",
+     "prepMethod": "Maceração ou infusão rápida das folhas",
+     "bodyProperties": "Adstringente, balsâmica, cicatrizante e antisséptica natural de amplo espectro.",
+     "imageSrc": "https://images.unsplash.com/photo-1518531933067-c8120fa9b478?w=600&q=80",
+     "use": "Árvore guardiã da CUCA; suas raízes e folhas varrem densidades da aura e sustentam o fundamento do terreiro."
+    },
+    {
+     "id": "guine",
+     "name": "Guiné",
+     "scientificName": "Petiveria alliacea",
+     "quickPurpose": "Ancoragem mediúnica e proteção contra obsessores",
+     "orixas": "Oxóssi · Ogum · Pretos Velhos",
+     "applicationPart": "Do pescoço para baixo",
+     "prepMethod": "Maceração das folhas frescas (uso exclusivamente externo)",
+     "bodyProperties": "Ação analgésica e anti-inflamatória tópica tradicional (planta de uso externo restrito).",
+     "imageSrc": "https://images.unsplash.com/photo-1605556209867-0c7f212239f8?w=600&q=80",
+     "use": "Aterra a mediunidade dispersa, absorve cargas negativas de ambientes pesados e ancora o guia com segurança."
+    }
+   ]
+  },
+  {
+   "id": "ervas-canforadas",
+   "title": "Ervas Canforadas",
+   "subtitle": "A Medicina das Águas e a Dissolução",
+   "element": "Água",
+   "intentKey": "emocional",
+   "intentLabel": "Esfriar a Cabeça, Perdão & Alívio Emocional",
+   "temperamentName": "Fleumático",
+   "vitalQualities": "Frio e Úmido",
+   "applicationRule": "Ideais para banhos apaziguadores e equilíbrio do Ori",
+   "applicationWarning": false,
+   "oneLineSummary": "Folhas refrescantes e suculentas que 'esfriam cabeças quentes', lavam mágoas guardadas no peito e restauram a fluidez.",
+   "humanBalanced": "Pessoas pacientes, diplomáticas, acolhedoras e capazes de manter a calma em meio às tormentas.",
+   "humanExcess": "Estagnação, sentimentos engolidos, nostalgia paralisante e dificuldade de desapegar de mágoas.",
+   "desc": "Folhas ricas em água celular, mentol e mucilagens espelham a energia receptiva da Água. São o bálsamo que 'esfria cabeças quentes', dissolve rancores calcificados e lava o campo áurico sem agredi-lo.",
+   "biological": "Ricas em mentol, cânfora e eucaliptol. Descongestionam as vias respiratórias, aliviam dores de cabeça tensionais e refrescam o corpo.",
+   "psychological": "Dissolvem nós de tristeza no peito, ajudam na liberação de emoções reprimidas e evitam reações impulsivas.",
+   "spiritual": "Lavam e regeneram a aura após choques emocionais, discussões ou atendimentos intensos, devolvendo frescor e paz ao espírito.",
+   "theme": {
+    "panelBg": "bg-[#F1F7FA]/80 backdrop-blur-xl",
+    "cardBg": "crystal-card",
+    "border": "border-[#0369A1]/20",
+    "borderStrong": "border-[#0369A1]/45",
+    "headingText": "text-[#0C4A6E]",
+    "accentText": "text-[#075985]",
+    "badgeBg": "bg-[#E0F2FE]/90 backdrop-blur-sm",
+    "badgeText": "text-[#075985]",
+    "pillActiveBg": "bg-[#075985] text-white",
+    "iconBg": "bg-[#E0F2FE] text-[#075985]",
+    "hex": "#0369A1"
+   },
+   "herbs": [
+    {
+     "id": "hortela",
+     "name": "Hortelã",
+     "scientificName": "Mentha spicata",
+     "quickPurpose": "Refrescar pensamentos excessivos e cansaço",
+     "orixas": "Iemanjá · Oxum · Oxóssi",
+     "applicationPart": "Corpo todo (inclusive têmporas e fronte)",
+     "prepMethod": "Maceração das folhas frescas em água fria ou morna",
+     "bodyProperties": "Analgésica suave, digestiva, refrescante e descongestionante natural das vias respiratórias.",
+     "imageSrc": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=600&q=80",
+     "use": "Traz o frescor imediato das águas; esfria a mente sobrecarregada e renova o ânimo com suavidade."
+    },
+    {
+     "id": "manjericao",
+     "name": "Manjericão",
+     "scientificName": "Ocimum basilicum",
+     "quickPurpose": "Grande apaziguador do Ori (cabeça) e do lar",
+     "orixas": "Oxalá · Oxum · Iemanjá",
+     "applicationPart": "Coroa (Amaci) e corpo todo",
+     "prepMethod": "Maceração das folhas frescas com prece",
+     "bodyProperties": "Antioxidante, anti-inflamatório, relaxante da tensão nervosa e harmonizador digestivo.",
+     "imageSrc": "https://images.unsplash.com/photo-1615486171430-8be08adfc3bb?w=600&q=80",
+     "use": "Uma das folhas mais nobres da Umbanda; pacifica o Ori, reconstrói a aura desgastada e atrai harmonia familiar."
+    },
+    {
+     "id": "poejo-levante",
+     "name": "Poejo e Levante",
+     "scientificName": "Mentha pulegium / Mentha viridis",
+     "quickPurpose": "Lavar tristezas do peito e reerguer as forças",
+     "orixas": "Iemanjá · Nanã · Marinheiros",
+     "applicationPart": "Coroa e corpo todo",
+     "prepMethod": "Maceração fresca ou infusão suave",
+     "bodyProperties": "Expectorante, balsâmica para a respiração e revigorante suave da circulação.",
+     "imageSrc": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&q=80",
+     "use": "Como o próprio nome diz, o Levante 'levanta' o espírito abatido enquanto o Poejo lava as densidades emocionais do coração."
+    },
+    {
+     "id": "canfora",
+     "name": "Cânfora (Folhas)",
+     "scientificName": "Cinnamomum camphora",
+     "quickPurpose": "Assepsia fluídica profunda e alívio de dores",
+     "orixas": "Omulu · Iemanjá · Linha Médica",
+     "applicationPart": "Do pescoço para baixo",
+     "prepMethod": "Maceração das folhas frescas em água fresca",
+     "bodyProperties": "Ação refrescante intensa, antisséptica e aliviadora de dores musculares e tensões físicas.",
+     "imageSrc": "https://images.unsplash.com/photo-1628154101439-d754ec4dd77f?w=600&q=80",
+     "use": "Realiza uma limpeza quase cirúrgica no corpo astral, desagregando miasmas persistentes e esfriando processos inflamatórios sutis."
+    }
+   ]
+  }
+ ]
+}

@@ -307,18 +307,14 @@ Apoie a casa: "A CUCA se mantém com a ajuda de quem acredita nela." · chave PI
 
 ---
 
-## 8. Lista de engenharia (da skill, completa)
+## 8. Lista de engenharia (como foi construído)
 
-- Vídeo baixado como Blob, com anel de carregamento.
-- Interpolação suave normalizada por tempo de quadro.
-- Seeks travados.
-- Escritas no DOM só quando algo muda.
-- Faixas medidas em distância de rolagem, validadas pelo teste de flick.
-- Legibilidade em quatro camadas, com auditoria do pior quadro (contraste de 3,5:1 ou mais).
-- Cinco portões da abertura estática, vivos (mudam ao girar o aparelho).
-- Página completa mesmo sem o vídeo.
-- Piso de qualidade: acessibilidade, foco, alvos de toque de 44 px, meta tags, favicon e og tags no passo de publicação.
-- Animação em toda a página, sem exagero.
+- Abertura com o vídeo real em loop: pôster primeiro, vídeo de 1080p ou 720p conforme a tela, sem vídeo com movimento reduzido ou economia de dados, pausa quando a aba sai de foco.
+- Legibilidade em quatro camadas (vídeo, sombra em degradê, sombra no texto, tipografia grande). Auditoria do pior quadro do vídeo: rótulo 5,5:1, título 7,2:1, frase 9,5:1 ou mais.
+- Página completa sem o vídeo e sem JavaScript.
+- Corrente lateral que se traça com a rolagem, revelações suaves, fumaça lenta nas seções escuras, momento interativo "Segure para formar a corrente".
+- Piso de qualidade: foco visível, alvos de toque de 44 px, sem rolagem lateral no celular, meta tags, favicon e og tags.
+- Código: `tools/build.py` e `tools/paginas.py` geram `site/*.html`. O que vai para a hospedagem é só a pasta `site/`.
 
 ---
 
