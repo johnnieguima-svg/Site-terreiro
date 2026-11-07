@@ -1,6 +1,6 @@
 # Pacote de Design: site da CUCA
 
-Versão 1, para aprovação antes de qualquer geração.
+Versão 2: abertura com vídeo real da casa (decisão do cliente).
 Fontes: Guia do Médium (Pai João Lucas de Ogum, 2025), entrevista com o dirigente, acervo de fotos do Drive (FOTOS CUCA) e pesquisa sobre quem vai a um terreiro pela primeira vez.
 
 Regra deste documento: todo texto entre aspas vai para o site exatamente como está escrito.
@@ -11,20 +11,18 @@ Regra deste documento: todo texto entre aspas vai para o site exatamente como es
 
 | Item | Decisão |
 |---|---|
-| Nível | 2, jornada encadeada de 3 trechos de 6 s (cerca de 18 s de rolagem) |
-| Modelo de vídeo | Kling 3.0 Pro, 6 s, sem som: 10,5 créditos por trecho (consultado) |
-| Imagem inicial | GPT Image 2.6, 16:9: 0,25 crédito (consultado) |
-| Custo previsto | 3 × 10,5 + 0,25 = **31,75 créditos** |
-| Saldo | 48,75 créditos. Sobram cerca de 17, o que cobre uma nova tentativa de cada trecho |
+| Abertura | **Vídeo real da casa** (pasta Header): a curimba tocando e a gira no salão, 15 s, em loop, sem som, com o texto de boas-vindas por cima. Decisão do cliente: substitui o vídeo gerado por IA |
+| Vídeo gerado | Cancelado. Nenhum crédito gasto em vídeo (saldo segue 40,5). O quadro inicial v3 fica arquivado |
+| Tratamento | Original em 4K HDR (Dolby Vision) convertido para cor padrão da web, com entrada e saída suaves para o loop não dar pulo. Arquivos: 1080p (cerca de 5 MB) e 720p para telas pequenas (cerca de 3,4 MB), mais um pôster |
 | Imagens de apoio | Nenhuma gerada. As seções usam **fotos reais** da casa (autorizadas) |
-| Celular | Imagem estática composta (quadro final), sem vídeo |
-| Rostos | Nunca em destaque no vídeo. A câmera vê a gira de cima |
+| Celular | O vídeo de 720p também roda no celular. Com economia de dados ou movimento reduzido, fica só o pôster |
+| Rostos | O vídeo é da própria casa, com a corrente e a curimba autorizadas pelo dirigente |
 | Dirigente | Quase invisível: aparece só pelo nome, na linhagem |
 | Formulário | Nenhum. A ação final é o WhatsApp com mensagem pronta |
 
 **Estrutura definida pelo cliente:** o site segue a arquitetura do protótipo feito no AI Studio a partir do Guia do Médium. São 9 páginas em 4 grupos de menu (mapa completo na seção 6A). Isso substitui a ideia anterior de "site enxuto + área da corrente".
 
-**Desvio declarado da skill (avisado ao cliente):** a skill pede uma página única. Aqui serão 9 páginas estáticas em HTML, CSS e JavaScript puros, sem framework e sem build. A abertura cinematográfica com vídeo fica só no Início. As páginas internas usam o mesmo sistema visual, com aberturas de foto real.
+**Desvio declarado da skill (avisado ao cliente):** a skill pede uma página única. Aqui serão 9 páginas estáticas em HTML, CSS e JavaScript puros, sem framework e sem build. A abertura com vídeo fica só no Início. Em vez do vídeo que avança com a rolagem, a abertura usa o vídeo real em loop, a pedido do cliente. As páginas internas usam o mesmo sistema visual, com aberturas de foto real.
 
 **Painel simples de edição:** sem servidor e sem build, a edição pelo próprio pessoal da casa funciona assim:
 - **Agenda:** uma Google Agenda da CUCA, mostrada no site automaticamente.
@@ -96,38 +94,34 @@ A logo oficial da CUCA continua como está, nas versões clara e escura.
 
 ---
 
-## 4. O vídeo: storyboard em 3 trechos
+## 4. A abertura: vídeo da curimba com boas-vindas
 
-**Regra geral:** descida vertical contínua. Rolar para baixo é descer do céu até a gira. Sem cortes, sem rostos em destaque, sem texto ou letreiro na imagem.
+**Vídeo:** gravação real da casa. Começa na curimba (atabaques com laço vermelho, cantores ao microfone) e abre para o salão com a corrente de branco girando. 15 s, em loop, mudo, sempre por baixo do texto.
 
-| Trecho | Mundo | Câmera | Quadro final (vira o início do próximo) |
-|---|---|---|---|
-| 1 | Entardecer anil sobre bairro arborizado de Curitiba. No centro, uma casa térrea de telhado de barro com uma Aroeira grande no jardim. Luz quente nas janelas | Desce reta, de cima, aproximando o telhado | O telhado de barro enche o quadro, ainda descendo |
-| 2 | Telhas de barro de perto, frestas com luz quente vazando por baixo | Atravessa uma fresta entre as telhas: poeira, faísca de luz na lente, um instante de desfoque. Surgem caibros de madeira com lanternas penduradas | Entre os caibros, já vendo o assoalho de madeira lá embaixo, ainda descendo |
-| 3 | Salão de madeira à luz de lanternas. Uma roda de pessoas de branco com faixas coloridas na cintura, vistas de cima, em volta de um círculo central de giz branco no assoalho, com velas | Desce devagar até parar. As saias brancas giram de leve, a luz das velas tremula | **Repouso:** vista de cima, o círculo de giz centralizado, a roda fechada em volta, velas acesas. Margem livre acima e abaixo |
+**Comportamento:**
+- Toca sozinho, sem som, em loop (`autoplay muted loop playsinline`). Primeiro aparece o pôster, depois o vídeo entra com um esmaecimento curto.
+- Telas até 900 px de largura recebem a versão de 720p.
+- Movimento reduzido ou economia de dados: só o pôster, sem vídeo.
+- A página funciona completa sem o vídeo.
 
-**Cuidado com o sagrado:** o círculo de giz é **genérico**: um círculo simples, sem desenhar nenhum ponto riscado real. Ponto riscado é fundamento e não deve ser inventado pela IA.
+**Legibilidade:** o vídeo é claro e cheio de detalhes. O texto fica no terço inferior esquerdo, sobre uma sombra em degradê da cor `--canvas` (de baixo para cima e da esquerda para a direita), mais uma leve sombra no próprio texto. Auditoria de contraste no quadro mais claro do vídeo, mínimo 4,5:1 no texto corrido.
 
-### Mapa de faixas (texto sobre o vídeo; intervalos são pontos de partida)
+**Texto sobre o vídeo (exato):**
+- Rótulo: "Curitiba · Jardim Botânico"
+- Título: "Boas-vindas à Casa de Umbanda Corrente de Akuan."
+- Frase: "Somos lar antes de sermos templo."
+- Linha: "Gira aberta e gratuita toda segunda, às 19h30. Senhas a partir das 19h."
+- Botões: "Como é a primeira vez" e "Falar no WhatsApp"
 
-| Faixa | Intervalo | Momento do vídeo | Texto (exato) | Entrada |
-|---|---|---|---|---|
-| 1 | 0,00 a 0,13 | céu anil, bairro lá embaixo | rótulo: "Curitiba · Jardim Botânico" / título: "Casa de Umbanda Corrente de Akuan" | já assentada ao abrir |
-| 2 | 0,16 a 0,31 | descendo sobre a casa e a Aroeira | "Toda segunda-feira, esta porta se abre." | deriva para baixo (ecoa a descida) |
-| 3 | 0,36 a 0,52 | atravessando a telha, poeira e luz | "Somos lar antes de sermos templo." | desfoque para nítido (ecoa a poeira clareando) |
-| 4 | 0,56 a 0,71 | entre os caibros de madeira | "Atendimento gratuito. Porta aberta a todos." | alinhamento em grade (ecoa as linhas dos caibros) |
-| 5 | 0,75 a 0,88 | a roda de branco aparece | "Cada pessoa é um elo." | trama (ecoa a roda se fechando) |
-| 6 | 0,92 a 1,00 | repouso sobre a roda e o círculo | citação: "Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço." / assinatura: "Caboclo Akuan" / linha: "Gira aberta toda segunda, às 19h30. Senhas a partir das 19h." / botões: "Como é a primeira vez" e "Falar no WhatsApp" | subida palavra por palavra, em três chegadas |
+**Entrada:** o texto sobe palavra por palavra em três chegadas (rótulo, título, frase e botões), no ritmo do atabaque. Com movimento reduzido, aparece já assentado.
+
+**Logo após a abertura:** uma faixa curta com a citação "Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço." e a assinatura "Caboclo Akuan".
 
 ---
 
-## 5. Abertura estática (celular e movimento reduzido)
+## 5. Abertura estática (movimento reduzido e economia de dados)
 
-Sobre o quadro final (a roda vista de cima):
-
-- Título: "Casa de Umbanda Corrente de Akuan"
-- Subtítulo: "Umbanda pés no chão em Curitiba. Gira aberta e gratuita toda segunda, às 19h30."
-- Botão: "Como é a primeira vez"
+O mesmo texto da seção 4, sobre o pôster (quadro da curimba aos 4,5 s).
 
 ---
 
@@ -162,12 +156,8 @@ Fonte: ensaio fotográfico da casa, amalás, ilustrações dos guias e acervo hi
 | Lugar | Foto |
 |---|---|
 | Início · Elo 01 Nossa Umbanda | Adejás na gira |
-| Início · Elo 02 passo 1 (Chegue às 19h) | Fachada da Casa (recorte das pessoas chegando) |
-| Início · Elo 02 passo 2 (Tronqueira) | FALTA foto da Tronqueira |
-| Início · Elo 02 passo 3 (calçados) | FALTA foto da entrada do salão |
-| Início · Elo 02 passo 4 (abertura) | João Caetano, Ogã Chefe, no atabaque |
-| Início · Elo 02 passo 5 (atendimento) | Passe Fluídico (só mãos) |
-| Início · Elo 02 passo 6 (Congá) | FALTA foto do Congá |
+| Início · abertura | vídeo Header página (curimba e gira) |
+| Início · Elo 02 Sua primeira vez | só o Congá (pasta Estrutura) |
 | Início · Elo 04 atabaque | Mariane, Ogã |
 | Início · Elo 04 corrente | Hierarquia (foto do grupo) |
 | Início · Elo 04 guardiões | Amalá da Linha de Exus e Pombagiras |
@@ -222,7 +212,7 @@ Título: "Nunca foi a um terreiro? Comece por aqui."
 
 Abertura: "É normal chegar com dúvida, ou até com um pouco de medo. Na CUCA tudo tem ordem, e alguém da casa vai te orientar desde o portão."
 
-Passos, cada um com uma foto real:
+Ao lado dos passos, uma única foto: o Congá (pasta Estrutura). Os passos ficam só em texto:
 1. "Chegue às 19h." · "As senhas são distribuídas por ordem de chegada. A gira começa às 19h30."
 2. "Peça licença na entrada." · "À esquerda do portão fica a Tronqueira, a casinha dos guardiões da casa. Quem recebe você mostra como saudar."
 3. "Tire os calçados." · "Ao entrar no salão, deixamos o mundo lá fora. Celular no silencioso."
