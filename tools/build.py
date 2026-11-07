@@ -27,6 +27,10 @@ AGENDA_MES = 'https://calendar.google.com/calendar/embed?src=%s%s&mode=MONTH&sho
 CAL_ADD = 'https://calendar.google.com/calendar/render?cid=%s' % _CAL_Q
 CAL_ICS = 'https://calendar.google.com/calendar/ical/%s/public/basic.ics' % _CAL_Q
 
+# ---------- Casa irmã ----------
+# Instagram do Terreiro CECATU, que toca a gira de quarta-feira dentro da CUCA (cole o link do perfil).
+CECATU_INSTA = ''
+
 # ---------- CucaCast (Spotify) ----------
 # Cole aqui o código do programa no Spotify: no link open.spotify.com/show/XXXX, é o XXXX.
 SPOTIFY_SHOW_ID = '033EUlO6doYTkHRf19W9SE'
@@ -426,6 +430,8 @@ def index():
    <ul class="facts">
     <li>Gira aberta toda segunda-feira, às 19h30.</li>
     <li>Senhas a partir das 19h.</li>
+    <li>Quartas: gira do Terreiro CECATU, nossa casa irmã, dentro da CUCA.</li>
+    <li>Uma sexta-feira por mês: Gira de Leito. <a href="agenda.html">Ver a data</a></li>
     <li>Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico · Curitiba</li>
    </ul>
    <div class="actions">

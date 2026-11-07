@@ -206,16 +206,19 @@ def agenda_page(H, g):
     hero = H['page_hero']('Vivência', 'Agenda', 'Giras, festas, cursos e datas especiais da casa, direto da agenda da CUCA.',
                           'adejas', 'Médiuns de branco durante a gira', pos='50% 50%')
     body = ('<section class="section light"><div class="wrap">'
-            '<div class="grid-2 top"><div class="reveal"><h2>Toda segunda tem gira.</h2>'
-            '<div class="weekly"><b>19h30</b><span>Segunda-feira · gira aberta e gratuita</span><small>Senhas a partir das 19h. Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico</small></div></div>'
-            '<div class="reveal"><p class="lede">As outras datas (festas, giras especiais, amacis, cursos e avisos) aparecem abaixo e são atualizadas pela própria casa na Google Agenda.</p>'
+            '<div class="grid-2 top"><div class="reveal"><h2>As giras da casa.</h2>'
+            '<div class="weekly"><b>Seg</b><span>Toda segunda-feira, às 19h30 · gira aberta e gratuita</span><small>Senhas a partir das 19h. Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico</small></div>'
+            '<div class="weekly alt"><b>Qua</b><span>Toda quarta-feira · gira do Terreiro CECATU</span><small>Nossa casa irmã toca a gira dentro da CUCA. %(cecatu)s</small></div>'
+            '<div class="weekly alt"><b>Sex</b><span>Uma sexta-feira por mês · Gira de Leito</span><small>A data de cada mês aparece na agenda abaixo.</small></div></div>'
+            '<div class="reveal"><p class="lede">As outras datas (a Gira de Leito do mês, festas, giras especiais, amacis, cursos e avisos) aparecem abaixo e são atualizadas pela própria casa na Google Agenda.</p>'
             '<div class="actions" style="margin-top:1.4em"><a class="btn btn-primary" href="%(add)s" target="_blank" rel="noopener">Adicionar à minha Google Agenda</a>'
             '<a class="btn btn-ghost" href="%(ics)s">Assinar no celular (iCal)</a></div></div></div>'
             '<div class="cal-switch" data-frame="cal" role="group" aria-label="Visualização da agenda">'
             '<button type="button" aria-pressed="true" data-src="%(mes)s">Mês</button><button type="button" aria-pressed="false" data-src="%(lista)s" data-mobile>Lista</button></div>'
             '<iframe id="cal" class="cal-frame reveal" src="%(mes)s" title="Agenda da CUCA" loading="lazy"></iframe>'
             '<p style="margin-top:1em;color:var(--ink-secondary);font-size:.92rem">Não conseguiu ver a agenda? <a href="%(open)s" target="_blank" rel="noopener">Abra direto no Google Agenda</a>.</p>'
-            '</div></section>') % {'add': e(g['CAL_ADD']), 'ics': e(g['CAL_ICS']), 'mes': e(g['AGENDA_MES']), 'lista': e(g['AGENDA']), 'open': e(g['AGENDA_MES'])}
+            '</div></section>') % {'add': e(g['CAL_ADD']), 'ics': e(g['CAL_ICS']), 'mes': e(g['AGENDA_MES']), 'lista': e(g['AGENDA']), 'open': e(g['AGENDA_MES']),
+             'cecatu': ('<a href="%s" target="_blank" rel="noopener">Siga o CECATU no Instagram</a>' % e(g['CECATU_INSTA'])) if g.get('CECATU_INSTA') else ''}
     H['write']('agenda.html', 'Agenda · CUCA', 'Agenda da Casa de Umbanda Corrente de Akuan: gira toda segunda às 19h30, festas, giras especiais e eventos.',
                hero + body + H['invite'](), 'adejas')
 

@@ -49,6 +49,8 @@
   var INDEX=[
     ['Primeira vez na gira','primeira-vez.html','Passo a passo, senha, horário, o que vestir'],
     ['Agenda','agenda.html','Giras, festas e eventos da casa'],
+    ['Gira de Leito','agenda.html','Uma sexta-feira por mês'],
+    ['Terreiro CECATU','agenda.html','Casa irmã: gira de quarta-feira na CUCA'],
     ['CucaCast','index.html#conheca','O podcast da casa no Spotify'],
     ['Instagram','index.html#conheca','@cuca_terreirodeumbanda'],
     ['Conduta do consulente','primeira-vez.html#conduta','Guia completo para quem visita'],
