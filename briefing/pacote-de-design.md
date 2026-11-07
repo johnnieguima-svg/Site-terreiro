@@ -141,9 +141,10 @@ Sobre o quadro final (a roda vista de cima):
 | Fundamentos | Orixás e Linhas | `orixas.html` | Orixá e guia (a diferença), busca e filtro, os 9 Orixás, as linhas de trabalho (direita, neutras, esquerda tratada com cuidado), ficha de cada um |
 | Fundamentos | Rituais e Preceitos | `rituais.html` | visão geral, O Preceito, A Vela e a Oração, O Amalá, O Banho de Ervas |
 | Fundamentos | Ervas Sagradas | `ervas.html` | como funcionam, busca e intenção, Ar, Fogo, Terra e Água, ficha de cada erva com foto |
-| Vivência | Primeira Vez? | `primeira-vez.html` | passo a passo da visita, frentes de atendimento (passe, descarrego, cura, consulta), orientações de ouro, o que não fazemos |
+| Vivência | Primeira Vez? | `primeira-vez.html` | passo a passo da visita, frentes de atendimento (passe, descarrego, cura, consulta), Quem cuida da casa (a hierarquia, com foto, nome e cargo, como referência para quem visita), orientações de ouro, o que não fazemos |
 | Vivência | Quero Ser Médium | `medium.html` | mediunidade como autodescobrimento, os passos de ingresso, dicas de ouro, pilares e deveres, tipos de médiuns |
 | Vivência | Documentos e Pontos | `documentos.html` | Guia do Médium, Livro de Pontos Cantados, Ritual de Abertura (leitura e download) |
+| A Casa | Projeto Social Comida de Santo | a definir | reservado: fotos e texto chegam do dirigente |
 | Botão fixo | Visitar / Contato | âncora `index.html#venha` | endereço, horário, mapa, WhatsApp, agenda, PIX |
 
 Regras comuns a todas as páginas internas:
@@ -153,6 +154,48 @@ Regras comuns a todas as páginas internas:
 - A busca geral do protótipo continua, agora como lista estática pesquisável, sem servidor.
 - O texto de cada página vem do protótipo, revisado contra o Guia do Médium e passado pela regra de texto da seção 9.
 - O formulário de contato do protótipo sai. Ele não enviava mensagens para lugar nenhum. Entra o WhatsApp.
+
+## 6B. Mapa de imagens (fotos reais, pasta do Drive organizada por tema)
+
+Fonte: ensaio fotográfico da casa, amalás, ilustrações dos guias e acervo histórico. Cópias de trabalho em 2800 px. Toda pessoa da Hierarquia autorizou foto, nome e cargo (confirmado pelo dirigente). Consulentes nunca aparecem de rosto: corte ou desfoque. Placas de carro sempre desfocadas.
+
+| Lugar | Foto |
+|---|---|
+| Início · Elo 01 Nossa Umbanda | Adejás na gira |
+| Início · Elo 02 passo 1 (Chegue às 19h) | Fachada da Casa (recorte das pessoas chegando) |
+| Início · Elo 02 passo 2 (Tronqueira) | FALTA foto da Tronqueira |
+| Início · Elo 02 passo 3 (calçados) | FALTA foto da entrada do salão |
+| Início · Elo 02 passo 4 (abertura) | João Caetano, Ogã Chefe, no atabaque |
+| Início · Elo 02 passo 5 (atendimento) | Passe Fluídico (só mãos) |
+| Início · Elo 02 passo 6 (Congá) | FALTA foto do Congá |
+| Início · Elo 04 atabaque | Mariane, Ogã |
+| Início · Elo 04 corrente | Hierarquia (foto do grupo) |
+| Início · Elo 04 guardiões | Amalá da Linha de Exus e Pombagiras |
+| Início · Elo 05 1987 | Pai Fernando no início do Terreiro Pai Maneco |
+| Início · Elo 05 2009 | Amaci de Pai João Lucas |
+| Início · Elo 05 2017 | FALTA foto do Filhos do Sol (usa ícone) |
+| Início · Elo 05 2022 | Cruzamento de Pai de Santo |
+| Início · Elo 05 2025 | Inauguração da sede (sem a faixa de texto da imagem) |
+| Início · Elo 08 Venha | Placa de Fachada ao entardecer |
+| Capa · História | Cruzamento de Pai de Santo (roda de branco, horizontal) |
+| História · capítulos | Pai Fernando, Amaci, Aroeira da CUCA na sede, Inauguração |
+| Capa · Guias Dirigentes | Caboclo Akuan (ilustração provisória) |
+| Guias · fichas | 13 ilustrações: Akuan, Itacoaratira, Urubatão da Guia, Pai Joaquim de Angola, Pai Anacleto, Vó Anastácia, Boiadeiro Antônio Matogrosso, Cigano Ramon, Erê Juninho, Exu Tranca Ruas das Almas, Maria Padilha das Almas, Ogã Kaian |
+| Capa · Orixás e Linhas | Amalá de Oxalá (horizontal, branco) |
+| Orixás · fichas | um amalá por Orixá: Oxalá, Ogum, Oxóssi, Xangô, Yansã, Oxum, Yemanjá, Nanã, Omulu |
+| Orixás · linhas | amalás de Erê, Pretos-Velhos, Povo Cigano, Exus e Pombagiras |
+| Capa · Rituais e Preceitos | Tambores para entregas (Jardim dos Orixás com oratórios) |
+| Rituais · Banho de Ervas | Banho de Ervas |
+| Capa · Ervas Sagradas | Axé com as Folhas |
+| Ervas · fichas | imagens do Manual Herbal da CUCA (26 imagens no arquivo) |
+| Capa · Primeira Vez | Fachada da Casa |
+| Primeira Vez · frentes | Passe Fluídico, Descarrego, Cura, Consulta |
+| Primeira Vez · Quem cuida da casa | abre com Hierarquia (grupo); fichas: João Lucas, Hismara (Mãe de Santo), Patrícia (Mãe Pequena), João Caetano (Ogã Chefe), Raphael (Samba Chefe), Mariane (Ogã), Ana Paula, Elis e Emily (Capitãs), Daniel, Matheus e Miguel (Capitães) |
+| Capa · Quero Ser Médium | Corrente |
+| Capa · Documentos e Pontos | Raphael, Samba Chefe, cantando |
+| Projeto Social | aguardando fotos e texto |
+
+Quase todas as fotos são verticais. Nas capas internas a composição é dividida no computador (texto de um lado, foto vertical inteira do outro) e a foto ocupa a tela toda no celular, com o texto embaixo.
 
 ## 6. O Início, abaixo da abertura
 
