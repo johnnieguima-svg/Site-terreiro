@@ -197,14 +197,14 @@ def curimba(H):
             '<p>Canto e tambor caminham juntos. O ponto cantado é oração: chama, louva, descarrega, cura e ensina. O Samba é o médium que conduz os pontos e mantém a corrente firme. Na gira não se busca performance, e sim entrega: fé, vontade e sinceridade.</p>'
             '<p>Tocar também é resistência. Por séculos os tambores foram perseguidos e silenciados, e nunca deixaram de ecoar.</p>'
             '%s</div></div></div></section>'
-            % (H['photo']('joao-caetano', 'João Caetano, Ogã Chefe, tocando o atabaque', 'ratio-45', 'João Caetano, Ogã Chefe', sizes='(max-width:860px) 100vw, 45vw'),
+            % (H['photo']('header-curimba', 'Os três atabaques da curimba com laços vermelhos, junto ao Congá', 'ratio-32', 'Rum, Rumpi e Lé', sizes='(max-width:860px) 100vw, 45vw'),
                H['pull']('O Ogã é o guardião do atabaque, servo do couro sagrado e da ancestralidade africana e indígena.', 'Guia do Médium')))
 
 
 def agenda_page(H, g):
     e = H['e']
     hero = H['page_hero']('Vivência', 'Agenda', 'Giras, festas, cursos e datas especiais da casa, direto da agenda da CUCA.',
-                          'adejas', 'Médiuns de branco durante a gira', pos='50% 50%')
+                          'header-agenda', 'A curimba da CUCA cantando e tocando os atabaques', pos='60% 45%')
     body = ('<section class="section light"><div class="wrap">'
             '<div class="grid-2 top"><div class="reveal"><h2>As giras da casa.</h2>'
             '<div class="weekly"><b>Seg</b><span>Toda segunda-feira, às 19h30 · gira aberta e gratuita</span><small>Senhas a partir das 19h. Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico</small></div>'
@@ -220,7 +220,7 @@ def agenda_page(H, g):
             '</div></section>') % {'add': e(g['CAL_ADD']), 'ics': e(g['CAL_ICS']), 'mes': e(g['AGENDA_MES']), 'lista': e(g['AGENDA']), 'open': e(g['AGENDA_MES']),
              'cecatu': ('<a href="%s" target="_blank" rel="noopener">@umbandacecatu no Instagram</a> · <a href="%s" target="_blank" rel="noopener">cecatu.com.br</a>' % (e(g['CECATU_INSTA']), e(g['CECATU_SITE'])))}
     H['write']('agenda.html', 'Agenda · CUCA', 'Agenda da Casa de Umbanda Corrente de Akuan: gira toda segunda às 19h30, festas, giras especiais e eventos.',
-               hero + body + H['invite'](), 'adejas')
+               hero + body + H['invite'](), 'header-agenda')
 
 
 # ---------- Linha do tempo viva (página História) ----------

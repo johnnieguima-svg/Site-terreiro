@@ -44,18 +44,18 @@ IG_POSTS = ['https://www.instagram.com/reel/DewOlxGRXII/', 'https://www.instagra
 NAV = [
     ('A Casa', [
         ('historia.html', 'História e Linha do Tempo', 'Três gerações de fé até a CUCA.', 'cruzamento-2022'),
-        ('guias.html', 'Guias Dirigentes', 'Caboclo Akuan e os mentores que conduzem as giras.', 'guia-akuan'),
+        ('guias.html', 'Guias Dirigentes', 'Caboclo Akuan e os mentores que conduzem as giras.', 'header-guias'),
         ('projeto-social.html', 'Projeto Social', 'Comida de Santo: a caridade da gira, fora dela.', 'passe'),
     ]),
     ('Fundamentos', [
         ('orixas.html', 'Orixás e Linhas', 'Os 9 Orixás cultuados na casa e as 10 linhas de trabalho.', 'amala-oxala'),
-        ('rituais.html', 'Rituais e Preceitos', 'Preceito, vela e oração, amalá e banho de ervas.', 'jardim-orixas'),
+        ('rituais.html', 'Rituais e Preceitos', 'Preceito, vela e oração, amalá e banho de ervas.', 'header-rituais'),
         ('ervas.html', 'Ervas Sagradas', 'As 16 ervas da casa, organizadas pelos 4 elementos.', 'axe-folhas'),
     ]),
     ('Vivência', [
         ('primeira-vez.html', 'Primeira Vez?', 'Tudo o que acontece da chegada até a saída.', 'fachada'),
         ('medium.html', 'Quero Ser Médium', 'Os 7 passos para entrar na corrente.', 'corrente'),
-        ('documentos.html', 'Documentos e Pontos', 'Guia do Médium, pontos cantados e ritual de abertura.', 'raphael'),
+        ('documentos.html', 'Documentos e Pontos', 'Guia do Médium, pontos cantados e ritual de abertura.', 'header-documentos'),
     ]),
 ]
 
@@ -475,9 +475,9 @@ def index():
         'e7': elo(7, 'Conheça a casa'), 'e8': elo(8, 'Venha'),
         'p1': photo('adejas', 'Médiuns de branco tocando o adjá durante a gira', 'ratio-45', extra='reveal'),
         'p2': photo('conga', 'O Congá da CUCA, com as imagens dos Orixás e dos guias', 'ratio-32', extra='reveal'),
-        'p4a': photo('mariane', 'Mariane, Ogã da casa, no atabaque', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
-        'p4b': photo('hierarquia', 'A corrente de médiuns vestidos de branco, com faixas coloridas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
-        'p4c': photo('amala-exus', 'Amalá da linha de Exus e Pombagiras, com velas vermelhas e pimentas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
+        'p4a': photo('elo4-atabaque', 'O atabaque da casa, com laço vermelho', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
+        'p4b': photo('elo4-corrente', 'Médiuns de branco cantando na corrente', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
+        'p4c': photo('elo4-guardioes', 'Médium de capa preta à beira-mar, sob a lua, na gira de praia', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p8': img('placa', '', sizes='100vw'),
         'vest': VEST_SVG, 'sent': SENT_SVG, 'cecatu_ig': CECATU_INSTA,
         'tl': tl_html, 'faq': faq_html, 'cards': cards, 'podcast': podcast_block(), 'instagram': instagram_block(),

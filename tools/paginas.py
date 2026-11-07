@@ -85,7 +85,7 @@ def build(g):
     # ================= GUIAS =================
     GIMG = {'akuan': 'guia-akuan', 'itaquaratira': 'guia-itacoaratira', 'urubata': 'guia-urubatao', 'joaquim': 'guia-joaquim',
             'anacleto': 'guia-anacleto', 'anastacia': 'guia-anastacia', 'juninho': 'guia-juninho', 'ramon': 'guia-ramon',
-            'antonio': 'guia-antonio', 'trancarua': 'guia-trancaruas', 'mariapadilha': 'guia-mariapadilha'}
+            'antonio': 'guia-antonio', 'zoio': 'guia-zoio', 'trancarua': 'guia-trancaruas', 'mariapadilha': 'guia-mariapadilha'}
     CAT = {'caboclo': 'caboclos', 'preto-velho': 'pretos-velhos', 'pretovelho': 'pretos-velhos'}
     for gd in data['guias']:
         gd.update(M.GUIAS.get(gd['id'], {}))
@@ -106,7 +106,7 @@ def build(g):
                     for v, t in [('all', 'Todos'), ('caboclos', 'Caboclos'), ('pretos-velhos', 'Pretos Velhos'), ('neutras', 'Linhas neutras e Erês'), ('esquerda', 'Guardiões')])
     akuan = data['guias'][0]
     guias = page_hero('A Casa', 'Guias Dirigentes', 'O Caboclo Akuan, patrono da casa, e os mentores que conduzem as nossas giras.',
-                      'guia-akuan', 'Ilustração do Caboclo Akuan', pos='50% 15%')
+                      'header-guias', 'Médium incorporado no centro do salão, diante da assistência', pos='55% 50%')
     guias += ('<section class="section light"><div class="wrap"><div class="grid-2 top"><div class="reveal"><span class="mono" style="color:var(--accent)">Patrono geral da CUCA</span>'
               '<h2 style="margin-top:.4em">Caboclo Akuan.</h2><p class="lede">%s</p><p class="mono" style="color:var(--accent);margin-top:1.4em">%s</p></div><div class="prose reveal"><p>%s</p>%s<p><strong>Ensinamento.</strong> %s</p><p class="final-line" style="font-size:1.25rem;color:var(--accent)">%s</p></div></div>'
               '<div class="tile reveal" style="margin-top:2.4em"><h4>Sobre as ilustrações</h4><p>As imagens dos guias são ilustrações provisórias, feitas para estudo. Elas serão trocadas pelas ilustrações oficiais da casa.</p></div>'
@@ -115,7 +115,7 @@ def build(g):
               '<div data-filter-group="lista-guias"><div class="filters">%s</div><div class="find"><label><span class="sr-only">Buscar guia</span><input type="search" placeholder="Buscar pelo nome ou pela linha"></label></div></div>'
               '<div class="fichas" id="lista-guias">%s</div><p class="no-results" hidden>Nenhum guia encontrado.</p></div></section>') % (chips, fichas)
     write('guias.html', 'Guias Dirigentes · CUCA', 'Caboclo Akuan, patrono da CUCA, e os guias que conduzem as giras: Caboclos, Pretos Velhos, Erês, linhas neutras e Guardiões.',
-          guias + invite(), 'guia-akuan')
+          guias + invite(), 'header-guias')
 
     # ================= ORIXÁS E LINHAS =================
     OIMG = {'Oxalá': 'amala-oxala', 'Ogum': 'amala-ogum', 'Oxóssi': 'amala-oxossi', 'Xangô': 'amala-xango', 'Omulu': 'amala-omulu',
@@ -160,7 +160,7 @@ def build(g):
 
     # ================= RITUAIS =================
     rit = page_hero('Fundamentos', 'Rituais e Preceitos', 'O sagrado no dia a dia: preceito, vela e oração, amalá e banho de ervas.',
-                    'jardim-orixas', 'O Jardim dos Orixás, com os tambores das entregas e os oratórios de madeira')
+                    'header-rituais', 'Médium bate cabeça no centro do salão, diante da corrente', pos='55% 55%')
     idx = [('visao', 'Visão geral'), ('preceito', 'O preceito'), ('vela', 'A vela e a oração'), ('amala', 'O amalá'), ('banho', 'O banho de ervas'), ('conga', 'O Congá em casa')]
     content = chapter('visao', 'Visão geral', 'Quatro práticas que sustentam o equilíbrio.',
         '<div class="prose"><p>Na Umbanda, o sagrado não é algo distante: a folha, a água, a vela e a própria mente são manifestações de energia vital. Sustentamos nosso equilíbrio com quatro práticas fundamentais.</p></div>'
@@ -202,7 +202,7 @@ def build(g):
         photo('banho-ervas', 'Mãos macerando folhas numa bacia para o banho de ervas', 'ratio-34', 'Preparo do banho', sizes='(max-width:860px) 100vw, 40vw') + M.rituais_banho_full(H))
     content += M.rituais_conga(H)
     write('rituais.html', 'Rituais e Preceitos · CUCA', 'Preceito, vela e oração, amalá e banho de ervas: como a CUCA vive o sagrado no dia a dia.',
-          rit + body_with_index(idx, content) + invite(), 'jardim-orixas')
+          rit + body_with_index(idx, content) + invite(), 'header-rituais')
 
     # ================= ERVAS =================
     EL = {'Ar': 'el-ar', 'Fogo': 'el-fogo', 'Terra': 'el-terra', 'Água': 'el-agua'}
@@ -359,10 +359,10 @@ def build(g):
         else:
             dh += '<article class="doc reveal"><span class="state soon">Em breve</span><h3>%s</h3><p>%s</p></article>' % (e(t), e(d))
     doc = page_hero('Vivência', 'Documentos e Pontos', 'O acervo de estudo da corrente: leia no site ou baixe em PDF.',
-                    'raphael', 'Raphael, Samba Chefe, cantando um ponto na curimba')
+                    'header-documentos', 'Ogãs da casa reunidos ao lado da curimba', pos='50% 35%')
     doc += ('<section class="section dark grain"><div class="smoke" aria-hidden="true"></div><div class="wrap"><h2 class="reveal">Acervo de estudo.</h2>'
             '<p class="lede reveal">Material da casa para médiuns e para quem quer conhecer a CUCA a fundo.</p><div class="docs">%s</div></div></section>') % dh
     write('documentos.html', 'Documentos e Pontos · CUCA', 'Guia do Médium, Ritual de Abertura e Livro de Pontos Cantados da CUCA, para leitura e download.',
-          doc + M.curimba(H) + '<section class="section dark grain" id="cucacast"><div class="wrap"><div class="midia">%s%s</div></div></section>' % (g['podcast_block'](), g['instagram_block']()) + invite(), 'raphael')
+          doc + M.curimba(H) + '<section class="section dark grain" id="cucacast"><div class="wrap"><div class="midia">%s%s</div></div></section>' % (g['podcast_block'](), g['instagram_block']()) + invite(), 'header-documentos')
     M.agenda_page(H, g)
     M.projeto_social(H, g)
