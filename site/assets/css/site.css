@@ -797,3 +797,4 @@ body.menu-open .pix-float{display:none}
 .ig-profile{position:relative;border-radius:14px;overflow:hidden;background:#fff;min-height:420px}
 .ig-profile iframe{width:100%;height:560px;border:0;display:block}
 .ig-fallback{position:absolute;left:0;right:0;bottom:0;padding:12px;text-align:center;background:rgba(255,255,255,.95);color:var(--ink);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.pix-pop-link{display:inline-flex;align-items:center;min-height:44px}
