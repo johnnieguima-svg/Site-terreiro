@@ -4,13 +4,13 @@ Usado por tools/paginas.py. Texto revisado: sem travessões, linguagem direta.""
 # ---------- Vídeos dos Orixás no Instagram (@cuca_terreirodeumbanda) ----------
 # Cole o link de cada reel. Xangô e Oxalá ainda não têm vídeo. Ficha sem link não mostra o botão.
 ORIXA_VIDEOS = {
-    'Ogum': '',
-    'Oxóssi': '',
-    'Omulu': '',
-    'Iansã': '',
-    'Oxum': '',
-    'Iemanjá': '',
-    'Nanã': '',
+    'Ogum': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DXd_l6AESAd/',
+    'Oxóssi': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DTvxwPiEejg/',
+    'Omulu': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DM06i2RRBNn/',
+    'Iansã': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DR2yAFGkWCS/',
+    'Oxum': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DP4MszqEWpt/',
+    'Iemanjá': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DUQSd0Nkcsl/',
+    'Nanã': 'https://www.instagram.com/cuca_terreirodeumbanda/reel/DewOlxGRXII/',
 }
 
 # ---------- Amalás por Orixá e por linha (capítulo "Amalás (Entregas)") ----------

@@ -29,12 +29,12 @@ CAL_ICS = 'https://calendar.google.com/calendar/ical/%s/public/basic.ics' % _CAL
 
 # ---------- CucaCast (Spotify) ----------
 # Cole aqui o código do programa no Spotify: no link open.spotify.com/show/XXXX, é o XXXX.
-SPOTIFY_SHOW_ID = ''
+SPOTIFY_SHOW_ID = '033EUlO6doYTkHRf19W9SE'
 SPOTIFY_LINK = ('https://open.spotify.com/show/%s' % SPOTIFY_SHOW_ID) if SPOTIFY_SHOW_ID else 'https://open.spotify.com/search/cucacast/podcasts'
 
 # ---------- Instagram ----------
 # Publicações em destaque (links de posts ou reels). Troque quando quiser.
-IG_POSTS = ['https://www.instagram.com/reel/DXd_l6AESAd/', 'https://www.instagram.com/reel/DUQSd0Nkcsl/']
+IG_POSTS = ['https://www.instagram.com/reel/DewOlxGRXII/', 'https://www.instagram.com/reel/DXd_l6AESAd/']
 
 NAV = [
     ('A Casa', [
