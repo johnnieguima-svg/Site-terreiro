@@ -39,11 +39,9 @@ def build(g):
     hist = page_hero('A Casa', 'História e Linha do Tempo',
                      'Três gerações de fé, de uma garagem em 1987 até a casa da Aroeira, em 2025.',
                      'cruzamento-2022', 'A roda de médiuns de branco no cruzamento de Pai de Santo, em 2022', wide=True)
-    idx = [('umbanda', 'A Umbanda'), ('linha', 'Linha do tempo'), ('raizes', 'Raízes'), ('forja', 'Caminho de forja'),
+    idx = [('umbanda', 'A Umbanda'), ('raizes', 'Raízes'), ('forja', 'Caminho de forja'),
            ('promessa', 'A promessa'), ('aroeira', 'O milagre da Aroeira'), ('lar', 'A visão de lar'), ('missao', 'Missão e valores'), ('sorri', 'Uma Umbanda que sorri')]
     content = M.historia_umbanda(H)
-    content += chapter('linha', 'Linha do tempo', 'Da garagem de 1987 à Aroeira.',
-        '<ol class="steps hist">%s</ol>' % tl)
     content += chapter('raizes', 'Capítulo 01 · 1987', 'As raízes e Pai Fernando de Ogum.',
         '<div class="fig-side"><div class="prose">'
         '<p>A nossa doutrina começa na família, na figura de Fernando Macedo Guimarães (1937 a 2012), irmão do avô do dirigente, mais conhecido como Pai Fernando de Ogum. Um homem magro, sem cabelos e muito sério. Quando ele entrava num cômodo, todos se juntavam em volta, com respeito e curiosidade.</p>'
@@ -82,7 +80,7 @@ def build(g):
     content += M.historia_missao(H) + M.historia_final(H)
     write('historia.html', 'História e Linha do Tempo · CUCA',
           'Três gerações de Umbanda pés no chão: do Terreiro do Pai Maneco, em 1987, à Casa de Umbanda Corrente de Akuan, em 2025.',
-          hist + body_with_index(idx, content) + invite(), 'cruzamento-2022')
+          hist + M.linha_viva(H, data['timeline']) + body_with_index(idx, content) + invite(), 'cruzamento-2022')
 
     # ================= GUIAS =================
     GIMG = {'akuan': 'guia-akuan', 'itaquaratira': 'guia-itacoaratira', 'urubata': 'guia-urubatao', 'joaquim': 'guia-joaquim',

@@ -142,8 +142,7 @@ def nav(current, solid=False):
 <header class="nav%(solid)s">
  <div class="wrap">
   <a class="brand" href="index.html" aria-label="CUCA, página inicial">
-   <img src="assets/img/logo-branco-sm.png" width="42" height="42" alt="">
-   <span><b>CUCA</b><small>Corrente de Akuan</small></span>
+   <img class="brand-logo" src="assets/img/logo-texto-claro.png" width="289" height="128" alt="Casa de Umbanda Corrente de Akuan">
   </a>
   <nav aria-label="Principal"><ul class="menu">%(items)s</ul></nav>
   <div class="nav-cta">
@@ -169,7 +168,7 @@ def footer():
  <div class="wrap">
   <div class="cols">
    <div>
-    <a class="brand" href="index.html"><img src="assets/img/logo-branco-sm.png" width="42" height="42" alt=""><span><b>CUCA</b><small>Corrente de Akuan</small></span></a>
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo-texto-claro.png" width="289" height="128" alt="Casa de Umbanda Corrente de Akuan"></a>
     <p>CUCA · Casa de Umbanda Corrente de Akuan · Curitiba, PR</p>
     <p>Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico<br>Gira aberta toda segunda, às 19h30.</p>
     <p><a href="agenda.html">Agenda da casa</a><br><a href="%(insta)s" target="_blank" rel="noopener">Instagram @cuca_terreirodeumbanda</a><br><a href="%(spot)s" target="_blank" rel="noopener">CucaCast no Spotify</a></p>
@@ -196,17 +195,18 @@ def invite():
 </section>''' % (LEAF_SVG, WHATS, WA_SVG)
 
 def page_hero(group, title, lede, slug, alt, wide=False, pos=None):
-    return '''<section class="page-hero dark grain">
- <div class="smoke" aria-hidden="true"></div>
- <div class="wrap grid-2">
-  <div class="reveal">
+    """Abertura das páginas internas: a foto ocupa todo o cabeçalho e um degradê protege o texto."""
+    return '''<section class="page-hero dark">
+ <div class="ph-media">%s</div>
+ <div class="ph-scrim" aria-hidden="true"></div>
+ <div class="wrap">
+  <div class="ph-copy reveal">
    <p class="crumb"><a href="index.html">Início</a><span aria-hidden="true">/</span><span>%s</span></p>
    <h1>%s</h1>
    <p class="lede">%s</p>
   </div>
-  <figure class="photo %s">%s</figure>
  </div>
-</section>''' % (e(group), e(title), e(lede), 'wide' if wide else '', img(slug, alt, eager=True, pos=pos))
+</section>''' % (img(slug, alt, eager=True, sizes='100vw', pos=pos or '65% 40%'), e(group), e(title), e(lede))
 
 def write(path, title, desc, body, og='curimba-poster', solid=True):
     doc = head(title, desc, path, og) + nav(path, solid) + '<main id="conteudo">' + body + '</main>' + footer()
@@ -214,6 +214,8 @@ def write(path, title, desc, body, og='curimba-poster', solid=True):
         f.write(doc)
     print('ok', path, len(doc))
 
+VEST_SVG = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 7l-9 6 4 8 4-2v20h16V19l4 2 4-8-9-6c-1 3-3.5 5-7 5s-6-2-7-5z"/></svg>'
+SENT_SVG = '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40S8 30 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 12-16 22-16 22z"/><path d="M15 22c3 2 5 2 9-1 4 3 6 3 9 1"/></svg>'
 SPOTIFY_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.62.62 0 0 1-.86.2c-2.35-1.43-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.11.3.18.39.56.21.86zm1.22-2.73a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.36.22.48.7.25 1.07zm.1-2.84C14.7 8.92 9.36 8.74 6.27 9.68a.94.94 0 1 1-.54-1.8c3.55-1.08 9.45-.87 13.17 1.34a.94.94 0 0 1-.97 1.61z"/></svg>'
 IG_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'
 
@@ -280,8 +282,9 @@ def index():
  <div class="hero-scrim" aria-hidden="true"></div>
  <div class="wrap hero-copy">
   <div class="inner">
+   <div class="hero-logo beat"><img src="assets/img/logo-vinho.png" width="512" height="512" alt="Símbolo da CUCA"></div>
    <p class="eyebrow beat">Curitiba · Jardim Botânico</p>
-   <h1 class="beat" data-words>Boas-vindas à Casa de Umbanda Corrente de Akuan.</h1>
+   <h1 class="beat" data-words>Boas-vindas à Casa de Umbanda Corrente de <strong class="akuan">Akuan</strong>.</h1>
    <div class="beat">
     <p class="phrase">Somos lar antes de sermos templo.</p>
     <p class="when">Gira aberta e gratuita toda segunda, às 19h30. Senhas a partir das 19h.</p>
@@ -292,9 +295,10 @@ def index():
  <span class="scroll-cue" aria-hidden="true">Role</span>
 </section>
 
-<section class="quote-band dark grain" aria-label="Palavra do Caboclo Akuan">
+<section class="quote-band dark grain akuan-band" aria-label="Palavra do Caboclo Akuan">
  <div class="smoke" aria-hidden="true"></div>
- <blockquote class="reveal glow">“Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.”<cite>Caboclo Akuan</cite></blockquote>
+ <div class="forge" aria-hidden="true"><svg class="forge-chain" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet"></svg></div>
+ <blockquote class="glow slow-quote"><span data-slow>“Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.”</span><cite>Caboclo Akuan</cite></blockquote>
 </section>
 
 <div class="elos" style="position:relative">
@@ -341,9 +345,15 @@ def index():
   </div>
   <div style="position:sticky;top:calc(var(--nav-h) + 24px)">
    %(p2)s
-   <div class="note-pair reveal">
-    <div class="note"><h4>O que vestir</h4><p>Roupa limpa e discreta, de qualquer cor. Evite perfume forte e bebida alcoólica no dia.</p></div>
-    <div class="note"><h4>Se sentir algo forte</h4><p>Choro, arrepio ou emoção forte acontecem. Avise com discrição alguém da casa. Você não fica sozinho.</p></div>
+   <div class="flip-pair reveal">
+    <button type="button" class="flip" aria-expanded="false">
+     <span class="face front">%(vest)s<span class="ft">O que vestir</span><span class="hint">Toque para ver</span></span>
+     <span class="face back"><span class="ft">O que vestir</span><span class="fb">Roupa limpa e discreta, de qualquer cor. Evite perfume forte e bebida alcoólica no dia.</span></span>
+    </button>
+    <button type="button" class="flip" aria-expanded="false">
+     <span class="face front">%(sent)s<span class="ft">Se sentir algo forte</span><span class="hint">Toque para ver</span></span>
+     <span class="face back"><span class="ft">Se sentir algo forte</span><span class="fb">Choro, arrepio ou emoção forte acontecem. Avise com discrição alguém da casa. Você não fica sozinho.</span></span>
+    </button>
    </div>
   </div>
  </div>
@@ -450,6 +460,7 @@ def index():
         'p4b': photo('hierarquia', 'A corrente de médiuns vestidos de branco, com faixas coloridas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p4c': photo('amala-exus', 'Amalá da linha de Exus e Pombagiras, com velas vermelhas e pimentas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p8': img('placa', '', sizes='100vw'),
+        'vest': VEST_SVG, 'sent': SENT_SVG,
         'tl': tl_html, 'faq': faq_html, 'cards': cards, 'podcast': podcast_block(), 'instagram': instagram_block(),
     }
     write('index.html', 'CUCA · Casa de Umbanda Corrente de Akuan · Curitiba',

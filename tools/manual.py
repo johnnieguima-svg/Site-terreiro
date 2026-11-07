@@ -218,3 +218,50 @@ def agenda_page(H, g):
             '</div></section>') % {'add': e(g['CAL_ADD']), 'ics': e(g['CAL_ICS']), 'mes': e(g['AGENDA_MES']), 'lista': e(g['AGENDA']), 'open': e(g['AGENDA_MES'])}
     H['write']('agenda.html', 'Agenda · CUCA', 'Agenda da Casa de Umbanda Corrente de Akuan: gira toda segunda às 19h30, festas, giras especiais e eventos.',
                hero + body + H['invite'](), 'adejas')
+
+
+# ---------- Linha do tempo viva (página História) ----------
+TL_IMG = {'marco-1987': ('pai-fernando', 'Pai Fernando de Ogum'), '2009': ('amaci-2009', 'O Amaci de Pai João Lucas em 2009'),
+          '2022': ('cruzamento-2022', 'A roda do cruzamento de Pai de Santo'), 'promessa': ('jardim-orixas', 'Os tambores do Jardim dos Orixás'),
+          'aroeira': ('aroeira', 'A Aroeira da CUCA'), 'inaug': ('inauguracao', 'A gira inaugural da CUCA')}
+TL_CHAP = {'cap-raizes': 'raizes', 'cap-forja': 'forja', 'cap-promessa': 'promessa', 'cap-aroeira': 'aroeira'}
+
+
+def linha_viva(H, steps):
+    e, C = H['e'], H['C']
+    items = ''
+    for i, t in enumerate(steps):
+        key = next((k for k in TL_IMG if k in t['id'] or k == t['year']), None)
+        if t['year'].startswith('Maio'): key = 'promessa'
+        if t['year'].startswith('Jun'): key = 'aroeira'
+        if t['year'].startswith('Set'): key = 'inaug'
+        if t['year'] == '1987': key = 'marco-1987'
+        if t['year'] == '2017': key = None
+        year = t['year'].split()[-1]
+        media = ('<img src="assets/img/%s-sm.webp" alt="%s" loading="lazy">' % (TL_IMG[key][0], e(TL_IMG[key][1]))) if key else (
+            '<svg class="tl-sun" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="20"/>%s</svg>' %
+            ''.join('<line x1="60" y1="18" x2="60" y2="6" transform="rotate(%d 60 60)"/>' % (a * 30) for a in range(12)))
+        chap = TL_CHAP.get(t.get('chapterTarget', ''), '')
+        quote = '<blockquote>“%s”</blockquote>' % C(t['quote']) if t.get('quote') else ''
+        items += (
+            '<li class="tl-item %s" data-year="%s" style="--i:%d">'
+            '<button type="button" class="tl-node" aria-expanded="false" aria-controls="tl-d%d"><span class="sr-only">Abrir o marco de %s</span></button>'
+            '<article class="tl-card">'
+            '<div class="tl-media">%s</div>'
+            '<div class="tl-body"><p class="tl-date">%s</p><h3>%s</h3><p class="tl-sub">%s</p><p>%s</p>'
+            '<div class="tl-more" id="tl-d%d"><div>%s<p>%s</p>%s</div></div>'
+            '<button type="button" class="tl-toggle" aria-expanded="false" aria-controls="tl-d%d"><span>Ler o marco</span></button></div>'
+            '</article></li>'
+        ) % ('left' if i % 2 == 0 else 'right', e(year), i, i, e(year), media, e(t['dateLabel']), C(t['title'].replace(' & ', ' e ')),
+             C(t['subtitle']), C(t['summary']), i, quote, C(t['deepDetail']),
+             ('<a class="link-arrow" href="#%s">Ler o capítulo</a>' % chap) if chap else '', i)
+    return ('<section class="tl-live dark grain" id="linha" aria-labelledby="tl-title">'
+            '<div class="smoke" aria-hidden="true"></div>'
+            '<div class="wrap">'
+            '<div class="tl-head reveal"><span class="mono">Linha do tempo viva</span><h2 id="tl-title">Da garagem de 1987 à Aroeira.</h2>'
+            '<p class="lede">Role devagar: a corrente se forja marco a marco. Toque em cada elo para abrir a história.</p></div>'
+            '<div class="tl-stage">'
+            '<div class="tl-year" aria-hidden="true"><span class="tl-year-num">1987</span><span class="tl-year-bar"><i></i></span></div>'
+            '<div class="tl-track"><svg class="tl-line" aria-hidden="true" preserveAspectRatio="none"><path class="tl-rail"/><path class="tl-ink"/></svg>'
+            '<ol class="tl-list">%s</ol></div>'
+            '</div></div></section>') % items
