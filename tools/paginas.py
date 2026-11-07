@@ -87,6 +87,8 @@ def build(g):
             'anacleto': 'guia-anacleto', 'anastacia': 'guia-anastacia', 'juninho': 'guia-juninho', 'ramon': 'guia-ramon',
             'antonio': 'guia-antonio', 'trancarua': 'guia-trancaruas', 'mariapadilha': 'guia-mariapadilha'}
     CAT = {'caboclo': 'caboclos', 'preto-velho': 'pretos-velhos', 'pretovelho': 'pretos-velhos'}
+    for gd in data['guias']:
+        gd.update(M.GUIAS.get(gd['id'], {}))
     fichas = ''
     for gd in data['guias']:
         cat = CAT.get(gd['type'], 'neutras' if 'Neutras' in gd['typeLabel'] else ('esquerda' if 'Esquerda' in gd['typeLabel'] else gd['type']))
@@ -95,8 +97,9 @@ def build(g):
         im = GIMG.get(gd['id'])
         ph = ('<figure class="photo tall">%s</figure>' % img(im, 'Ilustração de %s' % gd['name'], sizes='(max-width:600px) 100vw, 33vw', pos='50% 20%')) if im else ''
         fichas += ('<article class="ficha reveal" data-cat="%s">%s<div class="body"><p class="tag"><i></i>%s · %s</p><h3>%s</h3><p class="role">%s</p><p>%s</p>'
-                   '<details><summary>Ler a ficha</summary><dl><dt>Quem é</dt><dd>%s</dd><dt>Ensinamento</dt><dd>%s</dd><dt>Palavra do guia</dt><dd><em>“%s”</em></dd></dl></details></div></article>'
-                   % (cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']), C(gd['quote'])))
+                   '<details><summary>Ler a ficha</summary><dl><dt>Quem é</dt><dd>%s</dd><dt>Ensinamento</dt><dd>%s</dd><dt>Palavra do guia</dt><dd><em>“%s”</em></dd>%s</dl></details></div></article>'
+                   % (cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']), C(gd['quote']),
+                      ('<dt>Saudação</dt><dd>%s</dd>' % C(gd['saudacao'])) if gd.get('saudacao') else ''))
     fichas += ('<article class="ficha reveal" data-cat="neutras"><figure class="photo tall">%s</figure><div class="body"><p class="tag"><i></i>Curimba</p><h3>Ogã Kaian</h3>'
                '<p class="role">Ficha em preparação pela casa.</p></div></article>' % img('guia-kaian', 'Ilustração do Ogã Kaian', sizes='(max-width:600px) 100vw, 33vw', pos='50% 20%'))
     chips = ''.join('<button type="button" class="chip" data-value="%s" aria-pressed="%s">%s</button>' % (v, 'true' if v == 'all' else 'false', t)
@@ -105,9 +108,9 @@ def build(g):
     guias = page_hero('A Casa', 'Guias Dirigentes', 'O Caboclo Akuan, patrono da casa, e os mentores que conduzem as nossas giras.',
                       'guia-akuan', 'Ilustração do Caboclo Akuan', pos='50% 15%')
     guias += ('<section class="section light"><div class="wrap"><div class="grid-2 top"><div class="reveal"><span class="mono" style="color:var(--accent)">Patrono geral da CUCA</span>'
-              '<h2 style="margin-top:.4em">Caboclo Akuan.</h2><p class="lede">%s</p></div><div class="prose reveal"><p>%s</p>%s<p><strong>Ensinamento.</strong> %s</p></div></div>'
+              '<h2 style="margin-top:.4em">Caboclo Akuan.</h2><p class="lede">%s</p><p class="mono" style="color:var(--accent);margin-top:1.4em">%s</p></div><div class="prose reveal"><p>%s</p>%s<p><strong>Ensinamento.</strong> %s</p><p class="final-line" style="font-size:1.25rem;color:var(--accent)">%s</p></div></div>'
               '<div class="tile reveal" style="margin-top:2.4em"><h4>Sobre as ilustrações</h4><p>As imagens dos guias são ilustrações provisórias, feitas para estudo. Elas serão trocadas pelas ilustrações oficiais da casa.</p></div>'
-              '</div></section>') % (C(akuan['line']), C(akuan['description']), pull(akuan['quote'], 'Caboclo Akuan'), C(akuan['teaching']))
+              '</div></section>') % (C(akuan['shortDesc']), C(akuan['line']), C(akuan['description']), pull(akuan['quote'], 'Caboclo Akuan'), C(akuan['teaching']), C(akuan['saudacao']))
     guias += ('<section class="section light" style="padding-top:0"><div class="wrap"><h2 class="reveal">Os mentores da casa.</h2>'
               '<div data-filter-group="lista-guias"><div class="filters">%s</div><div class="find"><label><span class="sr-only">Buscar guia</span><input type="search" placeholder="Buscar pelo nome ou pela linha"></label></div></div>'
               '<div class="fichas" id="lista-guias">%s</div><p class="no-results" hidden>Nenhum guia encontrado.</p></div></section>') % (chips, fichas)

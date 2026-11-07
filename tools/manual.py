@@ -346,3 +346,44 @@ def projeto_social(H, g):
     H['write']('projeto-social.html', 'Projeto Social Comida de Santo · CUCA',
                'Projeto Comida de Santo da CUCA: ações sociais a cada três meses para crianças, pessoas em situação de rua, comunidades indígenas e bem-estar animal.',
                hero + body + H['invite'](), 'passe')
+
+
+# ---------- Guias dirigentes: resumos das publicações de Pai João de Ogum no Instagram ----------
+GUIAS = {
+    'akuan': {
+        'line': 'Linha de Ogum Naruê',
+        'identity': 'Guia dirigente e patrono da CUCA',
+        'shortDesc': 'Espírito indígena da linha de Ogum Naruê. Destemido, implacável e amoroso: a corrente da casa responde a ele.',
+        'description': 'Akuan era o caboclo de Pai Fernando de Ogum, e o nome ecoava nas mesas de domingo da família. Anos depois, o Caboclo chegou ao médium de forma natural, sem estrondo, e foi se firmando aos poucos: as guias estouraram e os metais deram lugar a sementes, contas naturais e dentes, até ele assumir o lugar de pai de cabeça. Vem como um indígena jovem, alto e atlético, de cabelos longos e olhos pintados, com cocar discreto e lança, às vezes a cavalo. É acompanhado por uma águia dourada e é patrono de um grupo de panteras negras, que combatem as forças do mal. Suas cores vão do vermelho de Ogum ao branco de Oxalá. Suas palavras são retas e pontiagudas, mas seu abraço é largo: é pai que orienta, limita, reconduz e acredita.',
+        'teaching': 'Viver de forma reta e honesta, com palavra corajosa. Estender a mão sem negar ajuda, mas também sem aliviar fardos. Toda casa que se firma na moral, no respeito e na Umbanda pé no chão faz parte da Corrente de Akuan.',
+        'quote': 'O equilíbrio entre amor e disciplina é a maior das virtudes, e a força aliada ao respeito é capaz de erguer casas e entrelaçar correntes.',
+        'saudacao': 'Saravá o Caboclo Akuan: arquiteto de terreiros, general de Ogum, senhor das panteras, portador da águia dourada e patrono da CUCA!',
+    },
+    'itaquaratira': {
+        'line': 'Linha de Xangô',
+        'identity': 'Guia dirigente da linha de Xangô',
+        'shortDesc': 'O caboclo que trabalha na fundação energética da casa, mantendo a egrégora coesa e íntegra. Traz ordem e firmeza às giras.',
+        'description': 'Chegou quando o médium começou a receber a energia de Xangô, uma vibração exigente: como dizem as entidades dessa linha, não é Xangô que desce da pedreira, são os filhos que sobem até ele. Antes era chamado de Caboclo Pedra Preta. Ele mesmo revelou que seu nome significa “pedra que reflete a luz”, e as traduções confirmaram: pedra iluminada, pedra do sol. Representa a justiça divina, o equilíbrio vivo entre os opostos, e com o oxé, o machado de duas lâminas, separa e discerne com racionalidade.',
+        'teaching': 'Disciplina, rigor ético e vida temperada. Xangô pede elevação moral e responsabilidade de quem quer encontrá-lo.',
+        'quote': 'Sem Xangô não há Umbanda, pois sem lei não há ordem.',
+        'saudacao': 'Kaô Kabecilê!',
+    },
+    'urubata': {
+        'line': 'Linha de Oxóssi · Povo Kayapó Xikrin',
+        'identity': 'Guia dirigente da linha de Oxóssi',
+        'shortDesc': 'Um velho pajé do povo Kayapó Xikrin, do Pará. Afável e profundo, conhecedor das ervas, dos rituais e da cura ancestral.',
+        'description': 'Apresentou-se uma gira antes do cruzamento de Pai de Santo do médium, no lugar do jovem Caboclo Sete Penas, para ajudar a carregar o peso de dirigir uma casa. É um pajé velho, com alegria de curumim: enxerga poesia até no andar das formigas e olha para os filhos como um avô olha os netos. Fala devagar, entorta as palavras para torná-las poesia e sempre volta à floresta para contar suas parábolas. Carrega um bastão com um cristal transparente, enfeitado com penas de aves silvestres. Sua vibração se mistura com a de Oxalá. Pediu a um médium estudante de antropologia que descobrisse de onde vinha, e a pista levou ao povo Kayapó Xikrin, do coração da mata no Pará, que só teve contato com o homem branco por volta de 1950.',
+        'teaching': 'Ver a magia de cada elemento e a vida em cada folha. Conduzir os filhos com amor, amparo e paciência, um passo de cada vez rumo à maturidade.',
+        'quote': 'Òkè Àró, Òsóòsì! Saravá os povos originários do Brasil!',
+        'saudacao': 'Saravá, Senhor Urubatão da Guia e seu povo!',
+    },
+    'trancarua': {
+        'line': 'Linha de Exu · Guardião da casa',
+        'identity': 'Exu dirigente da CUCA',
+        'shortDesc': 'Guardião firme e justo, que acolhe todas as causas e abre caminhos com nobreza e respeito. Conduz a gira com equilíbrio e firmeza.',
+        'description': 'O primeiro contato foi ainda criança, no Terreiro do Pai Maneco, com o Tranca Ruas das Almas de Pai Fernando. Depois de sete anos com o Exu Sete da Lira, que dizia estar só preparando o cavalo para outro patrão, e de um ano com o Tranca Ruas da Encruzilhada, o Sr. Tranca Ruas das Almas chegou para ficar. Para ele, Tranca Ruas é um cargo, conquistado num longo caminho: um líder que agrega falanges e transita por encruzilhadas, calungas e cemitérios. Vem como um nobre europeu de uns sessenta anos, cabelos grisalhos, cavanhaque e olhar cor de mel. A capa é azul em homenagem a Iemanjá, senhora das almas, com branco de Oxalá por dentro: não é um espírito menor, é um guia de luz tão elevado quanto caboclos e pretos-velhos.',
+        'teaching': 'Não tolera injustiças nem trabalho malfeito. Suas palavras podem ser duras, mas nunca deselegantes. Ele é a tranca na rua das almas: escolhe quem vai e quem vem, e conduz cada um à evolução de que precisa.',
+        'quote': 'Tranca Ruas é Tranca Ruas. Esse nome é o meu nome, essa é a minha qualidade. Tranca Ruas é o que eu aprendi e hoje carrego em meu nome.',
+        'saudacao': 'Laroyê, seo Tranca!',
+    },
+}
