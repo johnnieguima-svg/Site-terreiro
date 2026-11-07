@@ -18,8 +18,23 @@ WHATS = 'https://wa.me/%s?text=%s' % (WHATS_NUM, 'Ol%C3%A1!%20Quero%20ir%20%C3%A
 MAPA = 'https://www.google.com/maps/place/Casa+de+Umbanda+Corrente+de+Akuan/@-25.4410897,-49.2329611,17z'
 INSTA = 'https://www.instagram.com/cuca_terreirodeumbanda'
 PIX = 'correntedeakuan@gmail.com'
-AGENDA = ('https://calendar.google.com/calendar/embed?src=f5534c610f767d5f956240c38babfe2906187568f61676b90eb921b9d6b5f5e6%40group.calendar.google.com'
-          '&ctz=America%2FSao_Paulo&mode=AGENDA&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&showNav=1&showDate=0&wkst=2')
+# ---------- Agenda (Google Agenda da CUCA, precisa estar pública) ----------
+CAL_ID = 'f5534c610f767d5f956240c38babfe2906187568f61676b90eb921b9d6b5f5e6@group.calendar.google.com'
+_CAL_Q = CAL_ID.replace('@', '%40')
+_CAL_OPTS = '&ctz=America%2FSao_Paulo&showTitle=0&showPrint=0&showCalendars=0&showTz=0&wkst=2&hl=pt_BR&bgcolor=%23F1EEE8&color=%238E1B26'
+AGENDA = 'https://calendar.google.com/calendar/embed?src=%s%s&mode=AGENDA&showTabs=0&showNav=1&showDate=0' % (_CAL_Q, _CAL_OPTS)
+AGENDA_MES = 'https://calendar.google.com/calendar/embed?src=%s%s&mode=MONTH&showTabs=1&showNav=1' % (_CAL_Q, _CAL_OPTS)
+CAL_ADD = 'https://calendar.google.com/calendar/render?cid=%s' % _CAL_Q
+CAL_ICS = 'https://calendar.google.com/calendar/ical/%s/public/basic.ics' % _CAL_Q
+
+# ---------- CucaCast (Spotify) ----------
+# Cole aqui o código do programa no Spotify: no link open.spotify.com/show/XXXX, é o XXXX.
+SPOTIFY_SHOW_ID = ''
+SPOTIFY_LINK = ('https://open.spotify.com/show/%s' % SPOTIFY_SHOW_ID) if SPOTIFY_SHOW_ID else 'https://open.spotify.com/search/cucacast/podcasts'
+
+# ---------- Instagram ----------
+# Publicações em destaque (links de posts ou reels). Troque quando quiser.
+IG_POSTS = ['https://www.instagram.com/reel/DXd_l6AESAd/', 'https://www.instagram.com/reel/DUQSd0Nkcsl/']
 
 NAV = [
     ('A Casa', [
@@ -112,8 +127,9 @@ def head(title, desc, path, og_img='curimba-poster'):
        'o': ('video/curimba-poster.webp' if og_img == 'curimba-poster' else 'img/%s.webp' % og_img)}
 
 def nav(current, solid=False):
-    items = ['<li><a href="index.html"%s>Início</a></li>' % (' aria-current="page"' if current == 'index.html' else '')]
-    mob = ['<a href="index.html">Início</a>']
+    items = ['<li><a href="index.html"%s>Início</a></li>' % (' aria-current="page"' if current == 'index.html' else ''),
+             '<li><a href="agenda.html"%s>Agenda</a></li>' % (' aria-current="page"' if current == 'agenda.html' else '')]
+    mob = ['<a href="index.html">Início</a>', '<a href="agenda.html">Agenda</a>']
     for i, (grp, pages) in enumerate(NAV):
         sub = ''.join('<li><a href="%s"%s><span>%s</span><small>%s</small></a></li>'
                       % (h, ' aria-current="page"' if h == current else '', e(t), e(s)) for h, t, s, _ in pages)
@@ -156,7 +172,7 @@ def footer():
     <a class="brand" href="index.html"><img src="assets/img/logo-branco-sm.png" width="42" height="42" alt=""><span><b>CUCA</b><small>Corrente de Akuan</small></span></a>
     <p>CUCA · Casa de Umbanda Corrente de Akuan · Curitiba, PR</p>
     <p>Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico<br>Gira aberta toda segunda, às 19h30.</p>
-    <p><a href="%(insta)s" target="_blank" rel="noopener">Instagram @cuca_terreirodeumbanda</a></p>
+    <p><a href="agenda.html">Agenda da casa</a><br><a href="%(insta)s" target="_blank" rel="noopener">Instagram @cuca_terreirodeumbanda</a><br><a href="%(spot)s" target="_blank" rel="noopener">CucaCast no Spotify</a></p>
    </div>
    %(cols)s
   </div>
@@ -166,7 +182,7 @@ def footer():
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>
-''' % {'insta': INSTA, 'cols': cols}
+''' % {'insta': INSTA, 'cols': cols, 'spot': SPOTIFY_LINK}
 
 def invite():
     return '''<section class="section tight dark grain invite" aria-labelledby="convite">
@@ -197,6 +213,34 @@ def write(path, title, desc, body, og='curimba-poster', solid=True):
     with open(os.path.join(OUT, path), 'w', encoding='utf-8') as f:
         f.write(doc)
     print('ok', path, len(doc))
+
+SPOTIFY_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.62.62 0 0 1-.86.2c-2.35-1.43-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.11.3.18.39.56.21.86zm1.22-2.73a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.57 11.24 1.33.36.22.48.7.25 1.07zm.1-2.84C14.7 8.92 9.36 8.74 6.27 9.68a.94.94 0 1 1-.54-1.8c3.55-1.08 9.45-.87 13.17 1.34a.94.94 0 0 1-.97 1.61z"/></svg>'
+IG_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'
+
+def podcast_block(compact=False):
+    if SPOTIFY_SHOW_ID:
+        player = ('<iframe class="spotify-frame" src="https://open.spotify.com/embed/show/%s?utm_source=generator&amp;theme=0" '
+                  'title="CucaCast no Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>' % SPOTIFY_SHOW_ID)
+    else:
+        player = ''
+    return '''<article class="media-card podcast reveal">
+ <p class="mono"><span class="dot"></span>Podcast</p>
+ <h3>CucaCast</h3>
+ <p>O podcast da casa: conversas sobre Umbanda, fundamentos e o dia a dia da corrente, para ouvir onde você estiver.</p>
+ %s
+ <a class="btn btn-primary btn-spotify" href="%s" target="_blank" rel="noopener">%s Ouvir no Spotify</a>
+</article>''' % (player, SPOTIFY_LINK, SPOTIFY_SVG)
+
+def instagram_block():
+    posts = ''.join('<blockquote class="instagram-media" data-instgrm-permalink="%s?utm_source=ig_embed" data-instgrm-version="14">'
+                    '<a href="%s" target="_blank" rel="noopener">Ver esta publicação no Instagram</a></blockquote>' % (u, u) for u in IG_POSTS)
+    return '''<article class="media-card insta-card reveal">
+ <p class="mono"><span class="dot"></span>Instagram</p>
+ <h3>@cuca_terreirodeumbanda</h3>
+ <p>Giras, festas, avisos e o dia a dia da casa.</p>
+ <div class="ig-posts" data-ig>%s</div>
+ <a class="btn btn-ghost" href="%s" target="_blank" rel="noopener">%s Seguir no Instagram</a>
+</article>''' % (posts, INSTA, IG_SVG)
 
 # ---------- Início ----------
 def index():
@@ -359,10 +403,7 @@ def index():
  <div class="wrap">
   <div class="reveal">%(e7)s<h2 id="t7">Para estudar e conhecer a fundo.</h2></div>
   <div class="cards">%(cards)s</div>
-  <div class="insta reveal">
-   <p><span class="mono">Instagram</span><br>Giras, festas e avisos da casa, no dia a dia.</p>
-   <a class="btn btn-ghost" href="%(insta)s" target="_blank" rel="noopener">Ver @cuca_terreirodeumbanda</a>
-  </div>
+  <div class="midia">%(podcast)s%(instagram)s</div>
  </div>
 </section>
 
@@ -385,7 +426,8 @@ def index():
   <div class="venha-side reveal">
    <div class="boxed">
     <h3>Próximas datas</h3>
-    <iframe class="agenda-frame" src="%(agenda)s" title="Agenda da CUCA" loading="lazy"></iframe>
+    <iframe class="agenda-frame" src="%(agenda)s" title="Próximas datas da agenda da CUCA" loading="lazy"></iframe>
+    <p style="margin:.9em 0 0"><a class="link-arrow" href="agenda.html">Agenda completa</a></p>
    </div>
    <div class="boxed">
     <h3>Apoie a casa</h3>
@@ -408,7 +450,7 @@ def index():
         'p4b': photo('hierarquia', 'A corrente de médiuns vestidos de branco, com faixas coloridas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p4c': photo('amala-exus', 'Amalá da linha de Exus e Pombagiras, com velas vermelhas e pimentas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p8': img('placa', '', sizes='100vw'),
-        'tl': tl_html, 'faq': faq_html, 'cards': cards,
+        'tl': tl_html, 'faq': faq_html, 'cards': cards, 'podcast': podcast_block(), 'instagram': instagram_block(),
     }
     write('index.html', 'CUCA · Casa de Umbanda Corrente de Akuan · Curitiba',
           'Terreiro de Umbanda no Jardim Botânico, em Curitiba. Gira aberta e gratuita toda segunda, às 19h30. Somos lar antes de sermos templo.',

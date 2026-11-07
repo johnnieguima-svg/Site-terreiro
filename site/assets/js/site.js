@@ -35,6 +35,14 @@
   /* ---------- busca ---------- */
   var INDEX=[
     ['Primeira vez na gira','primeira-vez.html','Passo a passo, senha, horário, o que vestir'],
+    ['Agenda','agenda.html','Giras, festas e eventos da casa'],
+    ['CucaCast','index.html#conheca','O podcast da casa no Spotify'],
+    ['Instagram','index.html#conheca','@cuca_terreirodeumbanda'],
+    ['Conduta do consulente','primeira-vez.html#conduta','Guia completo para quem visita'],
+    ['Congá em casa','rituais.html#conga','Como montar'],
+    ['Tiragem do Obi','medium.html#obi','O oráculo do Orixá de cabeça'],
+    ['A Umbanda','historia.html#umbanda','Origem e raízes'],
+    ['Atabaque e curimba','documentos.html#curimba','Rum, Rumpi e Lé'],
     ['Horário e endereço','index.html#venha','Segunda, 19h30. Av. Prefeito Maurício Fruet, 1230'],
     ['Estacionamento','index.html#perguntas','No local, R$ 12,00'],
     ['PIX e doações','index.html#venha','correntedeakuan@gmail.com'],
@@ -194,6 +202,23 @@
     var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links2.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-30% 0px -60% 0px'});
     links2.forEach(function(l){var s=document.querySelector(l.getAttribute('href'));if(s)obs.observe(s)});
   }
+
+  /* ---------- Instagram: carrega o embed só quando a seção aparece ---------- */
+  var ig=document.querySelector('[data-ig]');
+  if(ig){
+    var loadIG=function(){if(window.instgrm){window.instgrm.Embeds.process();return}
+      var sc=document.createElement('script');sc.async=true;sc.src='https://www.instagram.com/embed.js';document.body.appendChild(sc)};
+    if('IntersectionObserver' in window){var igo=new IntersectionObserver(function(es){if(es[0].isIntersecting){igo.disconnect();loadIG()}},{rootMargin:'400px'});igo.observe(ig)}else loadIG();
+  }
+
+  /* ---------- Agenda: alternar mês / lista ---------- */
+  [].forEach.call(document.querySelectorAll('.cal-switch'),function(sw){
+    var fr=document.getElementById(sw.getAttribute('data-frame'));
+    [].forEach.call(sw.querySelectorAll('button'),function(b){b.addEventListener('click',function(){
+      [].forEach.call(sw.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');fr.src=b.getAttribute('data-src')})});
+    if(window.matchMedia('(max-width: 640px)').matches){var l=sw.querySelector('[data-mobile]');if(l)l.click()}
+  });
 
   /* ---------- faixa de avisos (Planilha Google) ---------- */
   var aviso=document.querySelector('.aviso');

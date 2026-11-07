@@ -27,6 +27,10 @@ def build(g):
         return '<section class="section %s"><div class="wrap with-index">%s<div>%s</div></div></section>' % (
             'dark grain' if dark else 'light', chapters(idx), content)
 
+    import manual as M
+    H = {'e': e, 'C': C, 'chapter': chapter, 'tiles': tiles, 'pull': pull, 'photo': photo,
+         'page_hero': page_hero, 'invite': invite, 'write': write}
+
     # ================= HISTÓRIA =================
     tl = ''.join(
         '<li class="reveal"><b>%s</b><span><strong>%s</strong><br>%s</span></li>' % (
@@ -35,9 +39,10 @@ def build(g):
     hist = page_hero('A Casa', 'História e Linha do Tempo',
                      'Três gerações de fé, de uma garagem em 1987 até a casa da Aroeira, em 2025.',
                      'cruzamento-2022', 'A roda de médiuns de branco no cruzamento de Pai de Santo, em 2022', wide=True)
-    idx = [('linha', 'Linha do tempo'), ('raizes', 'Raízes'), ('forja', 'Caminho de forja'),
-           ('promessa', 'A promessa'), ('aroeira', 'O milagre da Aroeira'), ('lar', 'A visão de lar')]
-    content = chapter('linha', 'Linha do tempo', 'Da garagem de 1987 à Aroeira.',
+    idx = [('umbanda', 'A Umbanda'), ('linha', 'Linha do tempo'), ('raizes', 'Raízes'), ('forja', 'Caminho de forja'),
+           ('promessa', 'A promessa'), ('aroeira', 'O milagre da Aroeira'), ('lar', 'A visão de lar'), ('missao', 'Missão e valores'), ('sorri', 'Uma Umbanda que sorri')]
+    content = M.historia_umbanda(H)
+    content += chapter('linha', 'Linha do tempo', 'Da garagem de 1987 à Aroeira.',
         '<ol class="steps hist">%s</ol>' % tl)
     content += chapter('raizes', 'Capítulo 01 · 1987', 'As raízes e Pai Fernando de Ogum.',
         '<div class="fig-side"><div class="prose">'
@@ -74,6 +79,7 @@ def build(g):
         '%s<p><a class="link-arrow" href="guias.html">Conheça o Caboclo Akuan e os guias da casa</a></p>'
         '</div>%s</div>' % (pull('Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.', 'Caboclo Akuan'),
                             photo('inauguracao', 'A corrente reunida na gira inaugural da CUCA, em 2025', 'ratio-11', '1º de setembro de 2025 · Gira inaugural', sizes='(max-width:860px) 100vw, 40vw')))
+    content += M.historia_missao(H) + M.historia_final(H)
     write('historia.html', 'História e Linha do Tempo · CUCA',
           'Três gerações de Umbanda pés no chão: do Terreiro do Pai Maneco, em 1987, à Casa de Umbanda Corrente de Akuan, em 2025.',
           hist + body_with_index(idx, content) + invite(), 'cruzamento-2022')
@@ -119,8 +125,13 @@ def build(g):
         ph = '<figure class="photo">%s</figure>' % img(im, 'Amalá de %s' % o['name'], sizes='(max-width:600px) 100vw, 33vw') if im else ''
         sub = ' <small class="mono" style="font-size:.7rem">%s</small>' % C(o['subtitle']) if o.get('subtitle') else ''
         return ('<article class="ficha reveal" data-cat="%s" style="--c:%s">%s<div class="body"><p class="tag"><i></i>%s</p><h3>%s%s</h3><p class="role">%s</p>'
-                '<details><summary>Atuação e amalá</summary><dl><dt>Atuação</dt><dd>%s</dd><dt>Arquétipo</dt><dd>%s</dd><dt>No emocional</dt><dd>%s</dd><dt>Amalá</dt><dd>%s</dd></dl></details></div></article>'
-                % (cat, o['color'], ph, C(o['polarity']), C(o['name']), sub, C(o['shortRole']), C(o['atuacao']), C(o['mitologia']), C(o.get('efeito', '')), C(o['elementos'])))
+                '<details><summary>Atuação e amalá</summary><dl><dt>Atuação</dt><dd>%s</dd><dt>Arquétipo</dt><dd>%s</dd><dt>No emocional</dt><dd>%s</dd><dt>Amalá</dt><dd>%s</dd></dl></details>%s</div></article>'
+                % (cat, o['color'], ph, C(o['polarity']), C(o['name']), sub, C(o['shortRole']), C(o['atuacao']), C(o['mitologia']), C(o.get('efeito', '')), C(M.AMALA.get(o['name'], o['elementos'])), video(o['name'])))
+    def video(name):
+        u = M.ORIXA_VIDEOS.get(name)
+        if not u:
+            return ''
+        return ('<a class="ficha-video" href="%s" target="_blank" rel="noopener"><span aria-hidden="true">▶</span> Vídeo sobre %s no Instagram</a>' % (e(u), e(name)))
     ox = ''.join(ficha_ox(o, 'orixa') for o in data['orixas'])
     li = ''
     for o in data['linhas']:
@@ -149,7 +160,7 @@ def build(g):
     # ================= RITUAIS =================
     rit = page_hero('Fundamentos', 'Rituais e Preceitos', 'O sagrado no dia a dia: preceito, vela e oração, amalá e banho de ervas.',
                     'jardim-orixas', 'O Jardim dos Orixás, com os tambores das entregas e os oratórios de madeira')
-    idx = [('visao', 'Visão geral'), ('preceito', 'O preceito'), ('vela', 'A vela e a oração'), ('amala', 'O amalá'), ('banho', 'O banho de ervas')]
+    idx = [('visao', 'Visão geral'), ('preceito', 'O preceito'), ('vela', 'A vela e a oração'), ('amala', 'O amalá'), ('banho', 'O banho de ervas'), ('conga', 'O Congá em casa')]
     content = chapter('visao', 'Visão geral', 'Quatro práticas que sustentam o equilíbrio.',
         '<div class="prose"><p>Na Umbanda, o sagrado não é algo distante: a folha, a água, a vela e a própria mente são manifestações de energia vital. Sustentamos nosso equilíbrio com quatro práticas fundamentais.</p></div>'
         + tiles([('O preceito', 'Alinhamento do corpo e da mente antes e depois da gira.'), ('A vela e a oração', 'Ponto de firmeza e conexão com o Anjo da Guarda.'),
@@ -160,14 +171,14 @@ def build(g):
         + tiles([('Zero álcool e ilícitos', 'Substâncias que alteram a consciência rompem a proteção e atraem baixa vibração.'),
                  ('Alimentação leve', 'Nos dias de gira, evite carnes vermelhas, comidas pesadas e excessos que sobrecarregam o corpo.'),
                  ('Reserva de energia vital', 'Resguarde sua energia vital e mantenha o recolhimento interior antes dos trabalhos.'),
-                 ('Vigilância emocional', 'Evite discussões, raiva ou fofocas. Emoções densas atuam como ruídos na sintonia espiritual.')]))
+                 ('Vigilância emocional', 'Evite discussões, raiva ou fofocas. Emoções densas atuam como ruídos na sintonia espiritual.')]) + M.rituais_preceito_extra(H))
     content += chapter('vela', 'Pilar 02', 'A vela e a oração.',
         '<div class="prose"><p>A chama da vela representa a consciência desperta e a fé viva. O copo com água pura ao lado funciona como espelho e filtro das boas energias, conectando você ao seu Anjo da Guarda.</p>%s</div>' %
         pull('A vela e a água formam um portal de luz, proteção e conexão em sua morada.')
         + tiles([('01 · Local seguro e limpo', 'Acenda em local tranquilo e longe de inflamáveis, em silêncio e prece.'),
                  ('02 · Sempre vela branca', 'Em casa, use vela branca, salvo recomendação do guia. Ela é símbolo de pureza.'),
                  ('03 · Copo com água ao lado', 'Coloque sempre um copo com água limpa ao lado da vela.'),
-                 ('04 · Descarte respeitoso', 'Ao final da queima, despeje a água numa planta ou em água corrente, com gratidão.')]))
+                 ('04 · Descarte respeitoso', 'Ao final da queima, despeje a água numa planta ou em água corrente, com gratidão.')]) + M.rituais_vela_extra(H))
     gal = ''.join('<div>%s</div>' % photo(s, a, 'ratio-34', sizes='(max-width:860px) 50vw, 25vw') for s, a in [
         ('amala-ogum', 'Amalá de Ogum'), ('amala-oxum', 'Amalá de Oxum'), ('amala-pretos-velhos', 'Amalá dos Pretos Velhos'), ('amala-nana', 'Amalá de Nanã')])
     content += chapter('amala', 'Pilar 03', 'O amalá.',
@@ -179,7 +190,7 @@ def build(g):
                  ('Zelo com o Jardim', 'O Jardim é solo sagrado: nunca deixamos plásticos, lixo ou fósforos queimados nos alguidares.'),
                  ('A regra de ouro', 'Sem intenção não há axé. A beleza da oferenda reflete a sinceridade da oração.')])
         + '<div class="grid-4" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:2em">%s</div>'
-          '<p style="margin-top:1.4em"><a class="link-arrow" href="orixas.html">O amalá de cada Orixá e de cada linha</a></p>' % gal)
+          '<p style="margin-top:1.4em"><a class="link-arrow" href="orixas.html">O amalá de cada Orixá e de cada linha</a></p>' % gal + M.rituais_amala_extra(H))
     content += chapter('banho', 'Pilar 04', 'O banho de ervas.',
         '<div class="fig-side"><div class="prose"><p>O banho de ervas não é um ato comum de higiene. Ele limpa o campo espiritual e age por compensação: acalma o que está inflamado e desperta vigor onde há cansaço.</p>'
         '<ol class="steps"><li><b>A escolha</b><span>Peça licença à natureza. Escolha a erva conforme o elemento necessário: Ar, Fogo, Terra ou Água.</span></li>'
@@ -187,7 +198,8 @@ def build(g):
         '<li><b>A aplicação</b><span>Depois do banho de higiene, despeje devagar, em oração, respeitando se a erva vai ou não na cabeça.</span></li>'
         '<li><b>O retorno</b><span>Deixe secar naturalmente e devolva as folhas coadas à terra, agradecendo.</span></li></ol>'
         '<p><a class="link-arrow" href="ervas.html">As 16 ervas sagradas da casa</a></p></div>%s</div>' %
-        photo('banho-ervas', 'Mãos macerando folhas numa bacia para o banho de ervas', 'ratio-34', 'Preparo do banho', sizes='(max-width:860px) 100vw, 40vw'))
+        photo('banho-ervas', 'Mãos macerando folhas numa bacia para o banho de ervas', 'ratio-34', 'Preparo do banho', sizes='(max-width:860px) 100vw, 40vw') + M.rituais_banho_full(H))
+    content += M.rituais_conga(H)
     write('rituais.html', 'Rituais e Preceitos · CUCA', 'Preceito, vela e oração, amalá e banho de ervas: como a CUCA vive o sagrado no dia a dia.',
           rit + body_with_index(idx, content) + invite(), 'jardim-orixas')
 
@@ -242,7 +254,7 @@ def build(g):
         '<div class="photo">%s</div>' % img(s, '%s, %s da CUCA' % (n, r.split(' · ')[0]), sizes='(max-width:600px) 50vw, 20vw', pos=POS.get(s, '50% 22%')), e(n), e(r))
     pv = page_hero('Vivência', 'Primeira vez?', 'Tudo o que acontece da chegada até a saída, para você vir tranquilo.',
                    'fachada', 'A casa da CUCA ao entardecer, com médiuns de branco na varanda', wide=True)
-    idx = [('passos', 'Passo a passo'), ('frentes', 'Frentes de atendimento'), ('hierarquia', 'Quem cuida da casa'), ('orientacoes', 'Orientações de ouro'), ('limites', 'O que não fazemos')]
+    idx = [('passos', 'Passo a passo'), ('conduta', 'Guia de conduta'), ('frentes', 'Frentes de atendimento'), ('hierarquia', 'Quem cuida da casa'), ('orientacoes', 'Orientações de ouro'), ('limites', 'O que não fazemos')]
     content = chapter('passos', '01 · Sua visita', 'Passo a passo.',
         '<div class="fig-side"><div><ol class="steps">'
         '<li><b>Chegue às 19h.</b><span>As senhas são distribuídas por ordem de chegada. A gira começa às 19h30.</span></li>'
@@ -258,27 +270,26 @@ def build(g):
                  ('Prioridade', 'Pessoas idosas, gestantes e pessoas com condição especial têm prioridade. Avise na chegada.'),
                  ('Crianças', 'Podem vir, sempre acompanhadas de um responsável e em silêncio respeitoso.'),
                  ('Fotos e vídeos', 'Não, sem autorização da casa. O que acontece na gira é sagrado e confidencial.')]))
-    content += chapter('frentes', '02 · Como trabalhamos na gira', 'As quatro frentes de atendimento.',
+    content += M.conduta(H)
+    content += chapter('frentes', '03 · Como trabalhamos na gira', 'As quatro frentes de atendimento.',
         '<p class="prose">Todo auxílio mediúnico é caridade gratuita. Na gira, você pode receber uma destas quatro formas de atendimento.</p><div class="fichas" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">%s</div>' % fr)
-    content += chapter('hierarquia', '03 · Falando da casa', 'Quem cuida da casa.',
+    content += chapter('hierarquia', '04 · Falando da casa', 'Quem cuida da casa.',
         '<div class="prose"><p>Na gira, cada pessoa tem uma função, e a hierarquia é a sua referência dentro da casa. Estes são os nomes que você vai ouvir e as pessoas que vão te receber. Se tiver qualquer dúvida, procure uma delas.</p></div>'
         '%s<div class="people lead">%s</div><div class="people">%s</div>' % (
             photo('hierarquia', 'A corrente da CUCA reunida no salão', 'ratio-169', 'A corrente da CUCA', sizes='(max-width:1000px) 100vw, 70vw', pos='50% 40%'),
             ''.join(person(*p) for p in LEAD), ''.join(person(*p) for p in TEAM))
-        + tiles([('Pai e Mãe de Santo', 'Dirigem a casa e respondem pela ordem espiritual da gira.'),
-                 ('Mãe Pequena', 'Apoia a direção e cuida de perto da corrente.'),
-                 ('Ogãs e Samba', 'Conduzem a curimba: os atabaques e os pontos cantados.'),
-                 ('Capitães', 'Organizam a corrente e a assistência durante a gira.')]))
-    content += chapter('orientacoes', '04 · Para quem vai passar por atendimento', 'Quatro orientações de ouro.',
+        + tiles(M.HIERARQUIA))
+    content += chapter('orientacoes', '05 · Para quem vai passar por atendimento', 'Quatro orientações de ouro.',
         tiles([('1. Fale com clareza e verdade', 'Ao conversar com a entidade no toco, o lugar da consulta individual, seja honesto. Não tente testar o guia. Vá com o coração aberto.'),
                ('2. Avise sobre alergias a ervas', 'Se a entidade receitar um banho de ervas ou chá e você for alérgico a algum componente, avise na hora.'),
                ('3. Respeite os limites éticos', 'Não peça amarrações, previsões do futuro ou qualquer trabalho que prejudique outra pessoa. A Umbanda atua nas leis do amor e da caridade.'),
                ('4. O passe começa na assistência', 'Cuide dos seus pensamentos enquanto espera o atendimento. Sua melhora começa na sua intenção.')]))
-    content += chapter('limites', '05 · Nossos limites', 'O que não fazemos.',
+    content += chapter('limites', '06 · Nossos limites', 'O que não fazemos.',
         '<ul class="nots">'
         '<li><b>Não fazemos amarrações nem simpatias amorosas.</b><span>A Umbanda respeita o livre-arbítrio. Não fazemos nenhum trabalho para manipular a vontade de outra pessoa.</span></li>'
         '<li><b>Não fazemos adivinhação do futuro.</b><span>Os guias não são oráculos. A missão da espiritualidade é aconselhar e fortalecer você para construir o amanhã com consciência.</span></li>'
         '<li><b>Não acolhemos fofocas nem pedidos de vingança.</b><span>O terreiro é um hospital de almas. Não aceitamos pedidos para prejudicar ninguém.</span></li>'
+        '<li><b>Não recebemos bonificações nem vantagens pessoais.</b><span>Médiuns e dirigentes não se beneficiam materialmente do trabalho espiritual. O que fazemos é por amor e compromisso com a caridade.</span></li>'
         '<li><b>Não cobramos nem aceitamos pagamento.</b><span>Nenhum trabalho espiritual, passe ou consulta tem preço. A espiritualidade nunca é mercadoria.</span></li></ul>')
     write('primeira-vez.html', 'Primeira vez? · CUCA', 'Como é a primeira visita à CUCA: horário, senhas, o que vestir, as frentes de atendimento e quem cuida da casa.',
           pv + body_with_index(idx, content) + invite(), 'fachada')
@@ -295,16 +306,20 @@ def build(g):
     ]
     med = page_hero('Vivência', 'Quero ser médium', 'Entrar para a corrente mediúnica é um chamado ao trabalho espiritual, ao autoconhecimento e ao serviço fraterno.',
                     'corrente', 'A corrente de médiuns de branco cantando no salão', wide=True)
-    idx = [('aco', 'A corrente de aço'), ('autodescobrimento', 'Autodescobrimento'), ('passos', 'Os 7 passos'), ('dicas', 'Dicas de ouro'), ('deveres', 'Pilares e deveres'), ('funcoes', 'Funções mediúnicas')]
+    idx = [('aco', 'A corrente de aço'), ('autodescobrimento', 'Autodescobrimento'), ('passos', 'Os 7 passos'), ('obi', 'Tiragem do Obi'), ('amaci', 'O Amaci'), ('menores', 'Menores de idade'),
+           ('direitos', 'Direitos e deveres'), ('caminhada', 'O começo da caminhada'), ('dicas', 'Dicas de ouro'), ('deveres', 'Pilares'), ('funcoes', 'Funções mediúnicas')]
     content = chapter('aco', 'O caminho do médium', 'A corrente de aço.',
         '<div class="prose">%s<p>O ingresso na CUCA não acontece de imediato. Exige vivência, confirmação espiritual e preparo. Leia com calma os passos abaixo e, se sentir o chamado, comece pela assistência, numa segunda-feira.</p></div>' %
-        pull('Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.', 'Caboclo Akuan'))
+        (pull('Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.', 'Caboclo Akuan')
+         + pull('Não quero os melhores médiuns, sensíveis e sensitivos. Quero comigo os melhores umbandistas!', 'Caboclo Akuan')
+         + pull('Você tem disciplina? Transparência? E amor? Então Akuan lhe receberá em sua corrente. Mas prepare-se bem, pois o caminho do serviço espiritual é lento, longo e exigente, mas é também belo e recompensador.', 'Exu Tranca Ruas das Almas')))
     content += chapter('autodescobrimento', '01 · Psicologia e espiritualidade', 'A mediunidade como autodescobrimento.',
         tiles([('O médium como instrumento vivo', 'A mediunidade não é um passe de mágica em que a pessoa funciona como um gravador. O guia usa o repertório emocional e moral do médium para passar a mensagem.'),
                ('“Só vamos com o outro até onde fomos conosco”', 'O princípio de Carl Jung vale aqui: como amparar a dor de um consulente se fugimos de encarar as nossas próprias sombras?'),
                ('Afinar o caráter', 'Quando falta bagagem moral, o vazio é preenchido pelo ego. A espiritualidade verdadeira não precisa de espetáculo, precisa de instrumentos afinados.')]))
     content += chapter('passos', '02 · Jornada de admissão', 'Os 7 passos para ingressar na corrente.',
         '<div class="faq">%s</div>' % ''.join('<details%s><summary>%d. %s</summary><div class="ans"><p>%s</p></div></details>' % (' open' if i == 0 else '', i + 1, e(t), e(d)) for i, (t, d) in enumerate(passos)))
+    content += M.medium_extras(H)
     content += chapter('dicas', '03 · Sabedoria de terreiro', 'Seis dicas de ouro para o médium.',
         tiles([('1. Seja o consulente de si mesmo', 'Tome para si os ensinamentos que te atravessarem. A entidade não é sua propriedade, nem você dela.'),
                ('2. Não espere ser convocado', 'A ordem de fora reflete a de dentro. Ofereça-se para ajudar na limpeza, na organização e no zelo pelo templo.'),
@@ -347,4 +362,5 @@ def build(g):
     doc += ('<section class="section dark grain"><div class="smoke" aria-hidden="true"></div><div class="wrap"><h2 class="reveal">Acervo de estudo.</h2>'
             '<p class="lede reveal">Material da casa para médiuns e para quem quer conhecer a CUCA a fundo.</p><div class="docs">%s</div></div></section>') % dh
     write('documentos.html', 'Documentos e Pontos · CUCA', 'Guia do Médium, Ritual de Abertura e Livro de Pontos Cantados da CUCA, para leitura e download.',
-          doc + invite(), 'raphael')
+          doc + M.curimba(H) + '<section class="section dark grain" id="cucacast"><div class="wrap"><div class="midia">%s%s</div></div></section>' % (g['podcast_block'](), g['instagram_block']()) + invite(), 'raphael')
+    M.agenda_page(H, g)
