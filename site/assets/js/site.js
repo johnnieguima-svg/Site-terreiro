@@ -49,6 +49,9 @@
   var INDEX=[
     ['Primeira vez na gira','primeira-vez.html','Passo a passo, senha, horário, o que vestir'],
     ['Agenda','agenda.html','Giras, festas e eventos da casa'],
+    ['Projeto Social Comida de Santo','projeto-social.html','Ações sociais da casa'],
+    ['Feijoada de Ogum','projeto-social.html','Cultura e encontros'],
+    ['Aulas de Engoma','projeto-social.html','Atabaque e percussão'],
     ['Gira de Leito','agenda.html','Uma sexta-feira por mês'],
     ['Terreiro CECATU','agenda.html','Casa irmã: gira de quarta-feira na CUCA'],
     ['CucaCast','index.html#conheca','O podcast da casa no Spotify'],
@@ -208,25 +211,52 @@
     f.addEventListener('click',function(){var o=f.getAttribute('aria-expanded')==='true';f.setAttribute('aria-expanded',String(!o))});
   });
 
-  /* ---------- corrente lateral que se traça com a rolagem ---------- */
-  var rail=document.querySelector('.chain-rail');
-  if(rail){
-    var host=rail.parentElement,svg=rail.querySelector('svg'),path;
-    function buildRail(){
-      var h=host.offsetHeight,d='',y=8;
-      /* elos alternados: um de frente (oval), um de perfil (traço) */
-      for(;y<h-40;y+=36){d+='M11,'+y+' a6,12 0 1,0 0,24 a6,12 0 1,0 0,-24 ';d+='M11,'+(y+17)+' v26 ';}
-      svg.setAttribute('viewBox','0 0 22 '+h);svg.innerHTML='<path d="'+d+'"/>';path=svg.firstChild;
-      var len=path.getTotalLength();path.style.strokeDasharray=len;path.style.strokeDashoffset=len;path.dataset.len=len;drawRail();
+  /* ---------- corrente lateral: se forma elo a elo enquanto a página desce ---------- */
+  var chainRail=document.querySelector('.chain-rail');
+  if(chainRail){
+    var chHost=chainRail.parentElement,chSvg=chainRail.querySelector('svg'),chLinks=[],chShown=-1;
+    function chBuild(){
+      var h=chHost.offsetHeight,html='',y=10,k=0,step=30;
+      for(;y<h-40;y+=step,k++){
+        html+= k%2===0
+          ? '<ellipse class="cl" cx="13" cy="'+(y+14)+'" rx="8" ry="16"/>'
+          : '<ellipse class="cl side" cx="13" cy="'+(y+14)+'" rx="2.6" ry="16"/>';
+      }
+      chSvg.setAttribute('viewBox','0 0 26 '+h);chSvg.style.height=h+'px';chSvg.innerHTML=html;
+      chLinks=[].slice.call(chSvg.querySelectorAll('.cl'));chShown=-1;chDraw();
     }
-    function drawRail(){
-      if(!path)return;var r=host.getBoundingClientRect(),vh=window.innerHeight;
-      var p=Math.min(1,Math.max(0,(vh*0.7-r.top)/r.height));
-      path.style.strokeDashoffset=reduced()?0:(1-p)*path.dataset.len;
+    function chDraw(){
+      if(!chLinks.length)return;
+      var r=chHost.getBoundingClientRect(),head=reduced()?r.height:Math.max(0,window.innerHeight*.75-r.top);
+      var n=Math.min(chLinks.length,Math.floor(head/30));
+      if(n===chShown)return;
+      chLinks.forEach(function(l,i){l.classList.toggle('on',i<n)});chShown=n;
     }
-    var raf=0;window.addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(function(){raf=0;drawRail()})},{passive:true});
-    window.addEventListener('resize',function(){clearTimeout(rail._t);rail._t=setTimeout(buildRail,200)});
-    window.addEventListener('load',buildRail);
+    var chRaf=0;window.addEventListener('scroll',function(){if(!chRaf)chRaf=requestAnimationFrame(function(){chRaf=0;chDraw()})},{passive:true});
+    window.addEventListener('resize',function(){clearTimeout(chainRail._t);chainRail._t=setTimeout(chBuild,200)});
+    window.addEventListener('load',chBuild);
+  }
+
+  /* ---------- raízes: a flecha parte de 1987 e acende cada estação até 2025 ---------- */
+  var roots=document.querySelector('.roots');
+  if(roots){
+    var rArrow=roots.querySelector('.roots-arrow'),rInk=roots.querySelector('.roots-ink'),rItems=[].slice.call(roots.querySelectorAll('.timeline li'));
+    function rRun(){
+      var vert=window.matchMedia('(max-width: 860px)').matches,box=roots.getBoundingClientRect();
+      var pts=rItems.map(function(li){var k=li.querySelector('.knot').getBoundingClientRect();return vert?k.top+k.height/2-box.top:k.left+k.width/2-box.left});
+      var first=pts[0],last=pts[pts.length-1],dur=reduced()?0:5600,t0=null;
+      roots.classList.toggle('vert',vert);
+      function frame(ts){
+        if(t0===null)t0=ts;var p=dur?Math.min(1,(ts-t0)/dur):1;var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+        var pos=first+(last-first)*e;
+        if(vert){rArrow.style.transform='translate(0,'+pos+'px) rotate(90deg)';rInk.style.height=(pos-first)+'px';rInk.style.top=first+'px'}
+        else{rArrow.style.transform='translate('+pos+'px,0)';rInk.style.width=(pos-first)+'px';rInk.style.left=first+'px'}
+        rItems.forEach(function(li,i){if(pos>=pts[i]-2)li.classList.add('lit')});
+        if(p<1)requestAnimationFrame(frame);else roots.classList.add('done');
+      }
+      roots.classList.add('run');requestAnimationFrame(frame);
+    }
+    if(io){var ro=new IntersectionObserver(function(es){if(es[0].isIntersecting){ro.disconnect();setTimeout(rRun,400)}},{threshold:.5});ro.observe(roots)}else rRun();
   }
 
   /* ---------- momento interativo: segure para formar a corrente ---------- */
@@ -249,6 +279,15 @@
     btn.addEventListener('keydown',function(e){if((e.key===' '||e.key==='Enter')&&!e.repeat)start(e)});
     btn.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter')stop()});
     btn.addEventListener('contextmenu',function(e){e.preventDefault()});
+  }
+
+  /* ---------- PIX flutuante ---------- */
+  var fab=document.querySelector('.pix-fab'),pop=document.getElementById('pix-pop');
+  if(fab){
+    fab.addEventListener('click',function(e){e.stopPropagation();var o=fab.getAttribute('aria-expanded')==='true';fab.setAttribute('aria-expanded',String(!o));pop.classList.toggle('open',!o)});
+    pop.addEventListener('click',function(e){e.stopPropagation()});
+    document.addEventListener('click',function(){fab.setAttribute('aria-expanded','false');pop.classList.remove('open')});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){fab.setAttribute('aria-expanded','false');pop.classList.remove('open')}});
   }
 
   /* ---------- copiar chave PIX ---------- */

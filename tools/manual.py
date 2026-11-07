@@ -53,7 +53,7 @@ def historia_missao(H):
     return H['chapter']('missao', 'Quem somos', 'Missão, visão e valores.',
         '<div class="prose"><p>Nosso tronco espiritual brota de três gerações de fé: Pai Fernando de Ogum, que plantou a semente; Pai Léo de Oxóssi, que a fez crescer; e esta casa, erguida sob a força do Caboclo Akuan.</p></div>'
         + H['tiles']([('Missão: ser casa e coração', 'Somos lar antes de sermos templo. Aqui a porta fica aberta para o desamparo, o abraço é gratuito e a palavra cura. Amor, caridade e disciplina formam a corrente que sustenta cada gira.'),
-                      ('Visão: Umbanda simples, eficaz e profunda', 'Ser referência de Umbanda brasileira: fiel aos cantos dos antigos e corajosa para dialogar com o mundo de hoje. Que cada consulente saia mais desperto e cada médium mais consciente.'),
+                      ('Visão: Umbanda simples, eficaz e profunda', 'Ser referência de Umbanda brasileira: fiel à tradição dos antigos e corajosa para dialogar com o mundo de hoje. Que cada consulente saia mais desperto e cada médium mais consciente.'),
                       ('Caridade', 'Atendimento gratuito, ouvido atento, gesto solidário.'),
                       ('Disciplina de Caboclo', 'Pontualidade, preparo ritual e estudo contínuo.'),
                       ('Ética de Preto Velho', 'Transparência nas finanças, sigilo nas confidências, respeito nas diferenças.')])
@@ -218,7 +218,7 @@ def agenda_page(H, g):
             '<iframe id="cal" class="cal-frame reveal" src="%(mes)s" title="Agenda da CUCA" loading="lazy"></iframe>'
             '<p style="margin-top:1em;color:var(--ink-secondary);font-size:.92rem">Não conseguiu ver a agenda? <a href="%(open)s" target="_blank" rel="noopener">Abra direto no Google Agenda</a>.</p>'
             '</div></section>') % {'add': e(g['CAL_ADD']), 'ics': e(g['CAL_ICS']), 'mes': e(g['AGENDA_MES']), 'lista': e(g['AGENDA']), 'open': e(g['AGENDA_MES']),
-             'cecatu': ('<a href="%s" target="_blank" rel="noopener">Siga o CECATU no Instagram</a>' % e(g['CECATU_INSTA'])) if g.get('CECATU_INSTA') else ''}
+             'cecatu': ('<a href="%s" target="_blank" rel="noopener">@umbandacecatu no Instagram</a> · <a href="%s" target="_blank" rel="noopener">cecatu.com.br</a>' % (e(g['CECATU_INSTA']), e(g['CECATU_SITE'])))}
     H['write']('agenda.html', 'Agenda · CUCA', 'Agenda da Casa de Umbanda Corrente de Akuan: gira toda segunda às 19h30, festas, giras especiais e eventos.',
                hero + body + H['invite'](), 'adejas')
 
@@ -268,3 +268,81 @@ def linha_viva(H, steps):
             '<div class="tl-track"><svg class="tl-line" aria-hidden="true" preserveAspectRatio="none"><path class="tl-rail"/><path class="tl-ink"/></svg>'
             '<ol class="tl-list">%s</ol></div>'
             '</div></div></section>') % items
+
+
+# ---------- Projeto Social Comida de Santo (fonte: portfólio cultural no Canva) ----------
+ACOES = [
+    ('2025', 'Infância em primeiro lugar', 'Ações com o projeto Coração Acolhedor, o Lar Moisés e a Associação Semeando Amor: tardes recreativas e doação de alimentos e doces para 80 crianças da comunidade de São José dos Pinhais.'),
+    ('2025', 'Natal com padrinhos', 'Apadrinhamento de Natal para 25 crianças em situação de acolhimento institucional.'),
+    ('2025', 'Aldeia Ventania', 'Mobilização para a reconstrução da Aldeia Ventania, depois das perdas causadas pelos temporais.'),
+    ('2026', 'Bem-estar animal', 'Apoio a cuidadores autônomos, como a protetora Kemi, da Lapa, que cuida de mais de 200 animais em casa: arrecadação de medicamentos e casinhas feitas com material reciclado.'),
+    ('11 jun', 'Sopão e roupas', 'Distribuição de sopão e entrega de roupas para pessoas em situação de rua.'),
+    ('26 jun', 'Associação São Judas Tadeu', 'Entrega de refeições em parceria com a Central Única das Favelas do Paraná (CUFA-PR).'),
+    ('4 out', 'Dia das Crianças na aldeia', 'Ação especial de Dia das Crianças na Aldeia Tekoa Guaviraty, levando o projeto a uma comunidade indígena.'),
+]
+EVENTOS = [
+    ('Feijoada de Ogum', 'Mais de 250 pessoas em 2025, com feira de artesanato, música de terreiro e comida típica.'),
+    ('Gira de Praia', 'Encontro ritualístico gratuito e aberto, à beira do mar.'),
+    ('Aulas de Engoma', 'Aulas de atabaque e percussão para médiuns e assistência, com o Ogã Caetano Guimarães.'),
+    ('Encontro de Letramento Racial', 'Conversa aberta e gratuita sobre racismo, apagamento histórico e legado racial no Brasil, com a Mestra Fernanda, do Candomblé.'),
+    ('Trabalho de Mata', 'Gira feita inteiramente no mato, aberta ao público, para reconexão com a natureza e os ancestrais.'),
+    ('Visitas e trocas', 'O Cacique Wbyrawa, do grupo Swbathekye Kariri Xocó, e o grupo de capoeira Zungu já estiveram na casa com rituais, palestra e apresentação.'),
+    ('Festa de Encerramento', 'Cerca de 150 pessoas, com música, feira de artesanato, brechó, comidas e bebidas.'),
+    ('Pergunte à CUCA', 'Quadro no Instagram para tirar dúvidas e conversar sobre a filosofia umbandista. Cada publicação chega a 3 ou 4 mil pessoas.'),
+]
+
+
+PIX_PROJETO = 'projetosocialcomidadesanto@gmail.com'
+INSTA_PROJETO = 'https://www.instagram.com/projetocomidadesanto/'
+
+
+def doacao_band(H, g, idn):
+    e = H['e']
+    return ('<section class="doar" aria-labelledby="doar-%(i)s"><div class="wrap">'
+            '<p class="doar-kicker">Precisamos da sua ajuda</p>'
+            '<h2 id="doar-%(i)s">O Comida de Santo vive de doações.</h2>'
+            '<p class="doar-text">Cada ação depende de quem doa: alimentos, roupas, materiais e dinheiro. Qualquer valor faz diferença. Doe pelo PIX do projeto:</p>'
+            '<div class="doar-pix"><span class="doar-label">Chave PIX do projeto</span><code>%(pix)s</code>'
+            '<button type="button" class="btn doar-btn" data-copy="%(pix)s" aria-describedby="doar-ok-%(i)s">Copiar chave PIX</button></div>'
+            '<p class="copied doar-ok" id="doar-ok-%(i)s" aria-live="polite"></p>'
+            '<p class="doar-alt">Para doar alimentos, roupas ou materiais, <a href="%(wa)s" target="_blank" rel="noopener">fale com a casa no WhatsApp</a>.</p>'
+            '</div></section>') % {'i': idn, 'pix': e(PIX_PROJETO), 'wa': g['WHATS']}
+
+
+def insta_projeto(H):
+    e = H['e']
+    return ('<section class="section dark grain"><div class="smoke" aria-hidden="true"></div><div class="wrap"><div class="grid-2 top">'
+            '<div class="reveal"><span class="mono" style="color:var(--accent-on-dark)">Instagram do projeto</span><h2 style="margin-top:.4em">Acompanhe cada ação.</h2>'
+            '<p class="lede">Fotos, agradecimentos e a próxima campanha de arrecadação ficam no perfil do projeto.</p>'
+            '<p><a class="btn btn-primary" href="%(u)s" target="_blank" rel="noopener">Seguir @projetocomidadesanto</a></p></div>'
+            '<div class="ig-profile reveal"><iframe src="%(u)sembed" title="Instagram do Projeto Comida de Santo" loading="lazy"></iframe>'
+            '<a class="ig-fallback" href="%(u)s" target="_blank" rel="noopener">Ver @projetocomidadesanto no Instagram</a></div>'
+            '</div></div></section>') % {'u': e(INSTA_PROJETO)}
+
+
+def projeto_social(H, g):
+    e = H['e']
+    hero = H['page_hero']('A Casa', 'Projeto Social Comida de Santo',
+                          'A caridade da gira continua fora dela: um cronograma de ações a cada três meses, para quem mais precisa.',
+                          'passe', 'Mãos de médium em gesto de cuidado', pos='60% 35%')
+    nums = ('<div class="nums reveal"><div><b>10 mil</b><span>pessoas atendidas por ano no terreiro, de graça</span></div>'
+            '<div><b>80</b><span>crianças em tardes recreativas e doações em 2025</span></div>'
+            '<div><b>25</b><span>crianças apadrinhadas no Natal</span></div>'
+            '<div><b>200+</b><span>animais apoiados pela ação de bem-estar animal</span></div></div>')
+    acoes = ''.join('<li class="reveal"><span class="when">%s</span><div><h3>%s</h3><p>%s</p></div></li>' % (e(w), e(t), e(d)) for w, t, d in ACOES)
+    body = ('<section class="section light"><div class="wrap"><div class="grid-2 top">'
+            '<div class="reveal"><span class="mono" style="color:var(--accent)">Compromisso social</span><h2 style="margin-top:.4em">Caridade em prática.</h2></div>'
+            '<div class="prose reveal"><p>A atuação da CUCA não se separa da caridade e da responsabilidade social. Com o projeto Comida de Santo, a casa montou um cronograma de ações a cada três meses, cada uma voltada a um grupo em situação de vulnerabilidade.</p>'
+            '<p>Cada ação é a continuação de um trabalho que vai além da doação material: é o compromisso do terreiro com a vida, a dignidade humana e uma sociedade mais solidária.</p></div></div>'
+            '%s</div></section>' % nums)
+    body += doacao_band(H, g, 'topo')
+    body += ('<section class="section dark grain"><div class="smoke" aria-hidden="true"></div><div class="wrap">'
+             '<h2 class="reveal">O que já fizemos.</h2><p class="lede reveal">De 2025 para cá: infância, pessoas em situação de rua, comunidades indígenas e bem-estar animal.</p>'
+             '<ol class="acoes">%s</ol></div></section>' % acoes)
+    body += ('<section class="section light"><div class="wrap"><h2 class="reveal">Cultura e encontros.</h2>'
+             '<p class="lede reveal">Além de espaço religioso, a CUCA é lugar de cultura e de brasilidade. Ao longo do ano, a casa abre as portas para encontros gratuitos.</p>'
+             '%s</div></section>' % H['tiles'](EVENTOS))
+    body += insta_projeto(H) + doacao_band(H, g, 'fim')
+    H['write']('projeto-social.html', 'Projeto Social Comida de Santo · CUCA',
+               'Projeto Comida de Santo da CUCA: ações sociais a cada três meses para crianças, pessoas em situação de rua, comunidades indígenas e bem-estar animal.',
+               hero + body + H['invite'](), 'passe')

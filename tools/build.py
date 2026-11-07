@@ -29,7 +29,8 @@ CAL_ICS = 'https://calendar.google.com/calendar/ical/%s/public/basic.ics' % _CAL
 
 # ---------- Casa irmã ----------
 # Instagram do Terreiro CECATU, que toca a gira de quarta-feira dentro da CUCA (cole o link do perfil).
-CECATU_INSTA = ''
+CECATU_INSTA = 'https://www.instagram.com/umbandacecatu/'
+CECATU_SITE = 'https://www.cecatu.com.br/'
 
 # ---------- CucaCast (Spotify) ----------
 # Cole aqui o código do programa no Spotify: no link open.spotify.com/show/XXXX, é o XXXX.
@@ -44,6 +45,7 @@ NAV = [
     ('A Casa', [
         ('historia.html', 'História e Linha do Tempo', 'Três gerações de fé até a CUCA.', 'cruzamento-2022'),
         ('guias.html', 'Guias Dirigentes', 'Caboclo Akuan e os mentores que conduzem as giras.', 'guia-akuan'),
+        ('projeto-social.html', 'Projeto Social', 'Comida de Santo: a caridade da gira, fora dela.', 'passe'),
     ]),
     ('Fundamentos', [
         ('orixas.html', 'Orixás e Linhas', 'Os 9 Orixás cultuados na casa e as 10 linhas de trabalho.', 'amala-oxala'),
@@ -157,6 +159,17 @@ def nav(current, solid=False):
  </div>
 </header>
 <div class="mobile-panel" id="menu-movel">%(mob)s<a class="btn btn-primary" href="%(wa)s" target="_blank" rel="noopener">%(wasvg)s Falar no WhatsApp</a></div>
+<div class="pix-float">
+ <button type="button" class="pix-fab" aria-expanded="false" aria-controls="pix-pop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.3-9.2C1.4 8.3 3.6 4.5 7.3 4.5c2 0 3.6 1.1 4.7 2.7 1.1-1.6 2.7-2.7 4.7-2.7 3.7 0 5.9 3.8 4.6 7.3C19.5 16.4 12 21 12 21z"/></svg><span>Apoie a casa</span></button>
+ <div class="pix-pop" id="pix-pop" role="dialog" aria-label="Apoie a casa">
+  <p class="mono">PIX da CUCA</p>
+  <p>A casa se mantém com a ajuda de quem acredita nela.</p>
+  <code>%(pix)s</code>
+  <button type="button" class="btn btn-primary" data-copy="%(pix)s" aria-describedby="pix-float-ok">Copiar chave</button>
+  <p class="copied" id="pix-float-ok" aria-live="polite"></p>
+  <a class="pix-pop-link" href="projeto-social.html">Doar para o Projeto Comida de Santo</a>
+ </div>
+</div>
 <div class="search" role="dialog" aria-modal="true" aria-label="Buscar no site">
  <div class="search-box">
   <label><span class="sr-only">O que você procura?</span><input type="search" placeholder="O que você procura? Ex.: primeira vez, arruda, PIX" autocomplete="off"></label>
@@ -164,7 +177,7 @@ def nav(current, solid=False):
  </div>
 </div>
 ''' % {'solid': ' solid' if solid else '', 'items': ''.join(items), 'search': SEARCH_SVG, 'burger': BURGER_SVG,
-       'mob': ''.join(mob), 'wa': WHATS, 'wasvg': WA_SVG}
+       'mob': ''.join(mob), 'wa': WHATS, 'wasvg': WA_SVG, 'pix': PIX}
 
 def footer():
     cols = ''.join('<div><h4>%s</h4><ul>%s</ul></div>' % (e(g), ''.join('<li><a href="%s">%s</a></li>' % (h, e(t)) for h, t, _, _ in p)) for g, p in NAV)
@@ -302,7 +315,7 @@ def index():
 <section class="quote-band dark grain akuan-band" aria-label="Palavra do Caboclo Akuan">
  <div class="smoke" aria-hidden="true"></div>
  <div class="forge" aria-hidden="true"><svg class="forge-chain" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet"></svg></div>
- <blockquote class="glow slow-quote"><span data-slow>“Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.”</span><cite>Caboclo Akuan</cite></blockquote>
+ <blockquote class="slow-quote"><span data-slow>“Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.”</span><cite>Caboclo Akuan</cite></blockquote>
 </section>
 
 <div class="elos" style="position:relative">
@@ -325,7 +338,7 @@ def index():
    <li><b>Cultura e família</b><span>Eventos que aproximam gerações e desfazem preconceitos.</span></li>
    <li><b>Menos é mais</b><span>Ritos simples, discrição e eficácia.</span></li>
   </ul>
-  <p class="closing reveal">Umbanda simples, eficaz e profunda: fiel aos cantos dos antigos e corajosa para dialogar com o mundo de hoje.</p>
+  <p class="closing reveal">Umbanda simples, eficaz e profunda: fiel à tradição dos antigos e corajosa para dialogar com o mundo de hoje.</p>
  </div>
 </section>
 
@@ -400,8 +413,8 @@ def index():
 <section class="section light" id="raizes" aria-labelledby="t5">
  <div class="wrap">
   <div class="reveal">%(e5)s<h2 id="t5">Uma corrente de três gerações.</h2></div>
-  <ol class="timeline">%(tl)s</ol>
-  <p style="margin-top:2.4em"><a class="link-arrow" href="historia.html">A história completa</a></p>
+  <div class="roots"><span class="roots-ink" aria-hidden="true"></span><span class="roots-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h15M13 6l6 6-6 6"/></svg></span><ol class="timeline">%(tl)s</ol></div>
+  <p style="margin-top:2.4em"><a class="more-arrows" href="historia.html">A história completa <span class="chev" aria-hidden="true"><i></i><i></i><i></i></span></a></p>
  </div>
 </section>
 
@@ -430,7 +443,7 @@ def index():
    <ul class="facts">
     <li>Gira aberta toda segunda-feira, às 19h30.</li>
     <li>Senhas a partir das 19h.</li>
-    <li>Quartas: gira do Terreiro CECATU, nossa casa irmã, dentro da CUCA.</li>
+    <li>Quartas: gira do Terreiro CECATU, nossa casa irmã, dentro da CUCA. <a href="%(cecatu_ig)s" target="_blank" rel="noopener">@umbandacecatu</a></li>
     <li>Uma sexta-feira por mês: Gira de Leito. <a href="agenda.html">Ver a data</a></li>
     <li>Av. Prefeito Maurício Fruet, 1230 · Jardim Botânico · Curitiba</li>
    </ul>
@@ -466,7 +479,7 @@ def index():
         'p4b': photo('hierarquia', 'A corrente de médiuns vestidos de branco, com faixas coloridas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p4c': photo('amala-exus', 'Amalá da linha de Exus e Pombagiras, com velas vermelhas e pimentas', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p8': img('placa', '', sizes='100vw'),
-        'vest': VEST_SVG, 'sent': SENT_SVG,
+        'vest': VEST_SVG, 'sent': SENT_SVG, 'cecatu_ig': CECATU_INSTA,
         'tl': tl_html, 'faq': faq_html, 'cards': cards, 'podcast': podcast_block(), 'instagram': instagram_block(),
     }
     write('index.html', 'CUCA · Casa de Umbanda Corrente de Akuan · Curitiba',

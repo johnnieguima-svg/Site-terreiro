@@ -518,10 +518,10 @@ ul.dash li::before{content:"";position:absolute;left:2px;top:.95em;width:8px;hei
 
 /* ===== logo e Akuan na abertura ===== */
 .hero-logo{position:relative;width:clamp(92px,8vw + 40px,150px);margin:0 0 18px -6px}
-.hero-logo::before{content:"";position:absolute;inset:-34%;border-radius:50%;background:radial-gradient(closest-side,rgba(241,238,232,.62),rgba(241,238,232,.28) 55%,rgba(241,238,232,0) 100%);filter:blur(4px);z-index:-1}
-.hero-logo img{width:100%;height:auto;filter:drop-shadow(0 0 1px rgba(241,238,232,.6))}
+
+
 .hero h1{font-weight:600}
-.hero h1 .akuan{font-weight:800;color:#8A1208;text-shadow:0 0 1px rgba(241,238,232,.95),0 0 14px rgba(241,238,232,.55),0 0 34px rgba(241,238,232,.28)}
+
 
 /* ===== a corrente de Akuan, em câmera lenta ===== */
 .akuan-band{padding-top:clamp(56px,7vw,96px)}
@@ -693,3 +693,107 @@ main>section.light,main .elos>section.light{--mlogo:url(../img/logo-vinho.png)}
 .weekly + .weekly{margin-top:10px}
 .weekly a{color:inherit}
 .facts a{color:var(--accent-on-dark)}
+
+/* ===== ajustes: logo da abertura, Akuan, assinatura ===== */
+.hero-logo{width:clamp(96px,6vw + 46px,132px);aspect-ratio:1;margin:0 0 22px;border-radius:50%;background:var(--canvas-light);padding:16px;
+  box-shadow:0 0 0 1px rgba(142,27,38,.35),0 0 0 6px rgba(241,238,232,.10),0 18px 40px rgba(0,0,0,.45)}
+.hero-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.hero h1 .akuan{font-weight:800;color:#DA3640;text-shadow:0 2px 14px rgba(21,13,16,.65)}
+.akuan-band .slow-quote cite{color:#DA3640;font-size:.9rem;letter-spacing:.24em;font-weight:500}
+
+/* ===== corrente da margem esquerda (Início, a partir do elo 01) ===== */
+.chain-rail{left:max(14px,calc((100vw - var(--maxw))/2 - 40px));width:26px;z-index:3}
+.chain-rail svg{width:26px;display:block}
+.chain-rail .cl{fill:none;stroke:#B3262F;stroke-width:2.4;opacity:0;transform-box:fill-box;transform-origin:center;transform:translateY(-10px) scale(.7);transition:opacity .7s var(--ease),transform .9s cubic-bezier(.2,.8,.2,1)}
+.chain-rail .cl.side{stroke-width:3.2;stroke:#8E1B26}
+.chain-rail .cl.on{opacity:.9;transform:none}
+.chain-rail path{display:none}
+@media (max-width:1100px){.chain-rail{display:none}}
+@media (min-width:1101px){.chain-rail{display:block}}
+
+/* ===== logos das margens: à esquerda, retas, grandes e quase imperceptíveis ===== */
+@media (min-width:1180px){
+  main>section::before,main .elos>section::before{width:clamp(240px,20vw,360px);transform:translateY(-50%)!important;opacity:.06!important;right:auto!important;
+    left:calc((100vw - var(--maxw))/2 - clamp(150px,12vw,230px))!important}
+  main>section.light::before,main .elos>section.light::before{opacity:.07!important}
+}
+
+/* ===== raízes: a flecha que acende as estações ===== */
+.roots{position:relative}
+.roots-ink{position:absolute;top:33px;height:3px;width:0;background:var(--accent);border-radius:2px;z-index:1;box-shadow:0 0 10px rgba(142,27,38,.45)}
+.roots-arrow{position:absolute;left:-14px;top:22px;width:28px;height:24px;z-index:3;display:grid;place-items:center;opacity:0;transition:opacity .4s}
+.roots.run .roots-arrow{opacity:1}
+.roots.done .roots-arrow{animation:arrowrest 2.4s ease-in-out infinite}
+@keyframes arrowrest{50%{opacity:.4}}
+.roots-arrow svg{width:28px;height:28px;fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(142,27,38,.5))}
+.roots .timeline li .knot{filter:grayscale(.8);opacity:.5;transition:filter 1s,opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1),box-shadow 1s}
+.roots .timeline li b,.roots .timeline li>span:last-child{opacity:.45;transition:opacity 1s}
+.roots .timeline li.lit .knot{filter:none;opacity:1;transform:scale(1.1);box-shadow:0 0 0 6px rgba(142,27,38,.14),0 0 22px rgba(142,27,38,.35)}
+.roots .timeline li.lit b,.roots .timeline li.lit>span:last-child{opacity:1}
+.roots .timeline li .knot{position:relative;z-index:2}
+.roots.vert .roots-ink{top:0;left:32px!important;width:3px;height:0}
+.roots.vert .roots-arrow{left:20px;top:-12px}
+@media (prefers-reduced-motion:reduce){.roots .timeline li .knot,.roots .timeline li b,.roots .timeline li>span:last-child{opacity:1;filter:none}}
+
+/* ===== setinhas que piscam suavemente ===== */
+.more-arrows{display:inline-flex;align-items:center;gap:14px;min-height:44px;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--accent)}
+.more-arrows .chev{display:inline-flex;gap:2px}
+.more-arrows .chev i{width:9px;height:9px;border-right:2px solid currentColor;border-top:2px solid currentColor;transform:rotate(45deg);opacity:.2;animation:chev 1.8s ease-in-out infinite}
+.more-arrows .chev i:nth-child(2){animation-delay:.25s}
+.more-arrows .chev i:nth-child(3){animation-delay:.5s}
+@keyframes chev{0%,100%{opacity:.15}40%{opacity:1}}
+.more-arrows:hover .chev{transform:translateX(4px);transition:transform .3s}
+
+/* ===== Projeto Social ===== */
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-light);border:1px solid var(--line-light);margin-top:2.6em}
+.nums div{background:var(--canvas-light);padding:22px 20px}
+.nums b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(2.4rem,1.8rem + 2vw,3.6rem);line-height:1;color:var(--accent)}
+.nums span{display:block;margin-top:8px;color:var(--ink-secondary);font-size:.95rem;line-height:1.45}
+@media (max-width:860px){.nums{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.acoes{list-style:none;margin:2.2em 0 0;padding:0;border-left:2px solid var(--accent-muted)}
+.acoes li{display:grid;grid-template-columns:120px 1fr;gap:6px 24px;padding:18px 0 18px 26px;position:relative}
+.acoes li::before{content:"";position:absolute;left:-7px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(142,27,38,.25)}
+.acoes .when{font-family:var(--f-display);font-weight:800;font-size:1.6rem;text-transform:uppercase;color:var(--accent-on-dark);line-height:1.1}
+.acoes h3{font-size:1.3rem;margin:0 0 .25em}
+.acoes p{margin:0;color:var(--text-secondary)}
+@media (max-width:640px){.acoes li{grid-template-columns:1fr}}
+
+/* ===== PIX flutuante (todas as páginas) ===== */
+.pix-float{position:fixed;right:clamp(12px,2vw,24px);top:calc(var(--nav-h) + 14px);z-index:98}
+.pix-fab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border-radius:999px;border:1px solid rgba(241,238,232,.25);background:rgba(142,27,38,.92);color:#fff;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 10px 26px rgba(0,0,0,.35);backdrop-filter:blur(6px);transition:transform .3s var(--ease),background .3s}
+.pix-fab:hover{transform:translateY(-1px);background:var(--accent-hover)}
+.pix-fab svg{width:18px;height:18px;fill:#fff;animation:beat 2.4s ease-in-out infinite}
+@keyframes beat{0%,60%,100%{transform:scale(1)}10%{transform:scale(1.18)}20%{transform:scale(1)}30%{transform:scale(1.12)}}
+.pix-pop{position:absolute;right:0;top:calc(100% + 10px);width:min(320px,calc(100vw - 24px));padding:18px;border-radius:14px;background:var(--canvas-light);color:var(--ink);box-shadow:0 24px 50px rgba(0,0,0,.4);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s var(--ease),transform .25s var(--ease),visibility 0s .25s}
+.pix-pop.open{opacity:1;visibility:visible;transform:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.pix-pop .mono{color:var(--accent);margin:0 0 6px}
+.pix-pop p{margin:0 0 10px;font-size:.95rem;color:var(--ink-secondary)}
+.pix-pop code{display:block;font-family:var(--f-mono);font-size:.88rem;background:#fff;border:1px dashed rgba(142,27,38,.45);padding:10px 12px;border-radius:8px;margin-bottom:10px;word-break:break-all;color:var(--ink)}
+.pix-pop .btn{width:100%}
+.pix-pop .copied{color:var(--aroeira);margin:6px 0 4px}
+.pix-pop-link{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:640px){.pix-float{top:auto;bottom:16px;right:12px}.pix-pop{top:auto;bottom:calc(100% + 10px)}}
+@media (prefers-reduced-motion:reduce){.pix-fab svg{animation:none}}
+body.menu-open .pix-float{display:none}
+
+/* ===== doação do Projeto Comida de Santo ===== */
+.doar{position:relative;padding:clamp(56px,7vw,96px) 0;background:var(--accent);color:#fff;overflow:clip;text-align:center}
+.doar::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 80% at 50% 0%,rgba(255,255,255,.14),transparent 70%)}
+.doar .wrap{position:relative;z-index:1;max-width:880px}
+.doar-kicker{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;margin:0 0 .8em;opacity:.9}
+.doar h2{font-size:clamp(2.2rem,1.4rem + 3.4vw,4.2rem);margin:0 0 .4em;color:#fff}
+.doar-text{font-size:clamp(1.05rem,1rem + .4vw,1.3rem);max-width:46ch;margin:0 auto 1.6em;opacity:.95}
+.doar-pix{display:inline-flex;flex-direction:column;align-items:center;gap:12px;padding:22px clamp(18px,4vw,40px);border-radius:18px;background:#fff;color:var(--ink);box-shadow:0 24px 60px rgba(40,4,8,.45);max-width:100%}
+.doar-label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.doar-pix code{font-family:var(--f-mono);font-weight:500;font-size:clamp(1rem,.8rem + 1.4vw,1.7rem);letter-spacing:.01em;word-break:break-all;color:var(--ink)}
+.doar-btn{background:var(--ink);color:#fff;min-height:52px;padding:0 28px;font-size:.85rem}
+.doar-btn:hover{background:#000}
+.doar-ok{color:#fff;margin-top:12px;font-size:.85rem}
+.doar-alt{margin:1.2em 0 0;opacity:.9}
+.doar-alt a{color:#fff}
+.doar .doar-pix{animation:pulsepix 3.2s ease-in-out infinite}
+@keyframes pulsepix{0%,100%{box-shadow:0 24px 60px rgba(40,4,8,.45),0 0 0 0 rgba(255,255,255,.45)}50%{box-shadow:0 24px 60px rgba(40,4,8,.45),0 0 0 14px rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.doar .doar-pix{animation:none}}
+.ig-profile{position:relative;border-radius:14px;overflow:hidden;background:#fff;min-height:420px}
+.ig-profile iframe{width:100%;height:560px;border:0;display:block}
+.ig-fallback{position:absolute;left:0;right:0;bottom:0;padding:12px;text-align:center;background:rgba(255,255,255,.95);color:var(--ink);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}

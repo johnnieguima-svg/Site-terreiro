@@ -362,3 +362,4 @@ def build(g):
     write('documentos.html', 'Documentos e Pontos · CUCA', 'Guia do Médium, Ritual de Abertura e Livro de Pontos Cantados da CUCA, para leitura e download.',
           doc + M.curimba(H) + '<section class="section dark grain" id="cucacast"><div class="wrap"><div class="midia">%s%s</div></div></section>' % (g['podcast_block'](), g['instagram_block']()) + invite(), 'raphael')
     M.agenda_page(H, g)
+    M.projeto_social(H, g)
