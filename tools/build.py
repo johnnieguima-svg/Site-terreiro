@@ -45,7 +45,7 @@ NAV = [
     ('A Casa', [
         ('historia.html', 'História e Linha do Tempo', 'Três gerações de fé até a CUCA.', 'cruzamento-2022'),
         ('guias.html', 'Guias Dirigentes', 'Caboclo Akuan e os mentores que conduzem as giras.', 'header-guias'),
-        ('projeto-social.html', 'Projeto Social', 'Comida de Santo: a caridade da gira, fora dela.', 'passe'),
+        ('projeto-social.html', 'Projeto Social', 'Comida de Santo: a caridade da gira, fora dela.', 'header-projeto'),
     ]),
     ('Fundamentos', [
         ('orixas.html', 'Orixás e Linhas', 'Os 9 Orixás cultuados na casa e as 10 linhas de trabalho.', 'amala-oxala'),
@@ -211,9 +211,9 @@ def invite():
  </div>
 </section>''' % (LEAF_SVG, WHATS, WA_SVG)
 
-def page_hero(group, title, lede, slug, alt, wide=False, pos=None):
+def page_hero(group, title, lede, slug, alt, wide=False, pos=None, cls=''):
     """Abertura das páginas internas: a foto ocupa todo o cabeçalho e um degradê protege o texto."""
-    return '''<section class="page-hero dark">
+    return '''<section class="page-hero dark %s">
  <div class="ph-media">%s</div>
  <div class="ph-scrim" aria-hidden="true"></div>
  <div class="wrap">
@@ -223,7 +223,7 @@ def page_hero(group, title, lede, slug, alt, wide=False, pos=None):
    <p class="lede">%s</p>
   </div>
  </div>
-</section>''' % (img(slug, alt, eager=True, sizes='100vw', pos=pos or '65% 40%'), e(group), e(title), e(lede))
+</section>''' % (cls, img(slug, alt, eager=True, sizes='100vw', pos=pos or '65% 40%'), e(group), e(title), e(lede))
 
 def write(path, title, desc, body, og='curimba-poster', solid=True):
     doc = head(title, desc, path, og) + nav(path, solid) + '<main id="conteudo">' + body + '</main>' + footer()
@@ -342,8 +342,9 @@ def index():
  </div>
 </section>
 
-<section class="section dark grain" id="primeira-vez" aria-labelledby="t2">
- <div class="smoke" aria-hidden="true"></div>
+<section class="section dark grain conga-bg" id="primeira-vez" aria-labelledby="t2">
+ <div class="sec-bg" aria-hidden="true">%(p2bg)s</div>
+ <div class="sec-scrim" aria-hidden="true"></div>
  <div class="wrap grid-2 top">
   <div>
    <div class="reveal">
@@ -360,8 +361,7 @@ def index():
     <li><b>Agradeça e siga em paz.</b><span>Ao sair, agradeça ao Congá. Se receber orientação de banho ou prece, siga com calma.</span></li>
    </ol>
   </div>
-  <div style="position:sticky;top:calc(var(--nav-h) + 24px)">
-   %(p2)s
+  <div class="conga-side">
    <div class="flip-pair reveal">
     <button type="button" class="flip" aria-expanded="false">
      <span class="face front">%(vest)s<span class="ft">O que vestir</span><span class="hint">Toque para ver</span></span>
@@ -476,7 +476,7 @@ def index():
         'e4': elo(4, 'A gira por dentro'), 'e5': elo(5, 'Raízes'), 'e6': elo(6, 'Perguntas'),
         'e7': elo(7, 'Conheça a casa'), 'e8': elo(8, 'Venha'),
         'p1': photo('adejas', 'Médiuns de branco tocando o adjá durante a gira', 'ratio-45', extra='reveal'),
-        'p2': photo('conga', 'O Congá da CUCA, com as imagens dos Orixás e dos guias', 'ratio-32', extra='reveal'),
+        'p2bg': img('conga', 'O Congá da CUCA, com as imagens dos Orixás e dos guias', sizes='100vw'),
         'p4a': photo('elo4-atabaque', 'O atabaque da casa, com laço vermelho', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p4b': photo('elo4-corrente', 'Médiuns de branco cantando na corrente', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),
         'p4c': photo('elo4-guardioes', 'Médium de capa preta à beira-mar, sob a lua, na gira de praia', 'ratio-34', sizes='(max-width:860px) 100vw, 33vw'),

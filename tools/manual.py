@@ -324,7 +324,7 @@ def projeto_social(H, g):
     e = H['e']
     hero = H['page_hero']('A Casa', 'Projeto Social Comida de Santo',
                           'A caridade da gira continua fora dela: um cronograma de ações a cada três meses, para quem mais precisa.',
-                          'passe', 'Mãos de médium em gesto de cuidado', pos='60% 35%')
+                          'header-projeto', 'Logo do Projeto Social Comida de Santo: garfo e faca cruzados sob uma auréola, entre flores e ervas', cls='ph-logo')
     nums = ('<div class="nums reveal"><div><b>10 mil</b><span>pessoas atendidas por ano no terreiro, de graça</span></div>'
             '<div><b>80</b><span>crianças em tardes recreativas e doações em 2025</span></div>'
             '<div><b>25</b><span>crianças apadrinhadas no Natal</span></div>'
@@ -345,7 +345,7 @@ def projeto_social(H, g):
     body += insta_projeto(H) + doacao_band(H, g, 'fim').replace('class="doar"', 'class="doar jump"', 1)
     H['write']('projeto-social.html', 'Projeto Social Comida de Santo · CUCA',
                'Projeto Comida de Santo da CUCA: ações sociais a cada três meses para crianças, pessoas em situação de rua, comunidades indígenas e bem-estar animal.',
-               hero + body + H['invite'](), 'passe')
+               hero + body + H['invite'](), 'header-projeto')
 
 
 # ---------- Guias dirigentes: resumos das publicações de Pai João de Ogum no Instagram ----------
