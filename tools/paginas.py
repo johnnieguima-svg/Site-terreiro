@@ -28,6 +28,7 @@ def build(g):
             'dark grain' if dark else 'light', chapters(idx), content)
 
     import manual as M
+    import hierarquia
     H = {'e': e, 'C': C, 'chapter': chapter, 'tiles': tiles, 'pull': pull, 'photo': photo,
          'page_hero': page_hero, 'invite': invite, 'write': write}
 
@@ -98,9 +99,9 @@ def build(g):
         if gd['id'] == 'kaian': cat = 'curimba'
         im = GIMG.get(gd['id'])
         ph = ('<figure class="photo tall">%s</figure>' % img(im, 'Ilustração de %s' % gd['name'], sizes='(max-width:600px) 100vw, 33vw', pos='50% 20%')) if im else ''
-        fichas += ('<article class="ficha reveal" data-cat="%s">%s<div class="body"><p class="tag"><i></i>%s · %s</p><h3>%s</h3><p class="role">%s</p><p>%s</p>'
+        fichas += ('<article class="ficha reveal" id="guia-%s" data-cat="%s">%s<div class="body"><p class="tag"><i></i>%s · %s</p><h3>%s</h3><p class="role">%s</p><p>%s</p>'
                    '<details><summary>Ler a ficha</summary><dl><dt>Quem é</dt><dd>%s</dd><dt>Ensinamento</dt><dd>%s</dd>%s%s</dl></details></div></article>'
-                   % (cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']),
+                   % (gd['id'], cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']),
                       ('<dt>Palavra do guia</dt><dd><em>“%s”</em></dd>' % C(gd['quote'])) if gd.get('quote') else '',
                       ('<dt>Saudação</dt><dd>%s</dd>' % C(gd['saudacao'])) if gd.get('saudacao') else ''))
     chips = ''.join('<button type="button" class="chip" data-value="%s" aria-pressed="%s">%s</button>' % (v, 'true' if v == 'all' else 'false', t)
@@ -120,30 +121,8 @@ def build(g):
             'Iansã': 'amala-iansa', 'Oxum': 'amala-oxum', 'Iemanjá': 'amala-iemanja', 'Nanã': 'amala-nana',
             'Pretos(as) Velhos(as)': 'amala-pretos-velhos', 'Erês': 'amala-ere', 'Ciganos': 'amala-ciganos', 'Exus e Pombagiras': 'amala-exus'}
     import arvore
-    LICO = {'Caboclos(as)': 'caboclos', 'Pretos(as) Velhos(as)': 'pretos-velhos', 'Erês': 'eres', 'Marinheiros': 'marinheiros',
-            'Boiadeiros': 'boiadeiros', 'Ciganos': 'ciganos', 'Médicos': 'medicos', 'Simiromba': 'simiromba', 'Exus e Pombagiras': 'exus'}
-    def ficha_linha(o, cat):
-        ic = LICO.get(o['name'])
-        if ic:
-            topo = '<div class="l-ico"><img src="assets/img/linha-%s.webp" alt="" width="320" height="300" loading="lazy" decoding="async"></div>' % ic
-        else:
-            topo = '<div class="l-ico vazio" aria-hidden="true"><span>%s</span></div>' % e(o['name'][0])
-        im = OIMG.get(o['name'])
-        am = C(M.AMALA.get(o['name'], o['elementos']))
-        bot = ('<button type="button" class="ox-amala mini" data-img="assets/img/%s.webp" data-alt="Amalá de %s montado pela CUCA" data-cap="%s">'
-               '<span class="ox-thumb">%s</span><span class="ox-amala-txt"><b>Ver a foto do amalá</b></span></button>'
-               % (im, e(o['name']), e(am), img(im, '', sizes='120px'))) if im else ''
-        sub = ' <small class="mono" style="font-size:.7rem">%s</small>' % C(o['subtitle']) if o.get('subtitle') else ''
-        return ('<article class="ficha linha reveal" data-cat="%s" style="--c:%s">%s<div class="body"><p class="tag"><i></i>%s</p><h3>%s%s</h3><p class="role">%s</p>'
-                '<details><summary>Atuação e amalá</summary><dl><dt>Atuação</dt><dd>%s</dd><dt>Arquétipo</dt><dd>%s</dd><dt>No emocional</dt><dd>%s</dd><dt>Amalá</dt><dd>%s</dd></dl></details>%s</div></article>'
-                % (cat, o['color'], topo, C(o['polarity']), C(o['name']), sub, C(o['shortRole']), C(o['atuacao']), C(o['mitologia']), C(o.get('efeito', '')), am, bot))
-    li = ''
-    for o in data['linhas']:
-        p = o['polarity']
-        cat = 'direita' if 'Direita' in p else ('esquerda' if 'Esquerda' in p else 'neutras')
-        li += ficha_linha(o, cat)
-    lchips = ''.join('<button type="button" class="chip" data-value="%s" aria-pressed="%s">%s</button>' % (v, 'true' if v == 'all' else 'false', t)
-                     for v, t in [('all', 'Todas'), ('direita', 'Direita'), ('neutras', 'Neutras'), ('esquerda', 'Esquerda')])
+    import organograma
+    nomes_guias = {gd['id']: gd['name'] for gd in data['guias']}
     ori = page_hero('Fundamentos', 'Orixás e Linhas', 'As forças da natureza que regem nossa coroa e as falanges de espíritos que trabalham na caridade.',
                     'amala-oxala', 'Amalá de Oxalá, com flores brancas e canjica', wide=True)
     ori += ('<section class="section light"><div class="wrap"><div class="grid-2 top">'
@@ -153,10 +132,7 @@ def build(g):
             '<p>Se os Orixás são as forças puras, os guias (Caboclos, Pretos Velhos, Erês, Baianos, Exus) são os espíritos trabalhadores que incorporam nos médiuns e conversam conosco, ajudando a curar o que levamos por dentro.</p></div>'
             '</div><p class="reveal" style="margin-top:1.4em;color:var(--ink-secondary)">As fotos são dos amalás montados pela própria casa. Para saber como se monta um amalá, veja <a href="rituais.html#amala">Rituais e Preceitos</a>.</p></div></section>')
     ori += arvore.arvore_orixas(H, data['orixas'], OIMG, img)
-    ori += ('<section class="section dark grain" id="linhas"><div class="smoke" aria-hidden="true"></div><div class="wrap"><h2 class="reveal">As 10 linhas de trabalho.</h2>'
-            '<p class="lede reveal">Da direita à esquerda, cada linha tem seu jeito de trabalhar. A esquerda é tratada com o mesmo respeito: Exus e Pombagiras são os guardiões da casa.</p>'
-            '<div data-filter-group="lista-linhas"><div class="filters">%s</div></div><div class="fichas" id="lista-linhas">%s</div>'
-            '<p style="margin-top:2em"><a class="link-arrow" href="guias.html">Conheça os guias chefes da casa</a></p></div></section>') % (lchips, li)
+    ori += organograma.organograma(H, data['linhas'], OIMG, img, nomes_guias)
     write('orixas.html', 'Orixás e Linhas · CUCA', 'Os 9 Orixás cultuados na CUCA e as 10 linhas de trabalho, com atuação, arquétipo e o amalá de cada um.',
           ori + invite(), 'amala-oxala')
 
@@ -270,11 +246,11 @@ def build(g):
     content += chapter('frentes', '03 · Como trabalhamos na gira', 'As quatro frentes de atendimento.',
         '<p class="prose">Todo auxílio mediúnico é caridade gratuita. Na gira, você pode receber uma destas quatro formas de atendimento.</p><div class="fichas" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">%s</div>' % fr)
     content += chapter('hierarquia', '04 · Falando da casa', 'Quem cuida da casa.',
-        '<div class="prose"><p>Na gira, cada pessoa tem uma função, e a hierarquia é a sua referência dentro da casa. Estes são os nomes que você vai ouvir e as pessoas que vão te receber. Se tiver qualquer dúvida, procure uma delas.</p></div>'
-        '%s<div class="people lead">%s</div><div class="people">%s</div>' % (
+        '<div class="prose"><p>Na gira, cada pessoa tem uma função, e a hierarquia é a sua referência dentro da casa. O manual da casa descreve essa organização como um corpo: cada cargo é uma parte dele, e todos trabalham juntos. Estes são os nomes que você vai ouvir e as pessoas que vão te receber. Se tiver qualquer dúvida, procure uma delas.</p></div>'
+        '%s%s<div class="people lead">%s</div><div class="people">%s</div>' % (
+            hierarquia.hierarquia_corpo(H, img, {s: (n, r) for s, n, r in LEAD + TEAM}),
             photo('hierarquia', 'A corrente da CUCA reunida no salão', 'ratio-169', 'A corrente da CUCA', sizes='(max-width:1000px) 100vw, 70vw', pos='50% 40%'),
-            ''.join(person(*p) for p in LEAD), ''.join(person(*p) for p in TEAM))
-        + tiles(M.HIERARQUIA))
+            ''.join(person(*p) for p in LEAD), ''.join(person(*p) for p in TEAM)))
     content += chapter('orientacoes', '05 · Para quem vai passar por atendimento', 'Quatro orientações de ouro.',
         tiles([('1. Fale com clareza e verdade', 'Ao conversar com a entidade no toco, o lugar da consulta individual, seja honesto. Não tente testar o guia. Vá com o coração aberto.'),
                ('2. Avise sobre alergias a ervas', 'Se a entidade receitar um banho de ervas ou chá e você for alérgico a algum componente, avise na hora.'),
