@@ -10,7 +10,7 @@ import html, json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'site')
-SITE_URL = 'https://www.cucacuritiba.com.br'  # ajuste quando o domínio for registrado
+SITE_URL = 'https://www.cucaterreiro.com.br'
 
 WHATS_NUM = '5541997176648'
 WHATS_MSG = 'Olá! Quero ir à gira da CUCA pela primeira vez.'
