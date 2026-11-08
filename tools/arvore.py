@@ -8,7 +8,7 @@ import manual as M
 
 # posição no viewBox 0 0 1000 1360, cor da vela, palavra-chave, saudação, ícone
 NOS = [
-    ('olorum', 'Olorum', 500, 140, '#F3E3B0', 'A energia una de Deus', '', 'sol'),
+    ('olorum', 'Olorum', 500, 160, '#F3E3B0', 'A energia una de Deus', '', 'sol'),
     ('nana', 'Nanã', 250, 356, '#A07CD6', 'Ancestralidade', 'Saluba Nanã!', 'ibiri'),
     ('oxala', 'Oxalá', 750, 356, '#F4F1EA', 'Fé', 'Epa Babá!', 'pomba'),
     ('oxossi', 'Oxóssi', 232, 616, '#3FA96B', 'Conhecimento', 'Okê Arô!', 'ofa'),
@@ -16,8 +16,8 @@ NOS = [
     ('oxum', 'Oxum', 500, 770, '#F2C230', 'Amor', 'Ora iê iê ô!', 'abebe'),
     ('ogum', 'Ogum', 250, 940, '#E0393E', 'Lei e caminhos', 'Ogunhê!', 'espada'),
     ('xango', 'Xangô', 750, 940, '#C07A3A', 'Justiça', 'Kaô Kabecilê!', 'oxe'),
-    ('iansa', 'Iansã', 500, 1085, '#F48A3C', 'Movimento', 'Eparrei!', 'raio'),
-    ('omulu', 'Omulu', 500, 1300, '#CDB98A', 'Cura e passagem', 'Atotô!', 'xaxara'),
+    ('iansa', 'Iansã', 500, 1090, '#F48A3C', 'Movimento', 'Eparrei!', 'raio'),
+    ('omulu', 'Omulu', 500, 1250, '#CDB98A', 'Cura e passagem', 'Atotô!', 'xaxara'),
 ]
 NOME = {'Oxalá': 'oxala', 'Ogum': 'ogum', 'Oxóssi': 'oxossi', 'Xangô': 'xango', 'Omulu': 'omulu',
         'Iansã': 'iansa', 'Oxum': 'oxum', 'Iemanjá': 'iemanja', 'Nanã': 'nana'}
@@ -94,7 +94,7 @@ def arvore_orixas(H, orixas, OIMG, img):
             % (attrs, cor, (i * 0.37) % 3, x, y, r * 2.3, slug, r + 14, r, core, r, tinta, r / 34, ICONES[ico],
                r + 46, e(nome.upper()), r + 76, e(chave)))
 
-    svg = ('<svg class="arvore" viewBox="0 0 1000 1450" role="group" aria-label="Árvore da Vida dos Orixás: Olorum no alto e os nove Orixás ligados por fios de luz">'
+    svg = ('<svg class="arvore" viewBox="0 0 1000 1380" role="group" aria-label="Árvore da Vida dos Orixás: Olorum no alto e os nove Orixás ligados por fios de luz">'
            '<defs>%s</defs><g class="fios">%s</g><g class="faiscas" aria-hidden="true"></g><g class="nos">%s</g></svg>'
            % (''.join(defs), ''.join(fios), ''.join(nos)))
 

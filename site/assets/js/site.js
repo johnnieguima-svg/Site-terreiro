@@ -432,7 +432,7 @@
       [].forEach.call(arv.querySelectorAll('.no,.fio'),function(el){
         var y=el.classList.contains('no')?+(el.getAttribute('transform').match(/ ([\d.]+)\)/)||[0,0])[1]
           :Math.min(+el.querySelector('path').getAttribute('d').split(/[ L]/)[1],9999);
-        el.style.setProperty('--atraso',(y/1450*1.8).toFixed(2)+'s')});
+        el.style.setProperty('--atraso',(y/1380*1.8).toFixed(2)+'s')});
       arv.classList.add('acesa');
       setTimeout(function(){[].forEach.call(arv.querySelectorAll('.no,.fio'),function(el){el.style.removeProperty('--atraso')})},4200);
     };
