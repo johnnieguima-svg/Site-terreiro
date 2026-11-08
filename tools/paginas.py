@@ -85,8 +85,9 @@ def build(g):
     # ================= GUIAS =================
     GIMG = {'akuan': 'guia-akuan', 'itaquaratira': 'guia-itacoaratira', 'urubata': 'guia-urubatao', 'joaquim': 'guia-joaquim',
             'anacleto': 'guia-anacleto', 'anastacia': 'guia-anastacia', 'juninho': 'guia-juninho', 'ramon': 'guia-ramon',
-            'antonio': 'guia-antonio', 'zoio': 'guia-zoio', 'trancarua': 'guia-trancaruas', 'mariapadilha': 'guia-mariapadilha'}
+            'antonio': 'guia-antonio', 'zoio': 'guia-zoio', 'kaian': 'guia-kaian', 'trancarua': 'guia-trancaruas', 'mariapadilha': 'guia-mariapadilha'}
     CAT = {'caboclo': 'caboclos', 'preto-velho': 'pretos-velhos', 'pretovelho': 'pretos-velhos'}
+    data['guias'].append({'id': 'kaian', 'type': 'curimba', 'typeLabel': 'Curimba', 'name': 'Ogã Kaian'})
     for gd in data['guias']:
         gd.update(M.GUIAS.get(gd['id'], {}))
     fichas = ''
@@ -94,16 +95,16 @@ def build(g):
         cat = CAT.get(gd['type'], 'neutras' if 'Neutras' in gd['typeLabel'] else ('esquerda' if 'Esquerda' in gd['typeLabel'] else gd['type']))
         if 'Pretos' in gd['typeLabel']: cat = 'pretos-velhos'
         if 'Caboclos' in gd['typeLabel']: cat = 'caboclos'
+        if gd['id'] == 'kaian': cat = 'curimba'
         im = GIMG.get(gd['id'])
         ph = ('<figure class="photo tall">%s</figure>' % img(im, 'Ilustração de %s' % gd['name'], sizes='(max-width:600px) 100vw, 33vw', pos='50% 20%')) if im else ''
         fichas += ('<article class="ficha reveal" data-cat="%s">%s<div class="body"><p class="tag"><i></i>%s · %s</p><h3>%s</h3><p class="role">%s</p><p>%s</p>'
-                   '<details><summary>Ler a ficha</summary><dl><dt>Quem é</dt><dd>%s</dd><dt>Ensinamento</dt><dd>%s</dd><dt>Palavra do guia</dt><dd><em>“%s”</em></dd>%s</dl></details></div></article>'
-                   % (cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']), C(gd['quote']),
+                   '<details><summary>Ler a ficha</summary><dl><dt>Quem é</dt><dd>%s</dd><dt>Ensinamento</dt><dd>%s</dd>%s%s</dl></details></div></article>'
+                   % (cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']),
+                      ('<dt>Palavra do guia</dt><dd><em>“%s”</em></dd>' % C(gd['quote'])) if gd.get('quote') else '',
                       ('<dt>Saudação</dt><dd>%s</dd>' % C(gd['saudacao'])) if gd.get('saudacao') else ''))
-    fichas += ('<article class="ficha reveal" data-cat="neutras"><figure class="photo tall">%s</figure><div class="body"><p class="tag"><i></i>Curimba</p><h3>Ogã Kaian</h3>'
-               '<p class="role">Ficha em preparação pela casa.</p></div></article>' % img('guia-kaian', 'Ilustração do Ogã Kaian', sizes='(max-width:600px) 100vw, 33vw', pos='50% 20%'))
     chips = ''.join('<button type="button" class="chip" data-value="%s" aria-pressed="%s">%s</button>' % (v, 'true' if v == 'all' else 'false', t)
-                    for v, t in [('all', 'Todos'), ('caboclos', 'Caboclos'), ('pretos-velhos', 'Pretos Velhos'), ('neutras', 'Linhas neutras e Erês'), ('esquerda', 'Guardiões')])
+                    for v, t in [('all', 'Todos'), ('caboclos', 'Caboclos'), ('pretos-velhos', 'Pretos Velhos'), ('neutras', 'Linhas neutras e Erês'), ('esquerda', 'Guardiões'), ('curimba', 'Curimba')])
     akuan = data['guias'][0]
     guias = page_hero('A Casa', 'Guias Dirigentes', 'O Caboclo Akuan, patrono da casa, e os mentores que conduzem as nossas giras.',
                       'header-guias', 'Médium incorporado no centro do salão, diante da assistência', pos='55% 50%')

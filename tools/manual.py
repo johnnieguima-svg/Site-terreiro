@@ -468,3 +468,84 @@ def akuan_destaque(H, gd):
             '<p class="ak-saudacao reveal">%s</p>'
             '<p class="ak-note">Ilustração provisória, para estudo.</p>'
             '</div></section>') % (e(gd['line']), btns, C(gd['saudacao']))
+
+
+# ---------- Mais guias dirigentes: textos de Pai João de Ogum (enviados pelo dirigente) ----------
+GUIAS.update({
+    'mariapadilha': {
+        'quote': '',
+        'name': 'Pombagira Maria Padilha das Almas',
+        'line': 'Linha de Esquerda · Ajuntó de Exu Tranca Ruas das Almas',
+        'identity': 'Pombagira dirigente da CUCA',
+        'shortDesc': 'Força feminina de delicadeza ímpar, potente e exuberante. Sua incorporação é sutil e envolve o ambiente como um toque de seda.',
+        'description': 'Para entender Dona Maria Padilha, basta olhar uma rosa: por trás da aparência que parece frágil e da beleza estonteante, há espinhos afiados e uma estrutura firme e inabalável. Ela traz a máxima potência do feminino e desfaz a ideia de que a força precisa ser bruta.',
+        'teaching': 'Domínio e firmeza não dependem de agressividade. É possível estar no controle de qualquer situação e exercer a mais alta autoridade com elegância e brandura. Para esta senhora, a sutileza é um poder.',
+    },
+    'joaquim': {
+        'quote': '',
+        'line': 'Linha das Almas · Irradiação de Oxalá',
+        'identity': 'O primeiro guia a se apresentar ao médium',
+        'shortDesc': 'Preto Velho doce, meigo e afável. Estar com ele é como repousar nos braços de um avô amoroso que sempre tem uma boa história para contar.',
+        'description': 'Foi o primeiro espírito a se manifestar pelo nome, logo no início do desenvolvimento mediúnico do dirigente. Quando chega, gira e lança das mãos uma energia que alcança todos em volta, e antes de qualquer coisa abençoa os presentes. É reverenciado como ancião até entre os outros Pretos Velhos e caminha lado a lado com Pai Maneco, que o trata como irmão mais velho. Conta que veio nas primeiras levas de africanos trazidos de Angola, do povo banto, e trabalhou nas lavouras de café e nos engenhos de cana e fumo. Viveu muito, fez a passagem de velhice e, no cativeiro, tornou-se quem recebia os recém-chegados, dando conforto e amparo diante do que iriam sofrer.',
+        'teaching': 'Acolher primeiro. Abençoar antes de qualquer outra ação e ser porto seguro para quem chega ferido.',
+    },
+    'anacleto': {
+        'quote': '',
+        'line': 'Pretos Velhos · Linha de Xangô · Raízes de Gana',
+        'identity': 'Emissário da linha de Xangô entre os Pretos Velhos',
+        'shortDesc': 'Preto Velho sisudo, de semblante reservado e profundo perfil magista. Traz o lado austero de Xangô, seu orixá regente.',
+        'description': 'Sua presença no Congá é imponente: traz estrutura e faz ecoar a força ancestral. Aparece pouco, mas sua energia funciona como um pilar invisível da arquitetura espiritual da casa. É o grande elo dos Pretos Velhos vindos daquela região da África e um emissário direto da linha de Xangô, com sabedoria e estabilidade absolutas.',
+        'teaching': 'Firmeza. Ele é força enraizada, uma estrutura sólida que não se move e jamais se verga.',
+    },
+    'anastacia': {
+        'quote': '',
+        'line': 'Pretos Velhos · Irradiação de Nanã Burukú',
+        'identity': 'A Preta Velha mais recente da casa',
+        'shortDesc': 'Lenta, estável e sóbria, como Nanã. De poucas palavras e gestos vagarosos, guarda uma profundidade imensa em cada movimento.',
+        'description': 'Chegou como uma grata surpresa assim que a irradiação de Nanã Burukú foi firmada como linha de trabalho na casa. É uma Preta Velha que ainda guarda a sua mandinga: fala pouco, mas realiza e transforma muito. Mesmo reservada, de quem não mostra muitos dentes, não perde a energia maternal, reconfortante e acolhedora.',
+        'teaching': 'Respeitar o tempo. Só a sabedoria do tempo vai revelar, aos poucos, todas as camadas desse espírito.',
+    },
+    'ramon': {
+        'quote': '',
+        'line': 'Povo do Oriente · Ciganos',
+        'identity': 'Ramon de las Antillas',
+        'shortDesc': 'Uma flama dançante: chama que não queima, aquece e ilumina. Presença sutil, elegante e intensamente quente.',
+        'description': 'Chegou ao som de flamenco: ouvindo Gipsy Kings, o médium sentiu o corpo vibrar e começou a dançar sozinho no escritório. Sentiu o rosto mudar, com barba, sobrancelhas espessas e cabelos longos, e viu um pingente dourado de sol sobre uma camisa vermelha aberta. O nome Ramon de las Antillas ecoou, e só depois veio a descoberta de que as Antilhas são as ilhas do Caribe. No toco, contou ser um comerciante de família mista que se estabeleceu em Granada, na Espanha, e depois se mudou para o Caribe, vendendo tecidos.',
+        'teaching': 'Alegria de viver. Há muito ainda a ser desvendado sobre ele, e cada encontro revela um pouco mais.',
+    },
+    'antonio': {
+        'quote': '',
+        'name': 'Boiadeiro Antônio Mato Grosso',
+        'line': 'Linha de Boiadeiros',
+        'identity': 'Família, fé e trabalho duro',
+        'shortDesc': 'A simplicidade e a força do homem do campo. Rústico, de trato bruto, com um coração imensamente gentil.',
+        'description': 'Viveu como um homem simples do interior do Mato Grosso, há cerca de duzentos anos. Casou cedo com o grande amor da sua vida e, mesmo sem filhos, construiu um lar de mesa farta, com cheiro de pão, café e comida caseira. Quando a esposa adoeceu, tornou-se devoto de Nossa Senhora e ergueu uma cruz no fundo da propriedade para rezar, mas ela partiu. Perdido, encontrou um menino abandonado no fundo de uma carroça e o criou como filho. Hoje, conta, pai e filho trabalham juntos como boiadeiros na espiritualidade.',
+        'teaching': 'A simplicidade é a maior riqueza. Família, coração, resistência, fé e trabalho duro andam juntos.',
+    },
+    'juninho': {
+        'quote': '',
+        'line': 'Linha das Crianças · Erês',
+        'identity': 'Erê dirigente da gira',
+        'shortDesc': 'Alegria tímida e vontade genuína de fazer tudo certo. Quando se solta, arranca sorrisos até dos corações mais amargurados.',
+        'description': 'Leva muito a sério a responsabilidade de ser o Erê dirigente. Já disse ter dez, sete, três e quatro anos, mas parece um menino de quatro a seis: um garoto negro, com janelinhas entre os dentes, e uma ligação de imenso afeto com a praia. Vem sob a irradiação de Pai Joaquim, a quem chama de vô: durante a gira os dois conversam, e o menino escuta e obedece com prontidão.',
+        'teaching': 'Alegria, inocência e espontaneidade. Ele devolve aos adultos um jeito de sorrir que costumamos esquecer.',
+    },
+    'zoio': {
+        'quote': '',
+        'line': 'Povo da Água · Marinheiros',
+        'identity': 'O marujo olheiro',
+        'shortDesc': 'Figura pitoresca, de humor alegre, expansivo e acelerado. Seus olhos não descansam, nem a sua mente sonhadora.',
+        'description': 'É como o marujo que toma turnos no alto do mastro, vigiando o horizonte em busca de perigo, de algo estranho ou de terra firme. A linha dos marinheiros aparece pouco na casa, e é uma pena. Nos trabalhos, vem para suavizar, aparar as arestas e contornar as situações, fazendo a energia fluir no balanço das águas: cura quem não se permitiu transbordar e ensina a navegar quem precisa soltar o controle.',
+        'teaching': 'Atenção ao caminho, sem perder o balanço, o gingado e a espontaneidade de deixar a vida seguir o seu curso.',
+    },
+    'kaian': {
+        'quote': '',
+        'name': 'Ogã Kaian',
+        'typeLabel': 'Curimba',
+        'line': 'Emissário de Ogum · Guardião dos atabaques',
+        'identity': 'Chefe e guardião da engoma',
+        'shortDesc': 'O grande guardião dos atabaques e da musicalidade, herdado do Terreiro Pai Maneco. Por ele flui a potência de toda a engoma.',
+        'description': 'Espírito de longa data, apresenta-se como um guerreiro africano primevo, provavelmente banto, muito alto e forte. É reverenciado em todo começo de gira, e a ele são dedicados o trio de atabaques e toda a musicalidade da casa. Não fala, mas sua presença é marcante: durante o ponto da engoma, seus falangeiros incorporam para firmar e assentar a energia da gira.',
+        'teaching': 'Garantir que o axé corra livre e limpo, preparando o solo sagrado para que a força de Ogum se faça plena na casa.',
+    },
+})
