@@ -18,7 +18,7 @@ LINHAS = [
     ('exus', 'Exus e Pombagiras', '#E5484D', 'tridente', 'sobe'),
     ('exus-mirins', 'Exus Mirins', '#F07A4A', 'piao', 'bambole'),
 ]
-# linha que não está no conteúdo original do protótipo (texto a revisar pela casa)
+# linha que não está no conteúdo original do protótipo (amalá confirmado pela casa)
 EXTRAS = [{
     'name': 'Exus Mirins', 'color': '#F07A4A',
     'polarity': 'Linha de Esquerda · Guardiões Mirins',
@@ -26,7 +26,7 @@ EXTRAS = [{
     'atuacao': 'Trabalham junto aos Exus e Pombagiras no desmanche de demandas e na limpeza de energias pesadas. São rápidos e diretos: cortam o que está preso e trazem à luz o que está escondido.',
     'mitologia': 'A criança da esquerda: esperta, irreverente e brincalhona, mas firme na Lei. Lembra que a seriedade do trabalho espiritual também convive com a alegria.',
     'efeito': 'Desfaz máscaras e hipocrisias. Ajuda a pessoa a encarar com leveza e coragem aquilo que vinha escondendo de si mesma.',
-    'elementos': 'O amalá dos Exus Mirins é orientado diretamente pela casa.',
+    'elementos': 'Velas vermelhas e pretas. Bebida: refrigerante, ou cachaça mediante autorização da casa. Cigarros, também mediante autorização.',
 }]
 RAMOS = [
     ('esquerda', 'Esquerda', 'Guardiões da Lei e da casa', '#E5484D', ['exus', 'exus-mirins']),
