@@ -920,3 +920,170 @@ body.menu-open .pix-float{display:none}
   .page-hero.ph-logo .ph-media{top:calc(var(--nav-h) + 4px);height:64vw;bottom:auto}
   .page-hero.ph-logo .ph-scrim{background:linear-gradient(to top,#150D10 0%,rgba(0,0,0,0) 30%)}
 }
+
+/* =========================================================
+   Árvore da Vida dos Orixás (orixas.html)
+   ========================================================= */
+.arvore-sec{overflow:hidden;background:radial-gradient(ellipse 70% 55% at 62% 30%,rgba(243,227,176,.08),transparent 70%),var(--canvas)}
+.arvore-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);align-items:start}
+.arvore-copy{position:sticky;top:calc(var(--nav-h) + 32px)}
+.arvore-copy h2{margin:.35em 0 .4em}
+.arvore-dica{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.04em;color:var(--text-secondary);display:flex;gap:10px;align-items:baseline}
+.arvore-dica span{color:#F3E3B0;animation:dica 2.6s ease-in-out infinite}
+@keyframes dica{50%{opacity:.25}}
+.ox-legenda{list-style:none;margin:1.6em 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.ox-leg{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:12px 1fr;column-gap:12px;padding:9px 10px;border-radius:6px;border:1px solid transparent;transition:background .3s,border-color .3s}
+.ox-leg i{grid-row:span 2;align-self:center;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 3px rgba(255,255,255,.05),0 0 14px var(--c)}
+.ox-leg b{font-family:var(--f-display);font-size:1.15rem;letter-spacing:.04em;text-transform:uppercase;font-weight:700;line-height:1.1}
+.ox-leg span{font-size:.82rem;color:var(--text-secondary)}
+.ox-leg:hover,.ox-leg:focus-visible,.ox-leg.on{background:rgba(255,255,255,.05);border-color:color-mix(in srgb,var(--c) 45%,transparent)}
+.ox-leg:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+
+.arvore-palco{position:relative}
+.arvore{display:block;width:100%;height:auto;max-height:calc(100vh - var(--nav-h) - 40px);margin-inline:auto;overflow:visible}
+@media (min-width:861px){.arvore{min-height:640px}}
+
+/* fios de luz */
+.fio path{fill:none;stroke-linecap:round;transition:opacity .5s var(--ease),stroke-width .5s var(--ease)}
+.fio .f-halo{stroke-width:16;opacity:.07}
+.fio .f-base{stroke-width:2.4;opacity:.42}
+.fio .f-luz{stroke-width:3.6;stroke-dasharray:6 54;animation:flui 3.2s linear infinite;opacity:.95}
+.fio:nth-child(3n+1) .f-luz{animation-duration:2.6s}
+.fio:nth-child(3n+2) .f-luz{animation-duration:3.9s;stroke-dasharray:10 70}
+@keyframes flui{to{stroke-dashoffset:-60}}
+.fio:nth-child(3n+2) .f-luz{animation-name:flui2}
+@keyframes flui2{to{stroke-dashoffset:-80}}
+/* a árvore se acende ao aparecer */
+.js .arvore .fio .f-base,.js .arvore .fio .f-halo{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.js .arvore.acesa .fio .f-base,.js .arvore.acesa .fio .f-halo{stroke-dashoffset:0;transition:stroke-dashoffset 1.6s var(--ease) var(--atraso,0s),opacity .5s}
+.js .arvore .fio .f-luz{opacity:0}
+.js .arvore.acesa .fio .f-luz{opacity:.95;transition:opacity 1s 1.4s}
+.js .arvore .no{opacity:0;transform-box:fill-box}
+.js .arvore.acesa .no{opacity:1;transition:opacity .9s var(--ease) var(--atraso,0s)}
+
+/* foco: um Orixá acende seus fios e apaga o resto */
+.js .arvore.acesa.foco .fio{opacity:.12}
+.js .arvore.acesa.foco .fio.on{opacity:1}
+.js .arvore.acesa.foco .fio.on .f-base{stroke-width:4;opacity:.8}
+.js .arvore.acesa.foco .fio.on .f-halo{stroke-width:26;opacity:.16}
+.js .arvore.acesa.foco .fio.on .f-luz{stroke-width:5;animation-duration:1.4s}
+.js .arvore .fio{transition:opacity .45s var(--ease)}
+.js .arvore.acesa.foco .no{opacity:.32}
+.js .arvore.acesa.foco .no.on,.js .arvore.acesa.foco .no.perto{opacity:1}
+
+/* nós */
+.no{cursor:pointer;outline:none;transition:opacity .45s var(--ease)}
+.no.olorum{cursor:default}
+.n-aura{animation:respira 4.6s ease-in-out infinite;animation-delay:calc(var(--d) * -1);transform-box:fill-box;transform-origin:center}
+@keyframes respira{0%,100%{transform:scale(.86);opacity:.75}50%{transform:scale(1.06);opacity:1}}
+.n-orbita{fill:none;stroke:var(--c);stroke-width:1.4;stroke-dasharray:2 10;opacity:.55;animation:gira 26s linear infinite;transform-box:fill-box;transform-origin:center}
+.no:nth-child(even) .n-orbita{animation-direction:reverse}
+@keyframes gira{to{transform:rotate(360deg)}}
+.n-core{stroke:rgba(21,13,16,.55);stroke-width:2;transition:transform .5s var(--ease);transform-box:fill-box;transform-origin:center}
+.n-aro{fill:none;stroke:var(--c);stroke-width:2;opacity:.9}
+.no[data-slug="omulu"] .n-aro{stroke-width:4}
+.n-ico{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;transition:transform .5s var(--ease)}
+.n-nome{font-family:var(--f-display);font-weight:700;font-size:36px;letter-spacing:.08em;fill:var(--text-primary);text-anchor:middle;pointer-events:none}
+.n-chave{font-family:var(--f-mono);font-size:21px;letter-spacing:.06em;fill:var(--c);text-anchor:middle;pointer-events:none}
+.no.olorum .n-nome{font-size:42px;fill:#F3E3B0}
+.no.olorum .n-chave{fill:var(--text-secondary)}
+.no.olorum .n-orbita{stroke-dasharray:1 7;stroke-width:2}
+.no:not(.olorum):hover .n-core,.no:not(.olorum):focus-visible .n-core,.no.on .n-core{transform:scale(1.1)}
+.no:not(.olorum):hover .n-aura,.no.on .n-aura{animation-duration:1.6s}
+.no:focus-visible .n-aro{stroke-width:5;stroke-dasharray:none}
+.no:focus-visible .n-orbita{opacity:1;stroke-width:3}
+.faiscas circle{pointer-events:none}
+
+/* ficha do Orixá */
+.ox-card{width:min(720px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid color-mix(in srgb,var(--c,#fff) 40%,transparent);border-radius:14px;background:#1C1216;color:var(--text-primary);overflow:auto;overscroll-behavior:contain;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px color-mix(in srgb,var(--c,#fff) 18%,transparent)}
+.ox-card::backdrop,.lightbox::backdrop{background:rgba(8,4,6,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ox-card[open]{animation:surge .5s var(--ease)}
+.ox-card[open]::backdrop{animation:fade .4s}
+@keyframes surge{from{opacity:0;transform:translateY(24px) scale(.96)}}
+@keyframes fade{from{opacity:0}}
+.ox-glow{position:absolute;inset:0 0 auto;height:260px;pointer-events:none;background:radial-gradient(ellipse 60% 100% at 18% 0%,color-mix(in srgb,var(--c,#fff) 34%,transparent),transparent 72%)}
+.ox-body{position:relative;padding:clamp(22px,4vw,40px) clamp(20px,4vw,40px) 8px}
+.ox-body.troca{animation:troca .45s var(--ease)}
+@keyframes troca{from{opacity:0;transform:translateX(calc(var(--dir,1) * 26px))}}
+.ox-x{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-dark);background:rgba(21,13,16,.6);color:var(--text-primary);font-size:1.6rem;line-height:1;cursor:pointer}
+.ox-x:hover,.ox-x:focus-visible{border-color:var(--c,#fff);outline:none}
+.ox-head{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding-right:40px}
+.ox-ico{width:88px;height:88px;padding:10px;border-radius:50%;color:var(--c);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;border:2px solid var(--c);background:radial-gradient(circle,color-mix(in srgb,var(--c) 22%,transparent),transparent 70%);box-shadow:0 0 30px color-mix(in srgb,var(--c) 40%,transparent);animation:respira 4.6s ease-in-out infinite}
+.ox-pol{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary);margin:0}
+.ox-head h2{margin:.12em 0 0;font-size:clamp(2.4rem,6vw,3.6rem);line-height:.95}
+.ox-chave{margin:.25em 0 0;font-family:var(--f-mono);font-size:.85rem;color:var(--c);letter-spacing:.06em}
+.ox-sauda{margin:.5em 0 0;font-family:var(--f-display);font-size:1.25rem;letter-spacing:.06em;color:#F3E3B0}
+.ox-role{font-style:italic;color:var(--text-secondary);font-size:1.08rem;margin:1.4em 0 1em;padding-left:14px;border-left:3px solid var(--c)}
+.ox-dl{margin:0;display:grid;gap:4px}
+.ox-dl dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-top:.9em}
+.ox-dl dd{margin:0;line-height:1.6}
+.ox-amala{all:unset;box-sizing:border-box;cursor:zoom-in;display:grid;grid-template-columns:96px 1fr 24px;gap:16px;align-items:center;width:100%;margin:1.6em 0 .6em;padding:12px;border-radius:10px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);background:color-mix(in srgb,var(--c) 8%,rgba(255,255,255,.02));transition:background .3s,transform .3s var(--ease),border-color .3s}
+.ox-amala:hover,.ox-amala:focus-visible{background:color-mix(in srgb,var(--c) 16%,rgba(255,255,255,.03));border-color:var(--c);transform:translateY(-2px)}
+.ox-amala:focus-visible{outline:2px solid var(--c);outline-offset:3px}
+.ox-thumb{display:block;width:96px;aspect-ratio:1;border-radius:8px;overflow:hidden}
+.ox-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.ox-amala:hover .ox-thumb img{transform:scale(1.1)}
+.ox-amala-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ox-amala-txt .mono{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.ox-amala-txt b{font-family:var(--f-display);font-size:1.3rem;letter-spacing:.04em}
+.ox-amala-txt span:last-child:not(.mono){font-size:.85rem;color:var(--text-secondary);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ox-amala>svg{width:22px;height:22px;fill:none;stroke:var(--c);stroke-width:2;stroke-linecap:round}
+.ox-card .ficha-video{margin:.4em 0 0}
+.ox-ligacoes{margin:1.4em 0 .4em;padding-top:1.1em;border-top:1px solid var(--line-dark)}
+.ox-ligacoes p{margin:0 0 .6em;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary)}
+.ox-ligacoes div{display:flex;flex-wrap:wrap;gap:8px}
+.ox-lig{font:inherit;font-size:.9rem;cursor:pointer;padding:7px 14px 7px 12px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 50%,transparent);background:transparent;color:var(--text-primary);display:inline-flex;align-items:center;gap:8px;transition:background .3s}
+.ox-lig::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.ox-lig:hover,.ox-lig:focus-visible{background:color-mix(in srgb,var(--c) 18%,transparent)}
+.ox-lig.fixo{cursor:default}
+.ox-lig.fixo:hover{background:transparent}
+.ox-nav{position:sticky;bottom:0;display:flex;justify-content:space-between;gap:12px;padding:14px clamp(20px,4vw,40px);background:linear-gradient(transparent,#1C1216 30%)}
+.ox-nav button{font:inherit;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.06em;cursor:pointer;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line-dark);background:rgba(21,13,16,.85);color:var(--text-primary)}
+.ox-nav button:hover,.ox-nav button:focus-visible{border-color:var(--c,#fff);outline:none}
+
+/* lightbox do amalá */
+.lightbox{padding:0;border:0;background:transparent;max-width:min(1100px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:visible}
+.lightbox[open]{animation:surge .45s var(--ease)}
+.lightbox figure{margin:0;display:flex;flex-direction:column;align-items:center}
+.lightbox img{display:block;max-width:100%;max-height:calc(100dvh - 170px);width:auto;height:auto;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.7)}
+.lightbox figcaption{max-width:760px;margin-top:14px;padding:12px 16px;border-radius:8px;background:rgba(21,13,16,.85);color:var(--text-secondary);font-size:.9rem;line-height:1.5}
+.lightbox .ox-x{top:-6px;right:-6px}
+@media (max-width:640px){.lightbox .ox-x{top:6px;right:6px}}
+
+/* fichas das linhas com ícone */
+.ficha.linha .l-ico{position:relative;display:grid;place-items:center;padding:22px 22px 4px;aspect-ratio:16/11;background:radial-gradient(ellipse 60% 60% at 50% 55%,color-mix(in srgb,var(--c) 26%,transparent),transparent 72%)}
+.ficha.linha .l-ico img{width:auto;height:100%;max-width:100%;object-fit:contain;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));transition:transform .7s var(--ease)}
+.ficha.linha:hover .l-ico img{transform:scale(1.06) rotate(-2deg)}
+.ficha.linha .l-ico.vazio span{width:42%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-size:3.4rem;font-weight:700;color:var(--c);border:2px dashed color-mix(in srgb,var(--c) 60%,transparent)}
+.ox-amala.mini{grid-template-columns:56px 1fr;gap:12px;margin:.4em 0 1em;padding:8px}
+.ox-amala.mini .ox-thumb{width:56px}
+.ox-amala.mini b{font-size:1.05rem}
+
+@media (max-width:860px){
+  .arvore-grid{grid-template-columns:1fr}
+  .arvore-copy{position:static}
+  .arvore{max-height:none}
+  .ox-legenda{grid-template-columns:1fr 1fr 1fr;gap:4px}
+  .ox-leg{padding:6px;column-gap:8px;grid-template-columns:10px 1fr}
+  .ox-leg i{width:10px;height:10px}
+  .ox-leg b{font-size:.95rem}
+  .ox-leg span{font-size:.72rem}
+}
+@media (max-width:640px){
+  .ox-legenda{grid-template-columns:1fr 1fr}
+  .ox-head{grid-template-columns:1fr;gap:12px}
+  .ox-ico{width:70px;height:70px}
+  .ox-amala{grid-template-columns:72px 1fr 20px}
+  .ox-thumb{width:72px}
+  .n-chave{font-size:24px}
+  .n-nome{font-size:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fio .f-luz,.n-aura,.n-orbita,.ox-ico,.arvore-dica span{animation:none}
+  .fio .f-luz{stroke-dasharray:none;opacity:.5}
+  .js .arvore .fio .f-base,.js .arvore .fio .f-halo{stroke-dashoffset:0}
+  .js .arvore .no,.js .arvore .fio .f-luz{opacity:1}
+  .ox-card[open],.lightbox[open],.ox-body.troca{animation:none}
+}
+.n-nome,.n-chave{paint-order:stroke;stroke:#150D10;stroke-width:9px;stroke-linejoin:round}
+.ox-card .ficha-video{color:var(--accent-on-dark)}

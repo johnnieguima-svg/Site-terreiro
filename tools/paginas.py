@@ -119,24 +119,29 @@ def build(g):
     OIMG = {'Oxalá': 'amala-oxala', 'Ogum': 'amala-ogum', 'Oxóssi': 'amala-oxossi', 'Xangô': 'amala-xango', 'Omulu': 'amala-omulu',
             'Iansã': 'amala-iansa', 'Oxum': 'amala-oxum', 'Iemanjá': 'amala-iemanja', 'Nanã': 'amala-nana',
             'Pretos(as) Velhos(as)': 'amala-pretos-velhos', 'Erês': 'amala-ere', 'Ciganos': 'amala-ciganos', 'Exus e Pombagiras': 'amala-exus'}
-    def ficha_ox(o, cat):
+    import arvore
+    LICO = {'Caboclos(as)': 'caboclos', 'Pretos(as) Velhos(as)': 'pretos-velhos', 'Erês': 'eres', 'Marinheiros': 'marinheiros',
+            'Boiadeiros': 'boiadeiros', 'Ciganos': 'ciganos', 'Médicos': 'medicos', 'Simiromba': 'simiromba', 'Exus e Pombagiras': 'exus'}
+    def ficha_linha(o, cat):
+        ic = LICO.get(o['name'])
+        if ic:
+            topo = '<div class="l-ico"><img src="assets/img/linha-%s.webp" alt="" width="320" height="300" loading="lazy" decoding="async"></div>' % ic
+        else:
+            topo = '<div class="l-ico vazio" aria-hidden="true"><span>%s</span></div>' % e(o['name'][0])
         im = OIMG.get(o['name'])
-        ph = '<figure class="photo">%s</figure>' % img(im, 'Amalá de %s' % o['name'], sizes='(max-width:600px) 100vw, 33vw') if im else ''
+        am = C(M.AMALA.get(o['name'], o['elementos']))
+        bot = ('<button type="button" class="ox-amala mini" data-img="assets/img/%s.webp" data-alt="Amalá de %s montado pela CUCA" data-cap="%s">'
+               '<span class="ox-thumb">%s</span><span class="ox-amala-txt"><b>Ver a foto do amalá</b></span></button>'
+               % (im, e(o['name']), e(am), img(im, '', sizes='120px'))) if im else ''
         sub = ' <small class="mono" style="font-size:.7rem">%s</small>' % C(o['subtitle']) if o.get('subtitle') else ''
-        return ('<article class="ficha reveal" data-cat="%s" style="--c:%s">%s<div class="body"><p class="tag"><i></i>%s</p><h3>%s%s</h3><p class="role">%s</p>'
+        return ('<article class="ficha linha reveal" data-cat="%s" style="--c:%s">%s<div class="body"><p class="tag"><i></i>%s</p><h3>%s%s</h3><p class="role">%s</p>'
                 '<details><summary>Atuação e amalá</summary><dl><dt>Atuação</dt><dd>%s</dd><dt>Arquétipo</dt><dd>%s</dd><dt>No emocional</dt><dd>%s</dd><dt>Amalá</dt><dd>%s</dd></dl></details>%s</div></article>'
-                % (cat, o['color'], ph, C(o['polarity']), C(o['name']), sub, C(o['shortRole']), C(o['atuacao']), C(o['mitologia']), C(o.get('efeito', '')), C(M.AMALA.get(o['name'], o['elementos'])), video(o['name'])))
-    def video(name):
-        u = M.ORIXA_VIDEOS.get(name)
-        if not u:
-            return ''
-        return ('<a class="ficha-video" href="%s" target="_blank" rel="noopener"><span aria-hidden="true">▶</span> Vídeo sobre %s no Instagram</a>' % (e(u), e(name)))
-    ox = ''.join(ficha_ox(o, 'orixa') for o in data['orixas'])
+                % (cat, o['color'], topo, C(o['polarity']), C(o['name']), sub, C(o['shortRole']), C(o['atuacao']), C(o['mitologia']), C(o.get('efeito', '')), am, bot))
     li = ''
     for o in data['linhas']:
         p = o['polarity']
         cat = 'direita' if 'Direita' in p else ('esquerda' if 'Esquerda' in p else 'neutras')
-        li += ficha_ox(o, cat)
+        li += ficha_linha(o, cat)
     lchips = ''.join('<button type="button" class="chip" data-value="%s" aria-pressed="%s">%s</button>' % (v, 'true' if v == 'all' else 'false', t)
                      for v, t in [('all', 'Todas'), ('direita', 'Direita'), ('neutras', 'Neutras'), ('esquerda', 'Esquerda')])
     ori = page_hero('Fundamentos', 'Orixás e Linhas', 'As forças da natureza que regem nossa coroa e as falanges de espíritos que trabalham na caridade.',
@@ -147,8 +152,7 @@ def build(g):
             '<div class="reveal"><span class="num mono" style="color:var(--accent)">Os mensageiros</span><h2 style="margin-top:.4em">E as linhas de guias?</h2>'
             '<p>Se os Orixás são as forças puras, os guias (Caboclos, Pretos Velhos, Erês, Baianos, Exus) são os espíritos trabalhadores que incorporam nos médiuns e conversam conosco, ajudando a curar o que levamos por dentro.</p></div>'
             '</div><p class="reveal" style="margin-top:1.4em;color:var(--ink-secondary)">As fotos são dos amalás montados pela própria casa. Para saber como se monta um amalá, veja <a href="rituais.html#amala">Rituais e Preceitos</a>.</p></div></section>')
-    ori += ('<section class="section light" style="padding-top:0" id="orixas-lista"><div class="wrap"><h2 class="reveal">Os 9 Orixás cultuados na CUCA.</h2>'
-            '<div class="fichas">%s</div></div></section>') % ox
+    ori += arvore.arvore_orixas(H, data['orixas'], OIMG, img)
     ori += ('<section class="section dark grain" id="linhas"><div class="smoke" aria-hidden="true"></div><div class="wrap"><h2 class="reveal">As 10 linhas de trabalho.</h2>'
             '<p class="lede reveal">Da direita à esquerda, cada linha tem seu jeito de trabalhar. A esquerda é tratada com o mesmo respeito: Exus e Pombagiras são os guardiões da casa.</p>'
             '<div data-filter-group="lista-linhas"><div class="filters">%s</div></div><div class="fichas" id="lista-linhas">%s</div>'
