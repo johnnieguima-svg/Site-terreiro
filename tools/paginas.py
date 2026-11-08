@@ -107,11 +107,8 @@ def build(g):
     akuan = data['guias'][0]
     guias = page_hero('A Casa', 'Guias Dirigentes', 'O Caboclo Akuan, patrono da casa, e os mentores que conduzem as nossas giras.',
                       'header-guias', 'Médium incorporado no centro do salão, diante da assistência', pos='55% 50%')
-    guias += ('<section class="section light"><div class="wrap"><div class="grid-2 top"><div class="reveal"><span class="mono" style="color:var(--accent)">Patrono geral da CUCA</span>'
-              '<h2 style="margin-top:.4em">Caboclo Akuan.</h2><p class="lede">%s</p><p class="mono" style="color:var(--accent);margin-top:1.4em">%s</p></div><div class="prose reveal"><p>%s</p>%s<p><strong>Ensinamento.</strong> %s</p><p class="final-line" style="font-size:1.25rem;color:var(--accent)">%s</p></div></div>'
-              '<div class="tile reveal" style="margin-top:2.4em"><h4>Sobre as ilustrações</h4><p>As imagens dos guias são ilustrações provisórias, feitas para estudo. Elas serão trocadas pelas ilustrações oficiais da casa.</p></div>'
-              '</div></section>') % (C(akuan['shortDesc']), C(akuan['line']), C(akuan['description']), pull(akuan['quote'], 'Caboclo Akuan'), C(akuan['teaching']), C(akuan['saudacao']))
-    guias += ('<section class="section light" style="padding-top:0"><div class="wrap"><h2 class="reveal">Os mentores da casa.</h2>'
+    guias += M.akuan_destaque(H, akuan)
+    guias += ('<section class="section light"><div class="wrap"><div class="tile reveal" style="margin-bottom:2em"><h4>Sobre as ilustrações</h4><p>As imagens dos guias são ilustrações provisórias, feitas para estudo. Elas serão trocadas pelas ilustrações oficiais da casa.</p></div><h2 class="reveal">Os mentores da casa.</h2>'
               '<div data-filter-group="lista-guias"><div class="filters">%s</div><div class="find"><label><span class="sr-only">Buscar guia</span><input type="search" placeholder="Buscar pelo nome ou pela linha"></label></div></div>'
               '<div class="fichas" id="lista-guias">%s</div><p class="no-results" hidden>Nenhum guia encontrado.</p></div></section>') % (chips, fichas)
     write('guias.html', 'Guias Dirigentes · CUCA', 'Caboclo Akuan, patrono da CUCA, e os guias que conduzem as giras: Caboclos, Pretos Velhos, Erês, linhas neutras e Guardiões.',
@@ -164,29 +161,22 @@ def build(g):
     idx = [('visao', 'Visão geral'), ('preceito', 'O preceito'), ('vela', 'A vela e a oração'), ('amala', 'O amalá'), ('banho', 'O banho de ervas'), ('conga', 'O Congá em casa')]
     content = chapter('visao', 'Visão geral', 'Quatro práticas que sustentam o equilíbrio.',
         '<div class="prose"><p>Na Umbanda, o sagrado não é algo distante: a folha, a água, a vela e a própria mente são manifestações de energia vital. Sustentamos nosso equilíbrio com quatro práticas fundamentais.</p></div>'
-        + tiles([('O preceito', 'Alinhamento do corpo e da mente antes e depois da gira.'), ('A vela e a oração', 'Ponto de firmeza e conexão com o Anjo da Guarda.'),
-                 ('O amalá', 'Oferenda de gratidão aos Orixás e aos guias.'), ('O banho de ervas', 'Limpeza e reequilíbrio pelos 4 elementos.')]))
+        + M.praticas(H))
     content += chapter('preceito', 'Pilar 01', 'O preceito.',
         '<div class="prose"><p>O preceito é o preparo pelo qual alinhamos nossa energia antes, durante e depois dos trabalhos espirituais. Não é castigo, é responsabilidade.</p>%s</div>' %
         pull('Como um artesão precisa de ferramentas limpas e afiadas, os guias precisam de um médium em equilíbrio.')
         + tiles([('Zero álcool e ilícitos', 'Substâncias que alteram a consciência rompem a proteção e atraem baixa vibração.'),
                  ('Alimentação leve', 'Nos dias de gira, evite carnes vermelhas, comidas pesadas e excessos que sobrecarregam o corpo.'),
                  ('Reserva de energia vital', 'Resguarde sua energia vital e mantenha o recolhimento interior antes dos trabalhos.'),
-                 ('Vigilância emocional', 'Evite discussões, raiva ou fofocas. Emoções densas atuam como ruídos na sintonia espiritual.')]) + M.rituais_preceito_extra(H))
-    content += chapter('vela', 'Pilar 02', 'A vela e a oração.',
-        '<div class="prose"><p>A chama da vela representa a consciência desperta e a fé viva. O copo com água pura ao lado funciona como espelho e filtro das boas energias, conectando você ao seu Anjo da Guarda.</p>%s</div>' %
-        pull('A vela e a água formam um portal de luz, proteção e conexão em sua morada.')
-        + tiles([('01 · Local seguro e limpo', 'Acenda em local tranquilo e longe de inflamáveis, em silêncio e prece.'),
-                 ('02 · Sempre vela branca', 'Em casa, use vela branca, salvo recomendação do guia. Ela é símbolo de pureza.'),
-                 ('03 · Copo com água ao lado', 'Coloque sempre um copo com água limpa ao lado da vela.'),
-                 ('04 · Descarte respeitoso', 'Ao final da queima, despeje a água numa planta ou em água corrente, com gratidão.')]) + M.rituais_vela_extra(H))
+                 ('Vigilância emocional', 'Evite discussões, raiva ou fofocas. Emoções densas atuam como ruídos na sintonia espiritual.')]) + M.preceito_porque(H))
+    content += M.rituais_vela(H)
     gal = ''.join('<div>%s</div>' % photo(s, a, 'ratio-34', sizes='(max-width:860px) 50vw, 25vw') for s, a in [
         ('amala-ogum', 'Amalá de Ogum'), ('amala-oxum', 'Amalá de Oxum'), ('amala-pretos-velhos', 'Amalá dos Pretos Velhos'), ('amala-nana', 'Amalá de Nanã')])
     content += chapter('amala', 'Pilar 03', 'O amalá.',
         '<div class="fig-side"><div class="prose"><p>Na CUCA, o amalá é a oferenda montada com elementos naturais: frutas, flores, grãos e velas. Nunca é pagamento nem barganha. É um ato de amor, sintonia e gratidão às forças da natureza.</p>'
         '<p>Os amalás e as entregas são montados no Jardim dos Orixás, ao lado dos tambores e dos oratórios de madeira.</p>%s</div>%s</div>' % (
             pull('A beleza física da oferenda deve ser o reflexo da sinceridade da sua oração interior.'),
-            photo('jardim-orixas', 'Os tambores das entregas no Jardim dos Orixás', 'ratio-34', 'O Jardim dos Orixás', sizes='(max-width:860px) 100vw, 40vw'))
+            photo('amala-iemanja', 'Amalá de Iemanjá: manjar de coco cercado de rosas brancas, margaridas e folhas', 'ratio-34', 'Amalá de Iemanjá', sizes='(max-width:860px) 100vw, 40vw'))
         + tiles([('Composição', 'Montado no Jardim dos Orixás com flores, frutas frescas, líquidos em coité e velas em números ímpares.'),
                  ('Zelo com o Jardim', 'O Jardim é solo sagrado: nunca deixamos plásticos, lixo ou fósforos queimados nos alguidares.'),
                  ('A regra de ouro', 'Sem intenção não há axé. A beleza da oferenda reflete a sinceridade da oração.')])

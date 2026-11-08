@@ -206,6 +206,26 @@
     });
   }
 
+  /* ---------- Rituais: as quatro práticas ---------- */
+  [].forEach.call(document.querySelectorAll('.praticas'),function(box){
+    var tabs=[].slice.call(box.querySelectorAll('.pr-tab'));
+    function show(t){tabs.forEach(function(x){var on=x===t;x.classList.toggle('on',on);x.setAttribute('aria-selected',String(on));var p=document.getElementById(x.getAttribute('aria-controls'));p.hidden=!on;p.classList.toggle('on',on)})}
+    tabs.forEach(function(t){t.addEventListener('click',function(){show(t)});t.addEventListener('mouseenter',function(){if(window.matchMedia('(hover:hover)').matches)show(t)});t.addEventListener('focus',function(){show(t)})});
+  });
+
+  /* ---------- Guias: Caboclo Akuan ---------- */
+  var ak=document.querySelector('.akuan-hero');
+  if(ak){
+    var akImg=ak.querySelector('.ak-figure img');
+    if(!reduced()&&window.matchMedia('(hover:hover)').matches){
+      ak.addEventListener('mousemove',function(ev){var r=ak.getBoundingClientRect(),x=(ev.clientX-r.left)/r.width-.5,y=(ev.clientY-r.top)/r.height-.5;
+        akImg.style.transform='rotateY('+(x*10).toFixed(2)+'deg) rotateX('+(-y*6).toFixed(2)+'deg) translateY('+(y*-8).toFixed(1)+'px)'});
+      ak.addEventListener('mouseleave',function(){akImg.style.transform=''});
+    }
+    if(!reduced()){var akRaf=0;window.addEventListener('scroll',function(){if(akRaf)return;akRaf=requestAnimationFrame(function(){akRaf=0;var r=ak.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;ak.querySelector('.ak-glow').style.transform='translateX(-50%) translateY('+(r.top*-.12).toFixed(1)+'px) scale('+(1+Math.min(.15,Math.max(0,-r.top/3000))).toFixed(3)+')'})},{passive:true})}
+    [].forEach.call(ak.querySelectorAll('.ak-card'),function(c){c.addEventListener('click',function(){var o=!c.classList.contains('open');c.classList.toggle('open',o);c.setAttribute('aria-expanded',String(o))})});
+  }
+
   /* ---------- cartões que viram (o que vestir / se sentir algo forte) ---------- */
   [].forEach.call(document.querySelectorAll('.flip'),function(f){
     f.addEventListener('click',function(){var o=f.getAttribute('aria-expanded')==='true';f.setAttribute('aria-expanded',String(!o))});

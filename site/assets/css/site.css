@@ -798,3 +798,91 @@ body.menu-open .pix-float{display:none}
 .ig-profile iframe{width:100%;height:560px;border:0;display:block}
 .ig-fallback{position:absolute;left:0;right:0;bottom:0;padding:12px;text-align:center;background:rgba(255,255,255,.95);color:var(--ink);font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
 .pix-pop-link{display:inline-flex;align-items:center;min-height:44px}
+
+/* ===== degradês mais harmônicos (curva suave nas bordas) ===== */
+.photo{
+  -webkit-mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.18) 4%,rgba(0,0,0,.55) 9%,rgba(0,0,0,.86) 15%,#000 22%,#000 78%,rgba(0,0,0,.86) 85%,rgba(0,0,0,.55) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+                     linear-gradient(to bottom,transparent 0,rgba(0,0,0,.18) 4%,rgba(0,0,0,.55) 9%,rgba(0,0,0,.86) 15%,#000 22%,#000 74%,rgba(0,0,0,.86) 82%,rgba(0,0,0,.55) 89%,rgba(0,0,0,.18) 95%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,rgba(0,0,0,.18) 4%,rgba(0,0,0,.55) 9%,rgba(0,0,0,.86) 15%,#000 22%,#000 78%,rgba(0,0,0,.86) 85%,rgba(0,0,0,.55) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+             linear-gradient(to bottom,transparent 0,rgba(0,0,0,.18) 4%,rgba(0,0,0,.55) 9%,rgba(0,0,0,.86) 15%,#000 22%,#000 74%,rgba(0,0,0,.86) 82%,rgba(0,0,0,.55) 89%,rgba(0,0,0,.18) 95%,transparent 100%)}
+.card .photo,.ficha .photo,.person .photo{
+  -webkit-mask-image:linear-gradient(to bottom,#000 0,#000 52%,rgba(0,0,0,.86) 66%,rgba(0,0,0,.55) 80%,rgba(0,0,0,.18) 92%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0,#000 52%,rgba(0,0,0,.86) 66%,rgba(0,0,0,.55) 80%,rgba(0,0,0,.18) 92%,transparent 100%)}
+.trio article .photo{
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.5) 5%,#000 14%,#000 64%,rgba(0,0,0,.86) 74%,rgba(0,0,0,.5) 86%,rgba(0,0,0,.15) 95%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 0,rgba(0,0,0,.5) 5%,#000 14%,#000 64%,rgba(0,0,0,.86) 74%,rgba(0,0,0,.5) 86%,rgba(0,0,0,.15) 95%,transparent 100%)}
+.page-hero .ph-scrim{background:
+  linear-gradient(90deg,rgba(21,13,16,.95) 0%,rgba(21,13,16,.9) 18%,rgba(21,13,16,.76) 32%,rgba(21,13,16,.54) 46%,rgba(21,13,16,.3) 60%,rgba(21,13,16,.12) 76%,rgba(21,13,16,.1) 90%,rgba(21,13,16,.22) 100%),
+  linear-gradient(to top,#150D10 0%,rgba(21,13,16,.82) 10%,rgba(21,13,16,.5) 22%,rgba(21,13,16,.2) 36%,rgba(21,13,16,0) 52%),
+  linear-gradient(to bottom,rgba(21,13,16,.75) 0%,rgba(21,13,16,.3) 12%,rgba(21,13,16,0) 26%)}
+@media (max-width:860px){.page-hero .ph-scrim{background:linear-gradient(to top,#150D10 0%,rgba(21,13,16,.9) 22%,rgba(21,13,16,.62) 42%,rgba(21,13,16,.32) 62%,rgba(21,13,16,.2) 80%,rgba(21,13,16,.62) 100%)}}
+
+/* ===== PIX do Apoie a casa em destaque ===== */
+.pix-hero{background:var(--accent)!important;border:0!important;color:#fff;text-align:left;box-shadow:0 26px 60px rgba(60,5,10,.45);position:relative;overflow:hidden}
+.pix-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 100% 0%,rgba(255,255,255,.16),transparent 60%);pointer-events:none}
+.pix-hero .pix-kicker{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;opacity:.9;margin:0 0 .4em}
+.pix-hero h3{color:#fff;font-size:1.5rem;margin:0 0 .8em}
+.pix-hero .pix-label{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;opacity:.85;margin-bottom:6px}
+.pix-hero .pix-key{display:block;font-family:var(--f-mono);font-size:clamp(1.05rem,.9rem + .8vw,1.45rem);font-weight:500;background:#fff;color:var(--ink);padding:14px 16px;border-radius:10px;word-break:break-all;margin-bottom:12px;position:relative;z-index:1}
+.pix-hero .pix-copy{background:var(--ink);color:#fff;width:100%;min-height:52px;position:relative;z-index:1}
+.pix-hero .pix-copy:hover{background:#000}
+.pix-hero .copied{color:#fff;position:relative;z-index:1}
+
+/* ===== Projeto Social: o PIX final pula e pisca ===== */
+.doar.jump .doar-pix{animation:pixjump 2.6s cubic-bezier(.3,.7,.3,1) infinite}
+@keyframes pixjump{0%,55%,100%{transform:translateY(0)}62%{transform:translateY(-16px)}70%{transform:translateY(0)}76%{transform:translateY(-7px)}82%{transform:translateY(0)}}
+.doar.jump .doar-pix code{animation:pixblink 1.3s steps(1,end) infinite}
+@keyframes pixblink{0%,100%{color:var(--ink)}50%{color:var(--accent)}}
+.doar.jump .doar-pix{outline:3px solid rgba(255,255,255,.0);animation:pixjump 2.6s cubic-bezier(.3,.7,.3,1) infinite,pixring 1.3s ease-in-out infinite}
+@keyframes pixring{50%{outline-color:rgba(255,255,255,.85);outline-offset:6px}}
+@media (prefers-reduced-motion:reduce){.doar.jump .doar-pix,.doar.jump .doar-pix code{animation:none}}
+
+/* ===== Rituais: as quatro práticas ===== */
+.praticas{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(18px,3vw,40px);margin-top:1.8em;align-items:stretch}
+.pr-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.pr-tab{width:100%;display:flex;align-items:center;gap:16px;padding:14px 16px;border:1px solid var(--line-light);border-radius:12px;background:rgba(255,255,255,.4);text-align:left;transition:background .35s,border-color .35s,transform .35s var(--ease)}
+.pr-tab:hover{transform:translateX(4px);border-color:rgba(142,27,38,.35)}
+.pr-tab.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.pr-ico{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:rgba(142,27,38,.08);transition:background .35s,transform .5s var(--ease)}
+.pr-ico svg{width:30px;height:30px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+.pr-tab.on .pr-ico{background:rgba(255,255,255,.16);transform:rotate(-8deg) scale(1.06)}
+.pr-tab.on .pr-ico svg{stroke:#fff}
+.pr-t b{display:block;font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:1.25rem;letter-spacing:.02em;line-height:1.1}
+.pr-t small{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:4px}
+.pr-stage{position:relative;border-radius:14px;background:var(--canvas);color:var(--text-primary);padding:clamp(22px,3vw,36px);min-height:320px;overflow:hidden}
+.pr-panel{animation:prin .6s var(--ease)}
+@keyframes prin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pr-big{display:block;width:64px;height:64px;margin-bottom:14px}
+.pr-big svg{width:100%;height:100%;fill:none;stroke:var(--accent-on-dark);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pr-panel h3{margin:0 0 .5em;font-size:1.8rem}
+.pr-panel p{color:var(--text-secondary);font-size:1.05rem;line-height:1.65}
+.pr-panel .link-arrow{color:var(--accent-on-dark)}
+@media (max-width:860px){.praticas{grid-template-columns:1fr}.pr-stage{min-height:0}}
+
+/* ===== Por que o preceito existe: frase vira negrito vermelho ===== */
+.porque .hl{transition:color .35s var(--ease),font-weight .35s;cursor:default}
+.porque .hl:hover{color:var(--accent);font-weight:700}
+.porque p{line-height:1.8}
+
+/* ===== Guias: Caboclo Akuan interativo ===== */
+.akuan-hero{position:relative;background:var(--canvas);color:var(--text-primary);padding:clamp(56px,7vw,100px) 0 clamp(64px,8vw,110px);overflow:clip;text-align:center}
+.ak-glow{position:absolute;left:50%;top:18%;width:min(900px,120vw);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(142,27,38,.42),rgba(142,27,38,.12) 55%,transparent 75%);pointer-events:none}
+.ak-figure{position:relative;width:min(440px,74vw);margin:0 auto;perspective:900px;z-index:1}
+.ak-figure img{width:100%;height:auto;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));
+  -webkit-mask-image:linear-gradient(to bottom,#000 70%,rgba(0,0,0,.6) 84%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,rgba(0,0,0,.6) 84%,transparent 100%)}
+.ak-text{position:relative;z-index:2;margin-top:-70px;max-width:720px;margin-left:auto;margin-right:auto}
+.ak-text .mono{color:var(--accent-on-dark)}
+.ak-text h2{font-size:clamp(2.8rem,1.8rem + 4vw,5.4rem);margin:.15em 0 .25em}
+.ak-text .lede{color:var(--text-secondary);margin:0 auto;max-width:52ch}
+.ak-cards{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(28px,4vw,48px);text-align:left;align-items:start}
+.ak-card{display:flex;flex-direction:column;gap:6px;padding:18px;border-radius:12px;border:1px solid var(--line-dark);background:rgba(241,238,232,.04);color:var(--text-primary);text-align:left;transition:background .4s,border-color .4s,transform .4s var(--ease)}
+.ak-card:hover{transform:translateY(-3px);border-color:rgba(217,114,123,.5)}
+.ak-n{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.16em;color:var(--accent-on-dark)}
+.ak-t{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:1.3rem;line-height:1.1}
+.ak-d{display:block;max-height:0;overflow:hidden;opacity:0;color:var(--text-secondary);font-size:.97rem;line-height:1.6;transition:max-height .7s var(--ease),opacity .5s,margin .5s}
+.ak-card.open{background:rgba(142,27,38,.22);border-color:rgba(217,114,123,.55)}
+.ak-card.open .ak-d{max-height:520px;opacity:1;margin-top:6px}
+.ak-saudacao{margin:2.2em auto 0;max-width:46ch;font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(1.1rem,1rem + .6vw,1.5rem);line-height:1.25;color:#DA3640}
+.ak-note{margin:1.2em 0 0;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary);opacity:.7}
+@media (max-width:900px){.ak-cards{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ak-cards{grid-template-columns:1fr}.ak-text{margin-top:-40px}}

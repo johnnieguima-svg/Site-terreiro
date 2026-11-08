@@ -282,7 +282,7 @@ def index():
     tl = [
         ('1987', 'Pai Fernando de Ogum abre a primeira gira do Terreiro do Pai Maneco, em Curitiba.', 'pai-fernando', 'Pai Fernando de Ogum'),
         ('2009', 'Pai Léo de Oxóssi é consagrado Pai de Santo. A família firma o elo com a Umbanda.', 'amaci-2009', 'Amaci de Pai João Lucas em 2009, no Terreiro do Pai Maneco'),
-        ('2017', 'Nasce o Terreiro Filhos do Sol, pelo chamado do Caboclo Tupinambá.', None, ''),
+        ('2017', 'Nasce o Terreiro Filhos do Sol, pelo chamado do Caboclo Tupinambá.', 'filhos-do-sol-2017', 'A corrente de mãos dadas no Terreiro Filhos do Sol, em 2017'),
         ('2022', 'Pai João Lucas de Ogum recebe o cruzamento de Pai de Santo.', 'cruzamento-2022', 'A roda no cruzamento de Pai de Santo, em 2022'),
         ('2025', 'Nasce a CUCA: Casa de Umbanda Corrente de Akuan.', 'inauguracao', 'A gira inaugural da CUCA, em 2025'),
     ]
@@ -305,7 +305,7 @@ def index():
    <div class="beat">
     <p class="phrase">Somos lar antes de sermos templo.</p>
     <p class="when">Gira aberta e gratuita toda segunda, às 19h30. Senhas a partir das 19h.</p>
-    <div class="actions"><a class="btn btn-primary" href="primeira-vez.html">Como é a primeira vez</a><a class="btn btn-ghost" href="%(wa)s" target="_blank" rel="noopener">%(wasvg)s Falar no WhatsApp</a></div>
+    <div class="actions"><a class="btn btn-primary" href="primeira-vez.html">Primeira vez</a><a class="btn btn-ghost" href="%(wa)s" target="_blank" rel="noopener">%(wasvg)s Falar no WhatsApp</a></div>
    </div>
   </div>
  </div>
@@ -453,16 +453,18 @@ def index():
    </div>
   </div>
   <div class="venha-side reveal">
+   <div class="boxed pix-hero">
+    <p class="pix-kicker">Apoie a casa</p>
+    <h3>A CUCA se mantém com a ajuda de quem acredita nela.</h3>
+    <span class="pix-label">Chave PIX</span>
+    <code class="pix-key">%(pix)s</code>
+    <button type="button" class="btn pix-copy" data-copy="%(pix)s" aria-describedby="pix-ok">Copiar chave PIX</button>
+    <p class="copied" id="pix-ok" aria-live="polite"></p>
+   </div>
    <div class="boxed">
     <h3>Próximas datas</h3>
     <iframe class="agenda-frame" src="%(agenda)s" title="Próximas datas da agenda da CUCA" loading="lazy"></iframe>
     <p style="margin:.9em 0 0"><a class="link-arrow" href="agenda.html">Agenda completa</a></p>
-   </div>
-   <div class="boxed">
-    <h3>Apoie a casa</h3>
-    <p>A CUCA se mantém com a ajuda de quem acredita nela.</p>
-    <div class="pix"><code>%(pix)s</code><button type="button" class="btn btn-ghost" data-copy="%(pix)s" aria-describedby="pix-ok">Copiar chave</button></div>
-    <p class="copied" id="pix-ok" aria-live="polite"></p>
    </div>
   </div>
  </div>

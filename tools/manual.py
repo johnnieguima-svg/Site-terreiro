@@ -224,7 +224,7 @@ def agenda_page(H, g):
 
 
 # ---------- Linha do tempo viva (página História) ----------
-TL_IMG = {'marco-1987': ('pai-fernando', 'Pai Fernando de Ogum'), '2009': ('amaci-2009', 'O Amaci de Pai João Lucas em 2009'),
+TL_IMG = {'filhos': ('filhos-do-sol-2017', 'A corrente do Terreiro Filhos do Sol em 2017'), 'marco-1987': ('pai-fernando', 'Pai Fernando de Ogum'), '2009': ('amaci-2009', 'O Amaci de Pai João Lucas em 2009'),
           '2022': ('cruzamento-2022', 'A roda do cruzamento de Pai de Santo'), 'promessa': ('jardim-orixas', 'Os tambores do Jardim dos Orixás'),
           'aroeira': ('aroeira', 'A Aroeira da CUCA'), 'inaug': ('inauguracao', 'A gira inaugural da CUCA')}
 TL_CHAP = {'cap-raizes': 'raizes', 'cap-forja': 'forja', 'cap-promessa': 'promessa', 'cap-aroeira': 'aroeira'}
@@ -239,7 +239,7 @@ def linha_viva(H, steps):
         if t['year'].startswith('Jun'): key = 'aroeira'
         if t['year'].startswith('Set'): key = 'inaug'
         if t['year'] == '1987': key = 'marco-1987'
-        if t['year'] == '2017': key = None
+        if t['year'] == '2017': key = 'filhos'
         year = t['year'].split()[-1]
         media = ('<img src="assets/img/%s-sm.webp" alt="%s" loading="lazy">' % (TL_IMG[key][0], e(TL_IMG[key][1]))) if key else (
             '<svg class="tl-sun" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="20"/>%s</svg>' %
@@ -342,7 +342,7 @@ def projeto_social(H, g):
     body += ('<section class="section light"><div class="wrap"><h2 class="reveal">Cultura e encontros.</h2>'
              '<p class="lede reveal">Além de espaço religioso, a CUCA é lugar de cultura e de brasilidade. Ao longo do ano, a casa abre as portas para encontros gratuitos.</p>'
              '%s</div></section>' % H['tiles'](EVENTOS))
-    body += insta_projeto(H) + doacao_band(H, g, 'fim')
+    body += insta_projeto(H) + doacao_band(H, g, 'fim').replace('class="doar"', 'class="doar jump"', 1)
     H['write']('projeto-social.html', 'Projeto Social Comida de Santo · CUCA',
                'Projeto Comida de Santo da CUCA: ações sociais a cada três meses para crianças, pessoas em situação de rua, comunidades indígenas e bem-estar animal.',
                hero + body + H['invite'](), 'passe')
@@ -387,3 +387,84 @@ GUIAS = {
         'saudacao': 'Laroyê, seo Tranca!',
     },
 }
+
+
+# ---------- Rituais: as quatro práticas (lista interativa) ----------
+ICO = {
+    'preceito': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40c-8-4-14-10-14-18 6 0 11 3 14 8 3-5 8-8 14-8 0 8-6 14-14 18z"/><path d="M24 30V10"/><path d="M24 16c-3-3-3-6 0-9 3 3 3 6 0 9z"/></svg>',
+    'vela': '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="18" y="22" width="12" height="20" rx="2"/><path d="M24 22v-3"/><path d="M24 18c-4-3-3-8 0-12 3 4 4 9 0 12z"/><path d="M36 30h4v12h-6V34"/></svg>',
+    'amala': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 26h36c-1 9-8 14-18 14S7 35 6 26z"/><circle cx="17" cy="21" r="4"/><circle cx="26" cy="19" r="5"/><circle cx="34" cy="22" r="3"/><path d="M24 40v4M16 44h16"/></svg>',
+    'banho': '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c6 9 11 15 11 22a11 11 0 0 1-22 0c0-7 5-13 11-22z"/><path d="M19 30c1 3 3 5 6 5"/><path d="M30 12c4-3 8-3 11-1-2 4-6 5-10 4"/></svg>',
+}
+PRATICAS = [
+    ('preceito', 'O preceito', 'Antes e depois da gira',
+     'É o preparo que alinha o corpo, a mente e a energia antes, durante e depois dos trabalhos. Nos dias de gira, evitamos álcool, comida pesada, brigas e excessos. Não é castigo: é cuidado com o instrumento que os guias usam.'),
+    ('vela', 'A vela e a oração', 'Firmeza em casa',
+     'Uma vela branca acesa ao lado de um copo de água abre um canal de luz e proteção com o seu Anjo da Guarda. É um gesto simples, para fazer em casa, com calma e pensamento bom.'),
+    ('amala', 'O amalá', 'Oferenda de gratidão',
+     'Frutas, flores, grãos e velas montados em círculo, como uma mandala, para agradecer aos Orixás e aos guias. Na CUCA, os amalás são montados no Jardim dos Orixás. Nunca é pagamento: é amor e gratidão.'),
+    ('banho', 'O banho de ervas', 'Limpeza e reequilíbrio',
+     'As folhas, preparadas com intenção e oração, limpam o campo espiritual e devolvem o equilíbrio: acalmam o que está agitado e dão força onde falta. Cada erva tem um elemento: Ar, Fogo, Terra ou Água.'),
+]
+
+
+def praticas(H):
+    e = H['e']
+    tabs = ''.join(
+        '<li><button type="button" class="pr-tab%s" role="tab" aria-selected="%s" aria-controls="pr-%s" id="pt-%s" data-pr="%s">'
+        '<span class="pr-ico">%s</span><span class="pr-t"><b>%s</b><small>%s</small></span></button></li>'
+        % (' on' if i == 0 else '', 'true' if i == 0 else 'false', k, k, k, ICO[k], e(t), e(s)) for i, (k, t, s, d) in enumerate(PRATICAS))
+    panels = ''.join(
+        '<div class="pr-panel%s" role="tabpanel" id="pr-%s" aria-labelledby="pt-%s"%s><span class="pr-big">%s</span><h3>%s</h3><p>%s</p><a class="link-arrow" href="#%s">Ler sobre %s</a></div>'
+        % (' on' if i == 0 else '', k, k, '' if i == 0 else ' hidden', ICO[k], e(t), e(d), k, e(t.lower()))
+        for i, (k, t, s, d) in enumerate(PRATICAS))
+    return ('<div class="praticas"><ul class="pr-list" role="tablist" aria-label="As quatro práticas">%s</ul><div class="pr-stage">%s</div></div>' % (tabs, panels))
+
+
+def preceito_porque(H):
+    frases = ['O preceito não é repressão, é responsabilidade espiritual.',
+              'Ele mantém a energia limpa e estável.',
+              'Facilita a sintonia com os guias.',
+              'Protege o médium de interferências e desgastes.',
+              'Nos dias de gira, a casa também pede resguardo nas relações sexuais, porque elas mexem intensamente com a energia vital.',
+              'E pede cuidado com açúcar em excesso e energéticos, que geram picos e quedas de energia.']
+    return ('<div class="prose porque" style="margin-top:1.6em"><h3>Por que o preceito existe</h3><p>%s</p></div>'
+            % ' '.join('<span class="hl">%s</span>' % H['e'](f) for f in frases))
+
+
+def rituais_vela(H):
+    e = H['e']
+    passos = [('Escolha o lugar', 'Um canto calmo e seguro da casa, longe de cortinas, madeira e qualquer coisa que pegue fogo. Use uma base de cerâmica ou de vidro.'),
+              ('Prepare a vela e a água', 'Use vela branca, a não ser que o guia oriente outra cor. Ao lado, coloque um copo com água limpa.'),
+              ('Acenda com intenção', 'Ao acender, pense no seu Anjo da Guarda ou nos seus guias. Peça luz, proteção e equilíbrio, em silêncio ou numa oração curta.'),
+              ('Deixe a vela queimar até o fim', 'Não sopre a vela. Se precisar sair de casa, só acenda quando puder acompanhar.'),
+              ('Devolva a água à natureza', 'Quando a vela acabar, despeje a água numa planta ou em água corrente, agradecendo. Use um copo de água novo na próxima vez.')]
+    return H['chapter']('vela', 'Pilar 02', 'A vela e a oração.',
+        '<div class="prose"><p class="lede" style="color:var(--ink-secondary)">Uma vela branca e um copo de água. É o ritual mais simples da Umbanda, e um dos mais fortes.</p>'
+        '<p><strong>A vela</strong> é a luz da fé e da consciência desperta. <strong>A água</strong> recebe, filtra e conduz as energias. Juntas, abrem um canal entre você e o seu Anjo da Guarda, que é o seu próprio espírito, e os seus guias.</p></div>'
+        '<h3 style="margin-top:1.6em">Passo a passo</h3><ol class="steps">%s</ol>'
+        '<h3 style="margin-top:1.6em">Cuidados importantes</h3>'
+        % ''.join('<li><b>%s</b><span>%s</span></li>' % (e(t), e(d)) for t, d in passos)
+        + H['tiles']([('O que pensar', 'Diante da vela acesa, mantenha só prece, silêncio ou bons pensamentos. Nunca reclame nem pragueje: a vela leva tudo o que você coloca nela.'),
+                      ('Vela de 7 dias', 'Só com autorização do guia dirigente da gira.'),
+                      ('Com que frequência', 'Pode acender regularmente, não só em dia de gira.')])
+        + H['pull']('A vela e a água formam um portal de luz, proteção e conexão em sua morada.'))
+
+
+def akuan_destaque(H, gd):
+    e, C = H['e'], H['C']
+    cards = [('Quem é', gd['shortDesc'] + ' Era o caboclo de Pai Fernando de Ogum, e o nome ecoava nas mesas de domingo da família. Anos depois, chegou ao médium de forma natural e foi se firmando aos poucos, até assumir o lugar de pai de cabeça.'),
+             ('Como se apresenta', 'Um indígena jovem, alto e atlético, de cabelos longos e olhos pintados, com cocar discreto e lança, às vezes a cavalo. É acompanhado por uma águia dourada e é patrono de um grupo de panteras negras, que combatem as forças do mal. Suas cores vão do vermelho de Ogum ao branco de Oxalá.'),
+             ('O que ensina', gd['teaching']),
+             ('Palavra do Caboclo', '“' + gd['quote'] + '”')]
+    btns = ''.join('<button type="button" class="ak-card%s" aria-expanded="%s"><span class="ak-n">0%d</span><span class="ak-t">%s</span><span class="ak-d">%s</span></button>'
+                   % (' open' if i == 0 else '', 'true' if i == 0 else 'false', i + 1, e(t), C(d)) for i, (t, d) in enumerate(cards))
+    return ('<section class="akuan-hero" aria-labelledby="ak-title"><div class="ak-glow" aria-hidden="true"></div>'
+            '<div class="wrap">'
+            '<div class="ak-figure" aria-hidden="true"><img src="assets/img/akuan-recorte.webp" srcset="assets/img/akuan-recorte-sm.webp 600w, assets/img/akuan-recorte.webp 1100w" sizes="(max-width:700px) 80vw, 460px" alt=""></div>'
+            '<div class="ak-text reveal"><span class="mono">Patrono geral da CUCA · %s</span><h2 id="ak-title">Caboclo Akuan</h2>'
+            '<p class="lede">Destemido, implacável e amoroso. Palavras retas e pontiagudas, e um abraço largo: é pai que orienta, limita, reconduz e acredita.</p></div>'
+            '<div class="ak-cards">%s</div>'
+            '<p class="ak-saudacao reveal">%s</p>'
+            '<p class="ak-note">Ilustração provisória, para estudo.</p>'
+            '</div></section>') % (e(gd['line']), btns, C(gd['saudacao']))
