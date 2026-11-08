@@ -1323,3 +1323,7 @@ blockquote.pull.q-anim.arrive::before{transform:none}
 .tiles.avisos{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:0 0 1.8em}
 .tiles.avisos .tile{border-left:3px solid var(--accent);background:rgba(142,27,38,.05)}
 .tiles.avisos .tile h4{color:var(--accent)}
+.ia-nota{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink-secondary);margin:-.4em 0 1.8em;max-width:46rem}
+/* títulos ficam por cima da foto lateral */
+.chapter > h2,.chapter > .num{position:relative;z-index:2}
+.chapter:has(.lado-side) > h2{text-shadow:0 0 22px var(--canvas-light),0 0 8px var(--canvas-light)}

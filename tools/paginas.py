@@ -72,12 +72,12 @@ def build(g):
         '</div>%s</div>' % (pull('Seo Akuan, nos abençoa. E, se for pra ser aqui, que esse lugar nos aceite.'),
                             photo('aroeira', 'A Aroeira da CUCA e os tambores do Jardim dos Orixás', 'ratio-34', 'A Aroeira na sede', sizes='(max-width:860px) 100vw, 40vw')))
     content += chapter('lar', 'Capítulo 05 · A CUCA', 'A visão de lar.',
-        '<div class="fig-side"><div class="prose">'
+        '<div class="fig-side lado-side"><div class="prose">'
         '<p>A CUCA deveria ser, antes de tudo, casa: refúgio para os desamparados, abrigo para quem anseia beber do Sagrado. Não somos apenas um templo erguido sob telhas. Somos lar, lugar onde a cabeça repousa para que corpo, alma e espírito renasçam na alvorada.</p>'
         '<p>O nome foi pedido pelo próprio Caboclo Akuan: Casa, porque é lugar de descanso e resguardo. Corrente, porque cada médium é um elo, e quanto melhor cada elo, mais forte a corrente fica.</p>'
         '%s<p><a class="link-arrow" href="guias.html">Conheça o Caboclo Akuan e os guias da casa</a></p>'
         '</div>%s</div>' % (pull('Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.', 'Caboclo Akuan'),
-                            photo('inauguracao', 'A corrente reunida na gira inaugural da CUCA, em 2025', 'ratio-11', '1º de setembro de 2025 · Gira inaugural', sizes='(max-width:860px) 100vw, 40vw')))
+                            '<div class="lado-foto">%s</div>' % photo('inauguracao', 'A corrente reunida na gira inaugural da CUCA, em 1º de setembro de 2025', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal')))
     content += M.historia_missao(H) + M.historia_final(H)
     write('historia.html', 'História e Linha do Tempo · CUCA',
           'Três gerações de Umbanda pés no chão: do Terreiro do Pai Maneco, em 1987, à Casa de Umbanda Corrente de Akuan, em 2025.',
@@ -110,7 +110,7 @@ def build(g):
     guias = page_hero('A Casa', 'Guias Dirigentes', 'O Caboclo Akuan, patrono da casa, e os mentores que conduzem as nossas giras.',
                       'header-guias', 'Médium incorporado no centro do salão, diante da assistência', pos='55% 50%')
     guias += M.akuan_destaque(H, akuan)
-    guias += ('<section class="section light"><div class="wrap"><div class="tile reveal" style="margin-bottom:2em"><h4>Sobre as ilustrações</h4><p>As imagens dos guias são ilustrações provisórias, feitas para estudo. Elas serão trocadas pelas ilustrações oficiais da casa.</p></div><h2 class="reveal">Os mentores da casa.</h2>'
+    guias += ('<section class="section light"><div class="wrap"><h2 class="reveal">Os mentores da casa.</h2><p class="ia-nota reveal">As imagens dos guias são baseadas na intuição e na visão de Pai João Lucas e reproduzidas por inteligência artificial.</p>'
               '<div data-filter-group="lista-guias"><div class="filters">%s</div><div class="find"><label><span class="sr-only">Buscar guia</span><input type="search" placeholder="Buscar pelo nome ou pela linha"></label></div></div>'
               '<div class="fichas" id="lista-guias">%s</div><p class="no-results" hidden>Nenhum guia encontrado.</p></div></section>') % (chips, fichas)
     write('guias.html', 'Guias Dirigentes · CUCA', 'Caboclo Akuan, patrono da CUCA, e os guias que conduzem as giras: Caboclos, Pretos Velhos, Erês, linhas neutras e Guardiões.',
@@ -217,7 +217,7 @@ def build(g):
         pts = ''.join('<dt>%s</dt><dd>%s</dd>' % (C(p['label']), C(p['text'])) for p in f['points'])
         fr += ('<article class="ficha reveal" data-cat="x"><figure class="photo tall">%s</figure><div class="body"><p class="tag"><i></i>%s</p><h3>%s</h3><p>%s</p>'
                '<details><summary>Como funciona</summary><dl>%s</dl></details></div></article>' % (img(s, a, sizes='(max-width:600px) 100vw, 25vw', pos=pos), C(f['subtitle'].replace(' & ', ' e ')), C(f['title']), C(f['summary']), pts))
-    LEAD = [('joao-lucas', 'Pai João Lucas de Ogum', 'Pai de Santo · Dirigente'), ('hismara', 'Mãe Hismara', 'Mãe de Santo'),
+    LEAD = [('joao-lucas', 'Pai João Lucas de Ogum', 'Pai de Santo · Dirigente'), ('hismara', 'Mãe Hismara de Ogum', 'Mãe de Santo'),
             ('claudio', 'Pai Cláudio', 'Pai Pequeno'), ('mariana', 'Mãe Mariana', 'Mãe Pequena'), ('patricia', 'Mãe Patrícia', 'Mãe Pequena')]
     TEAM = [('joao-caetano', 'João Caetano', 'Ogã Chefe'), ('raphael', 'Raphael', 'Samba Chefe'), ('mariane', 'Mariane', 'Ogã'),
             ('ana-paula', 'Ana Paula', 'Capitã'), ('elis', 'Elis', 'Capitã'), ('emily', 'Emily', 'Capitã'),
@@ -280,7 +280,7 @@ def build(g):
     med = page_hero('Vivência', 'Quero ser médium', 'Entrar para a corrente mediúnica é um chamado ao trabalho espiritual, ao autoconhecimento e ao serviço fraterno.',
                     'corrente', 'A corrente de médiuns de branco cantando no salão', wide=True)
     idx = [('aco', 'A corrente de aço'), ('autodescobrimento', 'Autodescobrimento'), ('passos', 'Os 7 passos'), ('obi', 'Tiragem do Obi'), ('amaci', 'O Amaci'), ('menores', 'Menores de idade'),
-           ('direitos', 'Direitos e deveres'), ('caminhada', 'O começo da caminhada'), ('dicas', 'Dicas de ouro'), ('deveres', 'Pilares'), ('funcoes', 'Funções mediúnicas')]
+           ('direitos', 'Direitos e deveres'), ('caminhada', 'O começo da caminhada'), ('dicas', 'Dicas de ouro'), ('deveres', 'Pilares'), ('funcoes', 'Funções mediúnicas'), ('curimba', 'A curimba')]
     content = chapter('aco', 'O caminho do médium', 'A corrente de aço.',
         '<div class="prose">%s<p>O ingresso na CUCA não acontece de imediato. Exige vivência, confirmação espiritual e preparo. Leia com calma os passos abaixo e, se sentir o chamado, comece pela assistência, numa segunda-feira.</p></div>' %
         (pull('Uma corrente que una a disciplina com o amor será, verdadeiramente, uma corrente de aço.', 'Caboclo Akuan')
@@ -316,6 +316,7 @@ def build(g):
             tiles([('Sustentação', 'Doam prece e foco, mantendo a frequência da gira firme. Sem eles, o trabalho não acontece.'),
                    ('Cambones', 'A maior escola da Umbanda. Auxiliam as entidades e os consulentes, traduzindo orientações e zelando pela ordem.'),
                    ('Curimba', 'Ogãs, atabaqueiros e sambas: o coração da gira. A música no terreiro é oração cantada.')])))
+    content += M.curimba(H)
     write('medium.html', 'Quero Ser Médium · CUCA', 'Os 7 passos para ingressar na corrente mediúnica da CUCA, as dicas de ouro, os deveres e as funções de cada médium.',
           med + body_with_index(idx, content) + invite(), 'corrente')
 
@@ -337,6 +338,6 @@ def build(g):
     doc += ('<section class="section dark grain"><div class="smoke" aria-hidden="true"></div><div class="wrap"><h2 class="reveal">Acervo de estudo.</h2>'
             '<p class="lede reveal">Material da casa para médiuns e para quem quer conhecer a CUCA a fundo.</p><div class="docs">%s</div></div></section>') % dh
     write('documentos.html', 'Documentos e Pontos · CUCA', 'Guia do Médium, Ritual de Abertura e Livro de Pontos Cantados da CUCA, para leitura e download.',
-          doc + M.curimba(H) + '<section class="section dark grain" id="cucacast"><div class="wrap"><div class="midia">%s%s</div></div></section>' % (g['podcast_block'](), g['instagram_block']()) + invite(), 'header-documentos')
+          doc + '<section class="section dark grain" id="cucacast"><div class="wrap"><div class="midia">%s%s</div></div></section>' % (g['podcast_block'](), g['instagram_block']()) + invite(), 'header-documentos')
     M.agenda_page(H, g)
     M.projeto_social(H, g)

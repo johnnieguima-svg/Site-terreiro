@@ -26,6 +26,7 @@ AMALA = {
     'Omulu': 'Comida: pipoca sem sal (o deburu), inhame, mandioca, gengibre, coco seco, feijão preto cozido sem tempero e milho branco torrado. Bebida: cauim, cachaça com água ou cerveja preta. Flores: palhas e espigas de milho, cravos brancos, crisântemos brancos, sempre-vivas e margaridas brancas. Velas: preta.',
     'Pretos(as) Velhos(as)': 'Comida: café preto, cocada, doces de coco, tutu de feijão e rapadura. Bebida: café, batida de coco, suco de milho ou água. Com cigarro de palha. Flores: cravos brancos, margaridas e flores do campo brancas, folhas de bananeira e espigas de milho. Velas: brancas, ou brancas e pretas.',
     'Erês': 'Comida: doces caseiros, bolos simples e balas de banana, de preferência feitos por quem oferece. Bebida: sucos de fruta feitos em casa. Flores: ornamentais e coloridas, em especial margaridas. Velas: brancas, azuis e rosas.',
+    'Caboclos(as)': 'Comida: frutas silvestres da estação, ou conforme a linha. Bebida: cerveja preta, cerveja branca, água ou suco natural de frutas. Velas: conforme o Orixá da linha.',
     'Baianos': 'Comida: petiscos de bar como amendoim, aipim frito e azeitonas, sem nenhuma proteína animal. Bebida: cachaça ou cerveja clara. Flores: rosas vermelhas e brancas. Velas: brancas.',
     'Marinheiros': 'Comida: frutas aquosas e claras, como uvas e peras. Bebida: cachaça, rum ou água. Flores: rosas brancas ou flores azuis. Velas: azuis, brancas ou misturadas.',
     'Boiadeiros': 'Comida: doces e salgados da roça, como broa de milho, curau e pamonha. Bebida: cachaça ou café. Flores: cravos ou flores simples do campo. Velas: amarelas e pretas.',
@@ -61,13 +62,17 @@ def historia_missao(H):
 
 
 def historia_final(H):
+    import os
+    # foto da pasta "A Umbanda que sorri"; enquanto não chega, usa a corrente reunida
+    slug = 'umbanda-que-sorri' if os.path.exists(os.path.join(os.path.dirname(__file__), '..', 'site', 'assets', 'img', 'umbanda-que-sorri.webp')) else 'corrente'
+    foto = '<div class="lado-foto">%s</div>' % H['photo'](slug, 'A corrente da CUCA sorrindo no salão', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal')
     return H['chapter']('sorri', 'Considerações finais', 'Uma Umbanda que sorri.',
-        '<div class="prose">'
+        '<div class="fig-side lado-side"><div class="prose">'
         '<p>Pai Léo de Oxóssi costuma dizer que a Umbanda é o caminho para as estrelas. Pai Fernando, filho de Ogum de poucas palavras, dizia que a Umbanda é amor. Pai Beco de Oxóssi a definia simplesmente como samba, oração. A Umbanda é tudo isso e muito mais.</p>'
         '<p>A Umbanda que buscamos viver nesta casa é uma Umbanda que sorri. Como numa escola de samba, poucos de fora sabem o esforço para manter instrumentos, ritmos e pessoas em harmonia. Esse esforço tem um único objetivo: acender a luz do espírito até desabrochar num sorriso, sem cor, raça, orientação sexual, partido ou qualquer outro rótulo.</p>'
         '%s'
-        '<p class="mono" style="color:var(--ink-secondary)">Saravá, Caboclos! Saravá, Pretos-Velhos! Laroyê, Exu! Saravá à Umbanda!</p></div>'
-        % H['pull']('A Umbanda é a cara de Deus, e Ele é a cara do Brasil.', 'Pai João Lucas de Ogum'))
+        '<p class="mono" style="color:var(--ink-secondary)">Saravá, Caboclos! Saravá, Pretos-Velhos! Laroyê, Exu! Saravá à Umbanda!</p></div>%s</div>'
+        % (H['pull']('A Umbanda é a cara de Deus, e Ele é a cara do Brasil.', 'Pai João Lucas de Ogum'), foto))
 
 
 CONDUTA = [
@@ -128,7 +133,8 @@ def medium_extras(H):
     out += chapter('menores', 'Jovens na corrente', 'Médiuns menores de idade.',
         tiles([('Idade mínima: 12 anos', 'Com autorização expressa dos dois responsáveis e sempre acompanhados na consulta e na preparação.'),
                ('Incorporação só a partir dos 16', 'Antes disso o jovem vibra e participa da gira, mas a incorporação exige maturidade que ainda está em formação.'),
-               ('Sempre com um responsável', 'Nenhum médium menor de idade frequenta os trabalhos sem um responsável legal ou alguém indicado por ele.')]))
+               ('Sempre com um responsável', 'Nenhum médium menor de idade frequenta os trabalhos sem um responsável legal ou alguém indicado por ele.'),
+               ('Atendimento só a partir dos 18', 'O trabalho de atendimento mediúnico só é permitido a partir dos 18 anos.')]))
     out += chapter('direitos', 'Médium integrante', 'Direitos e deveres.',
         '<div class="grid-2 top"><div><h3>Direitos</h3><ul class="dash">'
         '<li>Usar os espaços comuns da casa.</li><li>Participar de todas as atividades do terreiro.</li><li>Buscar orientação espiritual com os guias e a direção.</li>'
@@ -189,17 +195,17 @@ def rituais_banho_full(H):
 
 
 def curimba(H):
-    return ('<section class="section light" id="curimba" aria-labelledby="h-curimba"><div class="wrap"><div class="grid-2 top">'
-            '<div class="reveal"><span class="mono" style="color:var(--accent)">Atabaque, engoma e curimba</span><h2 id="h-curimba" style="margin-top:.4em">O coração da gira.</h2>'
-            '<p class="lede">Se o toco da entidade dirigente é o cérebro da gira, o atabaque é o seu coração.</p>%s</div>'
-            '<div class="prose reveal">'
-            '<p>De origem árabe, espalhado pela África e trazido ao Brasil, o atabaque se enraizou nas religiões afro-brasileiras. Nos ritos aparece em trio: o <strong>Rum</strong>, maior e grave, coordena a base e o tempo; o <strong>Lé</strong>, menor e agudo, cria variações e repiques; o <strong>Rumpi</strong>, médio, une os dois. Juntos formam a <strong>engoma</strong>. Com o coro de vozes, fazem a <strong>curimba</strong>.</p>'
-            '<p>Na tradição, cada tambor se liga a um arquétipo: Rum a Ogum, Rumpi a Xangô e Lé a Oxóssi. Cada toque é energia ordenada que bombeia força vital para o terreiro.</p>'
-            '<p>Canto e tambor caminham juntos. O ponto cantado é oração: chama, louva, descarrega, cura e ensina. O Samba é o médium que conduz os pontos e mantém a corrente firme. Na gira não se busca performance, e sim entrega: fé, vontade e sinceridade.</p>'
-            '<p>Tocar também é resistência. Por séculos os tambores foram perseguidos e silenciados, e nunca deixaram de ecoar.</p>'
-            '%s</div></div></div></section>'
-            % (H['photo']('header-curimba', 'Os três atabaques da curimba com laços vermelhos, junto ao Congá', 'ratio-32', 'Rum, Rumpi e Lé', sizes='(max-width:860px) 100vw, 45vw'),
-               H['pull']('O Ogã é o guardião do atabaque, servo do couro sagrado e da ancestralidade africana e indígena.', 'Guia do Médium')))
+    """Atabaque, engoma e curimba: capítulo final da página Quero ser médium."""
+    return H['chapter']('curimba', '06 · Atabaque, engoma e curimba', 'O coração da gira.',
+        '<div class="fig-side lado-side"><div class="prose">'
+        '<p class="lede" style="color:var(--ink-secondary)">Se o toco da entidade dirigente é o cérebro da gira, o atabaque é o seu coração.</p>'
+        '<p>De origem árabe, espalhado pela África e trazido ao Brasil, o atabaque se enraizou nas religiões afro-brasileiras. Nos ritos aparece em trio: o <strong>Rum</strong>, maior e grave, coordena a base e o tempo; o <strong>Lé</strong>, menor e agudo, cria variações e repiques; o <strong>Rumpi</strong>, médio, une os dois. Juntos formam a <strong>engoma</strong>. Com o coro de vozes, fazem a <strong>curimba</strong>.</p>'
+        '<p>Na tradição, cada tambor se liga a um arquétipo: Rum a Ogum, Rumpi a Xangô e Lé a Oxóssi. Cada toque é energia ordenada que bombeia força vital para o terreiro.</p>'
+        '<p>Canto e tambor caminham juntos. O ponto cantado é oração: chama, louva, descarrega, cura e ensina. O Samba é o médium que conduz os pontos e mantém a corrente firme. Na gira não se busca performance, e sim entrega: fé, vontade e sinceridade.</p>'
+        '<p>Tocar também é resistência. Por séculos os tambores foram perseguidos e silenciados, e nunca deixaram de ecoar.</p>'
+        '%s</div><div class="lado-foto">%s</div></div>'
+        % (H['pull']('O Ogã é o guardião do atabaque, servo do couro sagrado e da ancestralidade africana e indígena.', 'Guia do Médium'),
+           H['photo']('header-curimba', 'Os três atabaques da curimba com laços vermelhos, junto ao Congá', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal')))
 
 
 def agenda_page(H, g):
@@ -469,7 +475,6 @@ def akuan_destaque(H, gd):
             '<p class="lede">Destemido, implacável e amoroso. Palavras retas e pontiagudas, e um abraço largo: é pai que orienta, limita, reconduz e acredita.</p></div>'
             '<div class="ak-cards">%s</div>'
             '<p class="ak-saudacao reveal">%s</p>'
-            '<p class="ak-note">Ilustração provisória, para estudo.</p>'
             '</div></section>') % (e(gd['line']), btns, C(gd['saudacao']))
 
 
