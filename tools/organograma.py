@@ -9,7 +9,7 @@ LINHAS = [
     ('caboclos', 'Caboclos(as)', '#45C473', 'cocar', 'leque'),
     ('pretos-velhos', 'Pretos(as) Velhos(as)', '#C08A55', 'cachimbo', 'fumaca'),
     ('eres', 'Erês', '#34C9B8', 'pirulito', 'gira'),
-    ('baianos', 'Baianos', '#F2A63C', 'coqueiro', 'balanca'),
+    ('baianos', 'Baianos', '#F2A63C', 'fedora', 'gingado'),
     ('marinheiros', 'Marinheiros', '#5B95F7', 'ancora', 'pendulo'),
     ('boiadeiros', 'Boiadeiros', '#D9934A', 'chapeu', 'inclina'),
     ('ciganos', 'Ciganos', '#DA62EA', 'lua', 'brilho'),
@@ -63,6 +63,9 @@ ICONES = {
     'vela': '<path class="i-mov" d="M0-10c-5-5-3-12 0-17 3 5 5 12 0 17z"/><path d="M0-10v4"/><path d="M-7-6h14v28h-14z"/><path d="M-15 22h30M-11 27h22"/>',
     'tridente': '<g class="i-mov"><path d="M0-14v42"/><path d="M-16-26v10c0 7 7 10 16 10s16-3 16-10v-10"/><path d="M0-30v16"/><path d="M-16-26l-3 5M-16-26l3 5M16-26l-3 5M16-26l3 5M0-30l-3 5M0-30l3 5"/></g>',
     'piao': '<g class="i-mov"><path d="M-3-24h6v8h-6z"/><path d="M-20-12h40c0 14-10 26-20 40-10-14-20-26-20-40z"/><path d="M-16-4h32M-11 8h22"/><path d="M0-30v6M-5-30l5-5 5 5"/></g>',
+    'fedora': '<g class="i-mov" transform="scale(1.15)"><path d="M-29 8c7 7 51 7 58 0"/><path d="M-29 8c3-3 10-4 16-3M29 8c-3-3-10-4-16-3"/>'
+              '<path d="M-13 5C-14-6-11-15-6-18c2 2 4 2 6-1 2 3 4 3 6 1 5 3 8 13 7 23"/><path d="M-3-17l3 6 3-6"/>'
+              '<path class="i-fita" d="M-13.6-1.5c9 2.6 18.2 2.6 27.2 0l.3 5.6c-9 2.6-18.2 2.6-27.6 0z"/><path d="M8 1.8l6 5"/></g>',
     'estrela': '<path d="M0-26l6 18h19l-15 11 6 18-16-11-16 11 6-18-15-11h19z"/><circle r="4"/>',
 }
 
@@ -84,10 +87,9 @@ def organograma(H, linhas, OIMG, img, nomes_guias):
             _, jn, cor, ico, anim = info[s]
             o = porjson[jn]
             nome = jn.replace('(as)', '').replace('(as)', '').strip()
-            sub = o['polarity'].split('·')[-1].strip()
             li += ('<li><button type="button" class="lnode" data-slug="l-%s" data-no="l-%s" data-pai="%s" style="--c:%s" aria-haspopup="dialog">'
-                   '<span class="l-circ">%s</span><b>%s</b><small>%s</small></button></li>'
-                   % (s, s, rs, cor, _svg(ico, anim), e(nome), e(sub)))
+                   '<span class="l-circ">%s</span><b>%s</b></button></li>'
+                   % (s, s, rs, cor, _svg(ico, anim), e(nome)))
         ramos += ('<div class="orga-ramo" data-ramo="%s" style="--c:%s;--n:%d">'
                   '<p class="orga-cab" data-no="%s" data-pai="raiz"><b>%s</b></p>'
                   '<ul class="orga-filhos">%s</ul></div>' % (rs, rc, len(filhos), rs, rn, li))

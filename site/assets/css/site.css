@@ -1302,3 +1302,8 @@ blockquote.pull.q-anim::before{content:"";position:absolute;left:0;top:0;bottom:
 .dark blockquote.pull.q-anim::before{background:var(--accent-on-dark)}
 blockquote.pull.q-anim.arrive::before{transform:none}
 .orga-cab{padding:10px 28px}
+[data-anim="gingado"] .i-mov{transform-origin:50% 90%}
+.lnode:hover [data-anim="gingado"] .i-mov,.lnode:focus-visible [data-anim="gingado"] .i-mov{animation:gingado 1.1s ease-in-out infinite alternate}
+@keyframes gingado{from{transform:translateY(-2px) rotate(-11deg)}to{transform:translateY(-6px) rotate(9deg)}}
+.l-svg .i-fita{fill:currentColor;fill-opacity:.85}
+@media (max-width:760px){.lnode .l-circ{grid-row:auto}}
