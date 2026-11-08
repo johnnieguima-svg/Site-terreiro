@@ -1,0 +1,31 @@
+# CUCA · Casa de Umbanda Corrente de Akuan
+# Configurações do servidor (Apache / HostGator)
+
+DirectoryIndex index.html
+Options -Indexes
+
+# Tipos de arquivo
+AddType image/webp .webp
+AddType video/mp4 .mp4
+AddType application/xml .xml
+
+# Compressão (páginas, estilos e scripts chegam menores)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/xml image/svg+xml
+</IfModule>
+
+# Cache no navegador de quem visita
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType application/pdf "access plus 7 days"
+</IfModule>
+
+# Quando o cadeado (SSL) estiver ativo, ligue "Forçar HTTPS" no painel da HostGator,
+# em Domínios. Assim todo visitante entra pela versão segura.
