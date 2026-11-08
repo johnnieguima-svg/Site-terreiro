@@ -48,9 +48,9 @@ NAV = [
         ('projeto-social.html', 'Projeto Social', 'Comida de Santo: a caridade da gira, fora dela.', 'header-projeto'),
     ]),
     ('Fundamentos', [
-        ('orixas.html', 'Orixás e Linhas', 'Os 9 Orixás cultuados na casa e as 10 linhas de trabalho.', 'amala-oxala'),
+        ('orixas.html', 'Orixás e Linhas', 'Os 9 Orixás cultuados na casa e as linhas de trabalho.', 'header-orixas'),
         ('rituais.html', 'Rituais e Preceitos', 'Preceito, vela e oração, amalá e banho de ervas.', 'header-rituais'),
-        ('ervas.html', 'Ervas Sagradas', 'As 16 ervas da casa, organizadas pelos 4 elementos.', 'axe-folhas'),
+        ('ervas.html', 'Ervas Sagradas', 'As ervas medicinais que trabalhamos, organizadas pelos 4 elementos.', 'axe-folhas'),
     ]),
     ('Vivência', [
         ('primeira-vez.html', 'Primeira Vez?', 'Tudo o que acontece da chegada até a saída.', 'fachada'),

@@ -124,7 +124,7 @@ def build(g):
     import organograma
     nomes_guias = {gd['id']: gd['name'] for gd in data['guias']}
     ori = page_hero('Fundamentos', 'Orixás e Linhas', 'As forças da natureza que regem nossa coroa e as falanges de espíritos que trabalham na caridade.',
-                    'amala-oxala', 'Amalá de Oxalá, com flores brancas e canjica', wide=True)
+                    'header-orixas', 'Mesa de amalá montada pela casa, com frutas, flores e velas', wide=True)
     ori += ('<section class="section light"><div class="wrap"><div class="grid-2 top">'
             '<div class="reveal"><span class="num mono" style="color:var(--accent)">As matrizes divinas</span><h2 style="margin-top:.4em">O que é um Orixá?</h2>'
             '<p>O Orixá é uma fração de Deus, uma força pura da natureza ligada ao nosso Ori, a cabeça e a essência de cada um. Para Pierre Verger, é o axé dos elementos primordiais. Para Luiz Antonio Simas, é “o mundo se encantando nos corpos”.</p></div>'
@@ -133,8 +133,8 @@ def build(g):
             '</div><p class="reveal" style="margin-top:1.4em;color:var(--ink-secondary)">As fotos são dos amalás montados pela própria casa. Para saber como se monta um amalá, veja <a href="rituais.html#amala">Rituais e Preceitos</a>.</p></div></section>')
     ori += arvore.arvore_orixas(H, data['orixas'], OIMG, img)
     ori += organograma.organograma(H, data['linhas'], OIMG, img, nomes_guias)
-    write('orixas.html', 'Orixás e Linhas · CUCA', 'Os 9 Orixás cultuados na CUCA e as 10 linhas de trabalho, com atuação, arquétipo e o amalá de cada um.',
-          ori + invite(), 'amala-oxala')
+    write('orixas.html', 'Orixás e Linhas · CUCA', 'Os 9 Orixás cultuados na CUCA e as linhas de trabalho, com atuação, arquétipo e o amalá de cada um.',
+          ori + invite(), 'header-orixas')
 
     # ================= RITUAIS =================
     rit = page_hero('Fundamentos', 'Rituais e Preceitos', 'O sagrado no dia a dia: preceito, vela e oração, amalá e banho de ervas.',
@@ -169,7 +169,7 @@ def build(g):
         '<li><b>O preparo</b><span>Maceração em água fria para folhas frescas. Infusão abafada para flores secas ou cascas.</span></li>'
         '<li><b>A aplicação</b><span>Depois do banho de higiene, despeje devagar, em oração, respeitando se a erva vai ou não na cabeça.</span></li>'
         '<li><b>O retorno</b><span>Deixe secar naturalmente e devolva as folhas coadas à terra, agradecendo.</span></li></ol>'
-        '<p><a class="link-arrow" href="ervas.html">As 16 ervas sagradas da casa</a></p></div>%s</div>' %
+        '<p><a class="link-arrow" href="ervas.html">As ervas medicinais que trabalhamos</a></p></div>%s</div>' %
         photo('banho-ervas', 'Mãos macerando folhas numa bacia para o banho de ervas', 'ratio-34', 'Preparo do banho', sizes='(max-width:860px) 100vw, 40vw') + M.rituais_banho_full(H))
     content += M.rituais_conga(H)
     write('rituais.html', 'Rituais e Preceitos · CUCA', 'Preceito, vela e oração, amalá e banho de ervas: como a CUCA vive o sagrado no dia a dia.',
@@ -202,10 +202,10 @@ def build(g):
             '<p>Na CUCA, organizamos as ervas pelos quatro elementos da natureza. Fogo estimula ação e coragem. Água favorece a cura emocional e a intuição. Ar inspira clareza. Terra dá firmeza e proteção.</p>'
             '<p style="color:var(--ink-secondary)">Se a entidade receitar um banho e você tiver alergia a alguma erva, avise. As ervas não substituem tratamento médico.</p>'
             '</div></div><div class="tiles" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">%s</div></div></section>') % els
-    erv += ('<section class="section light" style="padding-top:0"><div class="wrap"><h2 class="reveal">As 16 ervas da casa.</h2>'
+    erv += ('<section class="section light" style="padding-top:0"><div class="wrap"><h2 class="reveal">As Ervas Medicinais que trabalhamos.</h2>'
             '<div data-filter-group="lista-ervas"><div class="filters">%s</div><div class="find"><label><span class="sr-only">Buscar erva</span><input type="search" placeholder="Buscar: arruda, calma, Oxóssi"></label></div></div>'
             '<div class="fichas" id="lista-ervas">%s</div><p class="no-results" hidden>Nenhuma erva encontrada.</p></div></section>') % (echips, herbs)
-    write('ervas.html', 'Ervas Sagradas · CUCA', 'As 16 ervas da CUCA organizadas pelos 4 elementos: Ar, Fogo, Terra e Água. Uso, preparo, Orixás e onde aplicar.',
+    write('ervas.html', 'Ervas Sagradas · CUCA', 'As ervas medicinais que trabalhamos na CUCA, organizadas pelos 4 elementos: Ar, Fogo, Terra e Água. Uso, preparo, Orixás e onde aplicar.',
           erv + invite(), 'axe-folhas')
 
     # ================= PRIMEIRA VEZ =================
@@ -217,13 +217,17 @@ def build(g):
         pts = ''.join('<dt>%s</dt><dd>%s</dd>' % (C(p['label']), C(p['text'])) for p in f['points'])
         fr += ('<article class="ficha reveal" data-cat="x"><figure class="photo tall">%s</figure><div class="body"><p class="tag"><i></i>%s</p><h3>%s</h3><p>%s</p>'
                '<details><summary>Como funciona</summary><dl>%s</dl></details></div></article>' % (img(s, a, sizes='(max-width:600px) 100vw, 25vw', pos=pos), C(f['subtitle'].replace(' & ', ' e ')), C(f['title']), C(f['summary']), pts))
-    LEAD = [('joao-lucas', 'Pai João Lucas de Ogum', 'Pai de Santo · Dirigente'), ('hismara', 'Hismara', 'Mãe de Santo'), ('patricia', 'Patrícia', 'Mãe Pequena')]
+    LEAD = [('joao-lucas', 'Pai João Lucas de Ogum', 'Pai de Santo · Dirigente'), ('hismara', 'Hismara', 'Mãe de Santo'),
+            ('claudio', 'Cláudio', 'Pai Pequeno'), ('mariana', 'Mariana', 'Mãe Pequena'), ('patricia', 'Patrícia', 'Mãe Pequena')]
     TEAM = [('joao-caetano', 'João Caetano', 'Ogã Chefe'), ('raphael', 'Raphael', 'Samba Chefe'), ('mariane', 'Mariane', 'Ogã'),
             ('ana-paula', 'Ana Paula', 'Capitã'), ('elis', 'Elis', 'Capitã'), ('emily', 'Emily', 'Capitã'),
             ('daniel', 'Daniel', 'Capitão'), ('matheus', 'Matheus', 'Capitão'), ('miguel', 'Miguel', 'Capitão')]
     POS = {'daniel': '50% 30%', 'matheus': '50% 20%'}
-    person = lambda s, n, r: '<figure class="person reveal">%s<figcaption><b>%s</b><span>%s</span></figcaption></figure>' % (
-        '<div class="photo">%s</div>' % img(s, '%s, %s da CUCA' % (n, r.split(' · ')[0]), sizes='(max-width:600px) 50vw, 20vw', pos=POS.get(s, '50% 22%')), e(n), e(r))
+    LUPA = hierarquia.LUPA
+    person = lambda s, n, r: ('<figure class="person reveal"><button type="button" class="h-pessoa person-btn" data-img="assets/img/%s.webp" data-alt="%s, %s da CUCA" data-nome="%s" data-cargo="%s" aria-label="Ampliar a foto de %s">'
+        '<div class="photo">%s</div><figcaption><b>%s %s</b><span>%s</span></figcaption></button></figure>') % (
+        s, e(n), e(r.split(' · ')[0]), e(n), e(r), e(n),
+        img(s, '%s, %s da CUCA' % (n, r.split(' · ')[0]), sizes='(max-width:600px) 50vw, 20vw', pos=POS.get(s, '50% 22%')), e(n), LUPA, e(r))
     pv = page_hero('Vivência', 'Primeira vez?', 'Tudo o que acontece da chegada até a saída, para você vir tranquilo.',
                    'fachada', 'A casa da CUCA ao entardecer, com médiuns de branco na varanda', wide=True)
     idx = [('passos', 'Passo a passo'), ('conduta', 'Guia de conduta'), ('frentes', 'Frentes de atendimento'), ('hierarquia', 'Quem cuida da casa'), ('orientacoes', 'Orientações de ouro'), ('limites', 'O que não fazemos')]
@@ -247,10 +251,9 @@ def build(g):
         '<p class="prose">Todo auxílio mediúnico é caridade gratuita. Na gira, você pode receber uma destas quatro formas de atendimento.</p><div class="fichas" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">%s</div>' % fr)
     content += chapter('hierarquia', '04 · Falando da casa', 'Quem cuida da casa.',
         '<div class="prose"><p>Na gira, cada pessoa tem uma função, e a hierarquia é a sua referência dentro da casa. O manual da casa descreve essa organização como um corpo: cada cargo é uma parte dele, e todos trabalham juntos. Estes são os nomes que você vai ouvir e as pessoas que vão te receber. Se tiver qualquer dúvida, procure uma delas.</p></div>'
-        '%s%s<div class="people lead">%s</div><div class="people">%s</div>' % (
+        '%s<div class="people lead">%s</div><div class="people">%s</div>%s' % (
             hierarquia.hierarquia_corpo(H, img, {s: (n, r) for s, n, r in LEAD + TEAM}),
-            photo('hierarquia', 'A corrente da CUCA reunida no salão', 'ratio-169', 'A corrente da CUCA', sizes='(max-width:1000px) 100vw, 70vw', pos='50% 40%'),
-            ''.join(person(*p) for p in LEAD), ''.join(person(*p) for p in TEAM)))
+            ''.join(person(*p) for p in LEAD), ''.join(person(*p) for p in TEAM), hierarquia.ZOOM))
     content += chapter('orientacoes', '05 · Para quem vai passar por atendimento', 'Quatro orientações de ouro.',
         tiles([('1. Fale com clareza e verdade', 'Ao conversar com a entidade no toco, o lugar da consulta individual, seja honesto. Não tente testar o guia. Vá com o coração aberto.'),
                ('2. Avise sobre alergias a ervas', 'Se a entidade receitar um banho de ervas ou chá e você for alérgico a algum componente, avise na hora.'),

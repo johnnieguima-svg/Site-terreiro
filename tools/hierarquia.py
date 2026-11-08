@@ -1,7 +1,7 @@
 """Hierarquia da casa desenhada como um corpo (página primeira-vez.html, capítulo 04).
 O manual descreve: os Pais de Santo são a cabeça do terreiro, os Pais Pequenos os braços
 do dirigente e os Capitães as mãos. Sambas e Ogãs sustentam o ritmo: ficam no coração.
-Acima, a coroa (o Orixá e o espírito dirigente); embaixo, os pés (a corrente)."""
+Acima, a coroa (o Orixá e o espírito dirigente); embaixo, as pernas e os pés (a corrente)."""
 
 import manual as M
 
@@ -12,63 +12,72 @@ PARTES = [
     ('coroa', 'A coroa', 'Orixá e guia dirigente',
      'Tudo começa acima de nós. O fluxo da gira parte do Orixá e do espírito dirigente, Caboclo Akuan, e desce por cada elo da corrente.', []),
     ('cabeca', 'A cabeça', 'Pais e Mães de Santo', H_DESC['Pais e Mães de Santo'], ['joao-lucas', 'hismara']),
-    ('bracos', 'Os braços', 'Pais e Mães Pequenos', H_DESC['Pais e Mães Pequenos'], ['patricia']),
+    ('bracos', 'Os braços', 'Pais e Mães Pequenos', H_DESC['Pais e Mães Pequenos'], ['claudio', 'mariana', 'patricia']),
     ('maos', 'As mãos', 'Capitães e Capitãs', H_DESC['Capitães e Capitãs'], ['ana-paula', 'elis', 'emily', 'daniel', 'matheus', 'miguel']),
     ('coracao', 'O coração', 'Sambas e Ogãs',
      H_DESC['Sambas e Ogãs'] + ' São o pulso da gira e têm voz de hierarquia, com função parecida com a do capitão.', ['joao-caetano', 'raphael', 'mariane']),
-    ('pes', 'Os pés', 'A corrente mediúnica',
-     'Os médiuns da corrente são os pés que sustentam a casa e levam a caridade adiante. Cada um é um elo, e é por eles que a gira chega a quem precisa.', []),
+    ('pes', 'As pernas e os pés', 'A corrente mediúnica',
+     'Os médiuns da corrente são as pernas e os pés da casa: sustentam a gira de pé e levam a caridade adiante. Cada um é um elo, e é por eles que o trabalho chega a quem precisa.', []),
 ]
 
-# o corpo, num viewBox 0 0 400 660. Membros são traços grossos com contorno.
-def _membro(d, w):
-    return '<path class="h-contorno" d="%s" stroke-width="%d"/><path class="h-miolo" d="%s" stroke-width="%d"/>' % (d, w + 4, d, w)
+# o corpo, num viewBox 0 0 400 660: traço fino, partes separadas por um respiro
+def _esp(d):
+    """espelha um caminho absoluto (só M, C, L, Z com pares x y) no eixo x=200"""
+    import re
+    nums = re.findall(r'[A-Z]|-?[\d.]+', d)
+    out, par = [], True
+    for t in nums:
+        if t.isalpha():
+            out.append(t); par = True
+        else:
+            out.append(('%g' % (400 - float(t))) if par else t)
+            par = not par
+    return ' '.join(out)
 
-def _espelho(pts):
-    return [(400 - x, y) for x, y in pts]
-
-def _linha(pts):
-    return 'M' + ' L'.join('%d %d' % p for p in pts)
-
-BRACO = [(141, 172), (102, 262), (76, 338)]
-PERNA = [(180, 360), (174, 480), (171, 590)]
+BRACO = 'M134 142 C124 146 120 160 118 180 C114 220 108 260 104 300 L102 318 L114 320 C118 290 124 250 130 214 C134 192 138 168 140 152 Z'
+MAO = 'M108 327 C100 331 98 345 102 357 C106 365 114 363 116 353 C118 341 116 331 108 327 Z'
+PERNA = 'M156 340 C152 400 157 460 165 520 C169 556 171 580 171 596 L186 596 C186 570 188 540 190 500 C192 450 195 395 197 340 Z'
+PE = 'M171 603 C163 605 155 611 157 617 L188 617 C190 609 188 603 186 603 Z'
+TRONCO = ('M190 106 C190 117 187 124 179 128 C163 133 151 136 147 146 C142 175 147 215 157 250 C161 275 159 300 155 332 '
+          'L245 332 C241 300 239 275 243 250 C253 215 258 175 253 146 C249 136 237 133 221 128 C213 124 210 117 210 106 Z')
 
 SVG_CORPO = (
-    '<g class="h-parte" data-parte="coroa">'
-    '<circle class="h-aura" cx="200" cy="96" r="70"/>'
-    '<path class="h-raios" d="M200 6v18M146 26l10 14M254 26l-10 14M112 64l15 7M288 64l-15 7M168 12l4 17M232 12l-4 17"/>'
-    '</g>'
-    '<g class="h-parte" data-parte="pes">%s%s'
-    '<ellipse class="h-forma" cx="160" cy="606" rx="22" ry="10"/><ellipse class="h-forma" cx="240" cy="606" rx="22" ry="10"/></g>'
-    '<g class="h-parte" data-parte="bracos">%s%s</g>'
-    '<g class="h-parte" data-parte="maos"><ellipse class="h-forma" cx="70" cy="356" rx="14" ry="20" transform="rotate(20 70 356)"/>'
-    '<ellipse class="h-forma" cx="330" cy="356" rx="14" ry="20" transform="rotate(-20 330 356)"/></g>'
-    '<g class="h-tronco"><path class="h-forma" d="M188 126h24v30h-24z"/>'
-    '<path class="h-forma" d="M150 156Q200 142 250 156L263 176Q259 262 241 330L245 368H155L159 330Q141 262 137 176Z"/></g>'
-    '<g class="h-parte" data-parte="cabeca"><circle class="h-forma" cx="200" cy="96" r="34"/></g>'
-    '<g class="h-parte" data-parte="coracao"><path class="h-forma h-cor" d="M222 214c-6-10-22-8-22 4 0 10 14 18 22 26 8-8 22-16 22-26 0-12-16-14-22-4z"/></g>'
-    '<path class="h-fluxo" d="M200 20V96M200 130V230M200 230L222 228M200 170L141 172L102 262L72 350M200 170L259 172L298 262L328 350M200 250V368L177 480L162 604M200 368L223 480L238 604"/>'
-) % (_membro(_linha(PERNA), 34), _membro(_linha(_espelho(PERNA)), 34),
-     _membro(_linha(BRACO), 26), _membro(_linha(_espelho(BRACO)), 26))
+    '<path class="h-fluxo" d="M200 6V610"/>'
+    '<g class="h-parte" data-parte="coroa"><path class="h-forma h-linha" d="M158 44 A50 50 0 0 1 242 44"/>'
+    '<path class="h-forma h-linha" d="M170 18 A40 40 0 0 1 230 18" opacity=".55"/>'
+    '<circle class="h-ponto" cx="200" cy="4" r="3"/></g>'
+    '<g class="h-parte" data-parte="cabeca"><ellipse class="h-forma" cx="200" cy="72" rx="25" ry="30"/></g>'
+    '<g class="h-tronco"><path class="h-forma" d="%s"/></g>'
+    '<g class="h-parte" data-parte="bracos"><path class="h-forma" d="%s"/><path class="h-forma" d="%s"/></g>'
+    '<g class="h-parte" data-parte="maos"><path class="h-forma" d="%s"/><path class="h-forma" d="%s"/></g>'
+    '<g class="h-parte" data-parte="pes"><path class="h-forma" d="%s"/><path class="h-forma" d="%s"/><path class="h-forma" d="%s"/><path class="h-forma" d="%s"/></g>'
+    '<g class="h-parte" data-parte="coracao"><path class="h-forma h-cor" d="M214 196c-3-6-13-5-13 2 0 6 8 11 13 15 5-4 13-9 13-15 0-7-10-8-13-2z"/></g>'
+) % (TRONCO, BRACO, _esp(BRACO), MAO, _esp(MAO), PERNA, _esp(PERNA), PE, _esp(PE))
 
 # marcadores numerados ao lado de cada parte
-MARCAS = {'coroa': (200, 6), 'cabeca': (246, 74), 'bracos': (300, 238), 'maos': (352, 388), 'coracao': (262, 214), 'pes': (284, 600)}
+MARCAS = {'coroa': (262, 22), 'cabeca': (250, 64), 'bracos': (312, 232), 'maos': (326, 372), 'coracao': (246, 188), 'pes': (264, 474)}
+
+
+LUPA = ('<svg class="lupa" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"/></svg>')
+ZOOM = ('<dialog class="lightbox h-zoom" aria-label="Foto ampliada"><button type="button" class="ox-x" data-fechar aria-label="Fechar a foto">×</button>'
+        '<figure><img alt=""><figcaption></figcaption></figure></dialog>')
 
 
 def hierarquia_corpo(H, img, pessoas):
     e = H['e']
-    marcas = ''.join('<g class="h-marca" data-parte="%s" transform="translate(%d %d)"><circle r="15"/><text dy="5">%d</text></g>'
+    marcas = ''.join('<g class="h-marca" data-parte="%s" transform="translate(%d %d)"><circle r="11"/><text dy="4">%d</text></g>'
                      % (k, MARCAS[k][0], MARCAS[k][1], i + 1) for i, (k, *_r) in enumerate(PARTES))
-    svg = ('<svg class="h-corpo" viewBox="-10 -14 420 650" role="img" aria-label="Silhueta humana: a coroa é o Orixá e o guia dirigente, '
-           'a cabeça são os Pais de Santo, os braços os Pais Pequenos, as mãos os Capitães, o coração os Sambas e Ogãs e os pés a corrente">%s%s</svg>' % (SVG_CORPO, marcas))
+    svg = ('<svg class="h-corpo" viewBox="20 -14 360 650" role="img" aria-label="Silhueta humana: a coroa é o Orixá e o guia dirigente, '
+           'a cabeça são os Pais de Santo, os braços os Pais Pequenos, as mãos os Capitães, o coração os Sambas e Ogãs e as pernas e os pés a corrente">%s%s</svg>' % (SVG_CORPO, marcas))
     itens = ''
     for i, (k, parte, titulo, texto, ids) in enumerate(PARTES):
         gente = ''
         if ids:
             gente = '<ul class="h-gente">%s</ul>' % ''.join(
-                '<li>%s<span><b>%s</b>%s</span></li>' % (
-                    '<span class="h-foto">%s</span>' % img(s, '', sizes='56px', pos='50% 22%'),
-                    e(pessoas[s][0]), e(pessoas[s][1])) for s in ids)
+                '<li><button type="button" class="h-pessoa" data-img="assets/img/%s.webp" data-alt="%s, %s da CUCA" data-nome="%s" data-cargo="%s" aria-label="Ampliar a foto de %s">'
+                '<span class="h-foto">%s</span><span><b>%s %s</b>%s</span></button></li>' % (
+                    s, e(pessoas[s][0]), e(pessoas[s][1].split(' · ')[0]), e(pessoas[s][0]), e(pessoas[s][1]), e(pessoas[s][0]),
+                    img(s, '', sizes='56px', pos='50% 22%'), e(pessoas[s][0]), LUPA, e(pessoas[s][1])) for s in ids)
         itens += ('<li class="h-item" data-parte="%s"><button type="button" aria-expanded="%s" aria-controls="h-%s">'
                   '<span class="h-num">%d</span><span class="h-tit"><small>%s</small><b>%s</b></span></button>'
                   '<div class="h-corpo-txt" id="h-%s"%s><p>%s</p>%s</div></li>'

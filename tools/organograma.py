@@ -1,4 +1,4 @@
-"""Organograma das 10 linhas de trabalho (página orixas.html).
+"""Organograma das linhas de trabalho (página orixas.html).
 Raiz, três ramos (Direita, Neutras, Esquerda) e as linhas, com ícones próprios
 desenhados em SVG, cada um com um gesto quando o cursor passa. Cada linha abre a ficha."""
 
@@ -16,11 +16,22 @@ LINHAS = [
     ('medicos', 'Médicos', '#A487F7', 'caduceu', 'pulso'),
     ('simiromba', 'Simiromba', '#B3BDCB', 'vela', 'chama'),
     ('exus', 'Exus e Pombagiras', '#E5484D', 'tridente', 'sobe'),
+    ('exus-mirins', 'Exus Mirins', '#F07A4A', 'piao', 'bambole'),
 ]
+# linha que não está no conteúdo original do protótipo (texto a revisar pela casa)
+EXTRAS = [{
+    'name': 'Exus Mirins', 'color': '#F07A4A',
+    'polarity': 'Linha de Esquerda · Guardiões Mirins',
+    'shortRole': 'Desmanche de demandas, rapidez e verdade dita sem rodeios',
+    'atuacao': 'Trabalham junto aos Exus e Pombagiras no desmanche de demandas e na limpeza de energias pesadas. São rápidos e diretos: cortam o que está preso e trazem à luz o que está escondido.',
+    'mitologia': 'A criança da esquerda: esperta, irreverente e brincalhona, mas firme na Lei. Lembra que a seriedade do trabalho espiritual também convive com a alegria.',
+    'efeito': 'Desfaz máscaras e hipocrisias. Ajuda a pessoa a encarar com leveza e coragem aquilo que vinha escondendo de si mesma.',
+    'elementos': 'O amalá dos Exus Mirins é orientado diretamente pela casa.',
+}]
 RAMOS = [
-    ('direita', 'Direita', 'Doutrina, cura e acolhimento', '#F1EEE8', ['caboclos', 'pretos-velhos', 'eres']),
+    ('esquerda', 'Esquerda', 'Guardiões da Lei e da casa', '#E5484D', ['exus', 'exus-mirins']),
     ('neutras', 'Neutras', 'Jogo de cintura, viagem e trabalho', '#E8B925', ['baianos', 'marinheiros', 'boiadeiros', 'ciganos', 'medicos', 'simiromba']),
-    ('esquerda', 'Esquerda', 'Guardiões da Lei e da casa', '#E5484D', ['exus']),
+    ('direita', 'Direita', 'Doutrina, cura e acolhimento', '#F1EEE8', ['caboclos', 'pretos-velhos', 'eres']),
 ]
 # guias chefes da casa em cada linha (ids das fichas em guias.html)
 GUIAS_LINHA = {
@@ -51,6 +62,7 @@ ICONES = {
     'caduceu': '<path d="M0-26v54"/><path d="M0-20c-8-7-17-7-24-2 7 3 14 5 24 5M0-20c8-7 17-7 24-2-7 3-14 5-24 5"/><path class="i-mov" d="M-7-10c9 0 9 9 0 9s-9 9 0 9 9 9 0 9"/><circle cy="-29" r="3"/>',
     'vela': '<path class="i-mov" d="M0-10c-5-5-3-12 0-17 3 5 5 12 0 17z"/><path d="M0-10v4"/><path d="M-7-6h14v28h-14z"/><path d="M-15 22h30M-11 27h22"/>',
     'tridente': '<g class="i-mov"><path d="M0-14v42"/><path d="M-16-26v10c0 7 7 10 16 10s16-3 16-10v-10"/><path d="M0-30v16"/><path d="M-16-26l-3 5M-16-26l3 5M16-26l-3 5M16-26l3 5M0-30l-3 5M0-30l3 5"/></g>',
+    'piao': '<g class="i-mov"><path d="M-3-24h6v8h-6z"/><path d="M-20-12h40c0 14-10 26-20 40-10-14-20-26-20-40z"/><path d="M-16-4h32M-11 8h22"/><path d="M0-30v6M-5-30l5-5 5 5"/></g>',
     'estrela': '<path d="M0-26l6 18h19l-15 11 6 18-16-11-16 11 6-18-15-11h19z"/><circle r="4"/>',
 }
 
@@ -61,7 +73,7 @@ def _svg(ico, anim, cls='l-svg'):
 
 def organograma(H, linhas, OIMG, img, nomes_guias):
     e, C = H['e'], H['C']
-    porjson = {o['name']: o for o in linhas}
+    porjson = {o['name']: o for o in list(linhas) + EXTRAS}
     info = {l[0]: l for l in LINHAS}
     ramo_de = {s: r for r in RAMOS for s in r[4]}
 
@@ -82,7 +94,8 @@ def organograma(H, linhas, OIMG, img, nomes_guias):
 
     # fichas
     tpls = ''
-    for s, jn, cor, ico, anim in LINHAS:
+    ordem = [x for r in RAMOS for x in r[4]]
+    for s, jn, cor, ico, anim in sorted(LINHAS, key=lambda l: ordem.index(l[0])):
         o = porjson[jn]
         nome = jn.replace('(as)', '').strip()
         am = C(M.AMALA.get(jn, o['elementos']))
@@ -122,9 +135,9 @@ def organograma(H, linhas, OIMG, img, nomes_guias):
             % _svg('estrela', 'brilho', 'l-svg raiz-svg'))
     return ('<section class="section dark grain orga-sec" id="linhas"><div class="smoke" aria-hidden="true"></div><div class="wrap">'
             '<span class="num mono" style="color:var(--accent-on-dark)">O organograma</span>'
-            '<h2>As 10 linhas de trabalho.</h2>'
+            '<h2>As linhas de trabalho.</h2>'
             '<p class="lede">Se os Orixás são as forças, as linhas são as falanges de espíritos que descem para trabalhar. '
-            'Da direita à esquerda, cada uma tem seu jeito. A esquerda é tratada com o mesmo respeito: Exus e Pombagiras são os guardiões da casa.</p>'
+            'Da esquerda à direita, cada uma tem seu jeito. A esquerda é tratada com o mesmo respeito: Exus, Pombagiras e Exus Mirins são os guardiões da casa.</p>'
             '<p class="arvore-dica"><span aria-hidden="true">✦</span> Passe o cursor sobre uma linha para ver o seu gesto. Clique para abrir a ficha.</p>'
             '<div class="orga"><svg class="orga-fios" aria-hidden="true"><defs></defs></svg>%s<div class="orga-ramos">%s</div></div>'
             '<p style="margin-top:2.4em"><a class="link-arrow" href="guias.html">Conheça os guias chefes da casa</a></p></div>%s</section>'
