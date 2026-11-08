@@ -232,14 +232,14 @@ def build(g):
                    'fachada', 'A casa da CUCA ao entardecer, com médiuns de branco na varanda', wide=True)
     idx = [('passos', 'Passo a passo'), ('conduta', 'Guia de conduta'), ('frentes', 'Frentes de atendimento'), ('hierarquia', 'Quem cuida da casa'), ('orientacoes', 'Orientações de ouro'), ('limites', 'O que não fazemos')]
     content = chapter('passos', '01 · Sua visita', 'Passo a passo.',
-        '<div class="fig-side"><div><ol class="steps">'
+        '<div class="fig-side passo-side"><div><ol class="steps">'
         '<li><b>Chegue às 19h.</b><span>As senhas são distribuídas por ordem de chegada. A gira começa às 19h30.</span></li>'
         '<li><b>Peça licença na entrada.</b><span>À esquerda do portão fica a Tronqueira, a casinha dos guardiões da casa. Quem recebe você mostra como saudar.</span></li>'
         '<li><b>Tire os calçados.</b><span>Ao entrar no salão, deixamos o mundo lá fora. Celular no silencioso.</span></li>'
         '<li><b>Acompanhe a abertura.</b><span>Os pontos cantados e o atabaque abrem a gira. Você assiste sentado, em silêncio.</span></li>'
         '<li><b>Receba o atendimento.</b><span>Quando sua senha for chamada, você recebe passe ou consulta com uma entidade. Uma consulta por gira.</span></li>'
         '<li><b>Agradeça e siga em paz.</b><span>Ao sair, agradeça ao Congá. Se receber orientação de banho ou prece, siga com calma.</span></li></ol></div>'
-        '<div>%s</div></div>' % photo('passo-a-passo', 'Imagem de um Caboclo cacique no Congá da CUCA, com o atabaque ao fundo', 'ratio-34', None, sizes='(max-width:860px) 100vw, 40vw', pos='50% 40%', extra='reveal')
+        '<div class="passo-foto">%s</div></div>' % photo('passo-a-passo', 'Imagem de um Caboclo cacique no Congá da CUCA, com o atabaque ao fundo', 'ratio-34', None, sizes='(max-width:860px) 100vw, 40vw', pos='50% 40%', extra='reveal')
         + tiles([('O que vestir', 'Roupa limpa e discreta, de qualquer cor. Evite perfume forte e bebida alcoólica no dia.'),
                  ('Se sentir algo forte', 'Choro, arrepio ou emoção forte acontecem. Avise com discrição alguém da casa. Você não fica sozinho.'),
                  ('Estacionamento', 'Tem, no local, por R$ 12,00. Estacione onde a equipe indicar.'),
