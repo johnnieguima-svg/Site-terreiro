@@ -1322,3 +1322,7 @@ blockquote.pull.q-anim.arrive::before{transform:none}
   .passo-foto{margin:0 calc(-1*var(--gutter))}
   .passo-foto .photo{aspect-ratio:4/5;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 80%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
 }
+/* avisos da jornada de admissão */
+.tiles.avisos{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:0 0 1.8em}
+.tiles.avisos .tile{border-left:3px solid var(--accent);background:rgba(142,27,38,.05)}
+.tiles.avisos .tile h4{color:var(--accent)}

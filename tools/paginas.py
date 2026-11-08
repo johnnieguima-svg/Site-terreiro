@@ -272,7 +272,7 @@ def build(g):
     # ================= MÉDIUM =================
     passos = [
         ('Vivência como consulente', 'Todo médium começa na assistência. Para manifestar interesse em ingressar e participar da Tiragem do Obi, é preciso participar de, no mínimo, 5 giras, para se afinar com a energia e a disciplina do terreiro.'),
-        ('Consulta com o Caboclo Akuan ou o guia chefe', 'O processo começa numa consulta individual com o Espírito Dirigente ou o chefe da gira. É nessa conversa que a entidade avalia a afinidade e autoriza, ou não, a caminhada.'),
+        ('Consulta com o Caboclo Akuan ou o guia chefe', 'O processo começa numa consulta individual com o Espírito Dirigente ou o chefe da gira. É nessa conversa que a entidade avalia a afinidade e autoriza, ou não, a caminhada. A consulta é marcada com a Cambone, médium auxiliar do Pai de Santo, no espaço de gira.'),
         ('Desligamento de outras casas', 'A CUCA não permite que o médium trabalhe em mais de um centro ao mesmo tempo. Quem vem de outra casa faz, com respeito, o ritual de desligamento: o levantamento do Amaci anterior.'),
         ('Validação do Pai de Santo', 'Depois do aval do guia, o Pai de Santo revisa a ordem espiritual, apresenta o regimento interno e alinha os deveres éticos, materiais e de presença.'),
         ('Período de preparação', 'Aprovado, começa a preparação: banhos de ervas, estudo dos pontos cantados e preceitos para sintonizar corpo, mente e espírito com a CUCA.'),
@@ -293,7 +293,9 @@ def build(g):
                ('“Só vamos com o outro até onde fomos conosco”', 'O princípio de Carl Jung vale aqui: como amparar a dor de um consulente se fugimos de encarar as nossas próprias sombras?'),
                ('Afinar o caráter', 'Quando falta bagagem moral, o vazio é preenchido pelo ego. A espiritualidade verdadeira não precisa de espetáculo, precisa de instrumentos afinados.')]))
     content += chapter('passos', '02 · Jornada de admissão', 'Os 7 passos para ingressar na corrente.',
-        '<div class="faq">%s</div>' % ''.join('<details%s><summary>%d. %s</summary><div class="ans"><p>%s</p></div></details>' % (' open' if i == 0 else '', i + 1, e(t), e(d)) for i, (t, d) in enumerate(passos)))
+        tiles([('Agendamento com a Cambone', 'A marcação de presença para a Tiragem do Obi, para a entrada na casa ou para a consulta com o Dirigente é feita com a Cambone, médium auxiliar do Pai de Santo, que fica disponível no espaço de gira. Todo agendamento passa pelo crivo do Pai de Santo ou da entidade e tem número limitado de vagas.'),
+               ('Curso 0 e calendário de ingresso', 'Para entrar na casa, a presença no Curso 0 é obrigatória. Fique atento ao calendário trimestral de ingresso na corrente: as entradas só acontecem nessas datas.')], 'avisos')
+        + '<div class="faq">%s</div>' % ''.join('<details%s><summary>%d. %s</summary><div class="ans"><p>%s</p></div></details>' % (' open' if i == 0 else '', i + 1, e(t), e(d)) for i, (t, d) in enumerate(passos)))
     content += M.medium_extras(H)
     content += chapter('dicas', '03 · Sabedoria de terreiro', 'Seis dicas de ouro para o médium.',
         tiles([('1. Seja o consulente de si mesmo', 'Tome para si os ensinamentos que te atravessarem. A entidade não é sua propriedade, nem você dela.'),
