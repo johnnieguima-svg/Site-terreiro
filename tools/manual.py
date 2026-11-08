@@ -148,9 +148,9 @@ def medium_extras(H):
 
 def rituais_conga(H):
     return H['chapter']('conga', 'Em casa', 'O Congá em casa.',
-        '<div class="fig-side"><div class="prose"><p>O Congá é o altar sagrado da Umbanda, espaço de firmeza, devoção e concentração. Em casa, ele pode ser montado de forma discreta e respeitosa. Não é lugar de exibição, é lugar de recolhimento e fé.</p>'
+        '<div class="fig-side lado-side"><div class="prose"><p>O Congá é o altar sagrado da Umbanda, espaço de firmeza, devoção e concentração. Em casa, ele pode ser montado de forma discreta e respeitosa. Não é lugar de exibição, é lugar de recolhimento e fé.</p>'
         '<p>Uma vez por ano, os itens do Congá pessoal são levados à gira para serem reenergizados, normalmente na última gira do ano.</p></div>%s</div>'
-        % H['photo']('conga', 'O Congá da CUCA', 'ratio-32', 'O Congá da casa', sizes='(max-width:860px) 100vw, 40vw')
+        % ('<div class="lado-foto">%s</div>' % H['photo']('rit-conga-casa', 'Um Congá montado em casa, numa prateleira, com leme, conchas, vela e uma tigela branca', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal'))
         + H['tiles']([('Discrição', 'Imagens pequenas, sem ostentação.'), ('Pureza simbólica', 'Não misture com imagens de outras tradições.'),
                       ('Local adequado', 'Limpo, reservado e com pouca circulação de pessoas.'), ('Luz e natureza', 'Prefira luz natural. Pedras e minerais devem ser recarregados ao sol.'),
                       ('Consagração', 'As imagens são cruzadas pela entidade dirigente da casa.')]))
@@ -440,11 +440,13 @@ def rituais_vela(H):
               ('Deixe a vela queimar até o fim', 'Não sopre a vela. Se precisar sair de casa, só acenda quando puder acompanhar.'),
               ('Devolva a água à natureza', 'Quando a vela acabar, despeje a água numa planta ou em água corrente, agradecendo. Use um copo de água novo na próxima vez.')]
     return H['chapter']('vela', 'Pilar 02', 'A vela e a oração.',
-        '<div class="prose"><p class="lede" style="color:var(--ink-secondary)">Uma vela branca e um copo de água. É o ritual mais simples da Umbanda, e um dos mais fortes.</p>'
+        '<div class="fig-side lado-side"><div><div class="prose"><p class="lede" style="color:var(--ink-secondary)">Uma vela branca e um copo de água. É o ritual mais simples da Umbanda, e um dos mais fortes.</p>'
         '<p><strong>A vela</strong> é a luz da fé e da consciência desperta. <strong>A água</strong> recebe, filtra e conduz as energias. Juntas, abrem um canal entre você e o seu Anjo da Guarda, que é o seu próprio espírito, e os seus guias.</p></div>'
-        '<h3 style="margin-top:1.6em">Passo a passo</h3><ol class="steps">%s</ol>'
+        '<h3 style="margin-top:1.6em">Passo a passo</h3><ol class="steps">%s</ol></div>'
+        '<div class="lado-foto">%s</div></div>'
         '<h3 style="margin-top:1.6em">Cuidados importantes</h3>'
-        % ''.join('<li><b>%s</b><span>%s</span></li>' % (e(t), e(d)) for t, d in passos)
+        % (''.join('<li><b>%s</b><span>%s</span></li>' % (e(t), e(d)) for t, d in passos),
+           H['photo']('rit-vela', 'Vela vermelha acesa numa base de barro sobre um toco de madeira, ao lado de incensos', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal'))
         + H['tiles']([('O que pensar', 'Diante da vela acesa, mantenha só prece, silêncio ou bons pensamentos. Nunca reclame nem pragueje: a vela leva tudo o que você coloca nela.'),
                       ('Vela de 7 dias', 'Só com autorização do guia dirigente da gira.'),
                       ('Com que frequência', 'Pode acender regularmente, não só em dia de gira.')])
@@ -461,7 +463,7 @@ def akuan_destaque(H, gd):
                    % (' open' if i == 0 else '', 'true' if i == 0 else 'false', i + 1, e(t), C(d)) for i, (t, d) in enumerate(cards))
     return ('<section class="akuan-hero" aria-labelledby="ak-title"><div class="ak-glow" aria-hidden="true"></div>'
             '<div class="wrap">'
-            '<div class="ak-figure" aria-hidden="true"><img src="assets/img/akuan-recorte.webp" srcset="assets/img/akuan-recorte-sm.webp 600w, assets/img/akuan-recorte.webp 1100w" sizes="(max-width:700px) 80vw, 460px" alt=""></div>'
+            '<div class="ak-figure" aria-hidden="true"><img src="assets/img/akuan-recorte.webp" srcset="assets/img/akuan-recorte-sm.webp 640w, assets/img/akuan-recorte.webp 1200w" sizes="(max-width:700px) 80vw, 460px" alt=""></div>'
             '<div class="ak-text reveal"><span class="mono">Patrono geral da CUCA · %s</span><h2 id="ak-title">Caboclo Akuan</h2>'
             '<p class="lede">Destemido, implacável e amoroso. Palavras retas e pontiagudas, e um abraço largo: é pai que orienta, limita, reconduz e acredita.</p></div>'
             '<div class="ak-cards">%s</div>'

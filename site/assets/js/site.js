@@ -331,7 +331,7 @@
     var chips=[].slice.call(group.querySelectorAll('.chip'));
     var input=group.querySelector('input'),empty=group.parentElement.querySelector('.no-results'),cat='all';
     function apply(){var q=input?norm(input.value.trim()):'',n=0;
-      items.forEach(function(it){var okc=cat==='all'||it.dataset.cat.split(' ').indexOf(cat)>-1;var okq=!q||norm(it.textContent).indexOf(q)>-1;it.hidden=!(okc&&okq);if(!it.hidden)n++});
+      items.forEach(function(it){var okc=cat==='all'||it.dataset.cat.split(' ').indexOf(cat)>-1;var okq=!q||norm(it.textContent+' '+(it.dataset.busca||'')).indexOf(q)>-1;it.hidden=!(okc&&okq);if(!it.hidden)n++});
       if(empty)empty.hidden=n>0;}
     chips.forEach(function(c){c.addEventListener('click',function(){chips.forEach(function(x){x.setAttribute('aria-pressed','false')});c.setAttribute('aria-pressed','true');cat=c.dataset.value;apply()})});
     if(input)input.addEventListener('input',apply);

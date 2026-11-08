@@ -99,9 +99,9 @@ def build(g):
         if gd['id'] == 'kaian': cat = 'curimba'
         im = GIMG.get(gd['id'])
         ph = ('<figure class="photo tall">%s</figure>' % img(im, 'Ilustração de %s' % gd['name'], sizes='(max-width:600px) 100vw, 33vw', pos='50% 20%')) if im else ''
-        fichas += ('<article class="ficha reveal" id="guia-%s" data-cat="%s">%s<div class="body"><p class="tag"><i></i>%s · %s</p><h3>%s</h3><p class="role">%s</p><p>%s</p>'
+        fichas += ('<article class="ficha reveal" id="guia-%s" data-cat="%s" data-busca="%s · %s">%s<div class="body"><h3>%s</h3><p class="role">%s</p><p>%s</p>'
                    '<details><summary>Ler a ficha</summary><dl><dt>Quem é</dt><dd>%s</dd><dt>Ensinamento</dt><dd>%s</dd>%s%s</dl></details></div></article>'
-                   % (gd['id'], cat, ph, C(gd['typeLabel']), C(gd['line']), C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']),
+                   % (gd['id'], cat, e(C(gd['typeLabel'])), e(C(gd['line'])), ph, C(gd['name']), C(gd['identity']), C(gd['shortDesc']), C(gd['description']), C(gd['teaching']),
                       ('<dt>Palavra do guia</dt><dd><em>“%s”</em></dd>' % C(gd['quote'])) if gd.get('quote') else '',
                       ('<dt>Saudação</dt><dd>%s</dd>' % C(gd['saudacao'])) if gd.get('saudacao') else ''))
     chips = ''.join('<button type="button" class="chip" data-value="%s" aria-pressed="%s">%s</button>' % (v, 'true' if v == 'all' else 'false', t)
@@ -154,23 +154,23 @@ def build(g):
     gal = ''.join('<div>%s</div>' % photo(s, a, 'ratio-34', sizes='(max-width:860px) 50vw, 25vw') for s, a in [
         ('amala-ogum', 'Amalá de Ogum'), ('amala-oxum', 'Amalá de Oxum'), ('amala-pretos-velhos', 'Amalá dos Pretos Velhos'), ('amala-nana', 'Amalá de Nanã')])
     content += chapter('amala', 'Pilar 03', 'O amalá.',
-        '<div class="fig-side"><div class="prose"><p>Na CUCA, o amalá é a oferenda montada com elementos naturais: frutas, flores, grãos e velas. Nunca é pagamento nem barganha. É um ato de amor, sintonia e gratidão às forças da natureza.</p>'
+        '<div class="fig-side lado-side"><div class="prose"><p>Na CUCA, o amalá é a oferenda montada com elementos naturais: frutas, flores, grãos e velas. Nunca é pagamento nem barganha. É um ato de amor, sintonia e gratidão às forças da natureza.</p>'
         '<p>Os amalás e as entregas são montados no Jardim dos Orixás, ao lado dos tambores e dos oratórios de madeira.</p>%s</div>%s</div>' % (
             pull('A beleza física da oferenda deve ser o reflexo da sinceridade da sua oração interior.'),
-            photo('amala-iemanja', 'Amalá de Iemanjá: manjar de coco cercado de rosas brancas, margaridas e folhas', 'ratio-34', 'Amalá de Iemanjá', sizes='(max-width:860px) 100vw, 40vw'))
+            '<div class="lado-foto">%s</div>' % photo('rit-amala', 'Amalá com farofa, pimentas, charutos e velas vermelhas acesas', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal'))
         + tiles([('Composição', 'Montado no Jardim dos Orixás com flores, frutas frescas, líquidos em coité e velas em números ímpares.'),
                  ('Zelo com o Jardim', 'O Jardim é solo sagrado: nunca deixamos plásticos, lixo ou fósforos queimados nos alguidares.'),
                  ('A regra de ouro', 'Sem intenção não há axé. A beleza da oferenda reflete a sinceridade da oração.')])
         + '<div class="grid-4" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:2em">%s</div>'
           '<p style="margin-top:1.4em"><a class="link-arrow" href="orixas.html">O amalá de cada Orixá e de cada linha</a></p>' % gal + M.rituais_amala_extra(H))
     content += chapter('banho', 'Pilar 04', 'O banho de ervas.',
-        '<div class="fig-side"><div class="prose"><p>O banho de ervas não é um ato comum de higiene. Ele limpa o campo espiritual e age por compensação: acalma o que está inflamado e desperta vigor onde há cansaço.</p>'
+        '<div class="fig-side lado-side"><div class="prose"><p>O banho de ervas não é um ato comum de higiene. Ele limpa o campo espiritual e age por compensação: acalma o que está inflamado e desperta vigor onde há cansaço.</p>'
         '<ol class="steps"><li><b>A escolha</b><span>Peça licença à natureza. Escolha a erva conforme o elemento necessário: Ar, Fogo, Terra ou Água.</span></li>'
         '<li><b>O preparo</b><span>Maceração em água fria para folhas frescas. Infusão abafada para flores secas ou cascas.</span></li>'
         '<li><b>A aplicação</b><span>Depois do banho de higiene, despeje devagar, em oração, respeitando se a erva vai ou não na cabeça.</span></li>'
         '<li><b>O retorno</b><span>Deixe secar naturalmente e devolva as folhas coadas à terra, agradecendo.</span></li></ol>'
         '<p><a class="link-arrow" href="ervas.html">As ervas medicinais que trabalhamos</a></p></div>%s</div>' %
-        photo('banho-ervas', 'Mãos macerando folhas numa bacia para o banho de ervas', 'ratio-34', 'Preparo do banho', sizes='(max-width:860px) 100vw, 40vw') + M.rituais_banho_full(H))
+        ('<div class="lado-foto">%s</div>' % photo('banho-ervas', 'Mãos macerando folhas numa bacia para o banho de ervas', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', extra='reveal')) + M.rituais_banho_full(H))
     content += M.rituais_conga(H)
     write('rituais.html', 'Rituais e Preceitos · CUCA', 'Preceito, vela e oração, amalá e banho de ervas: como a CUCA vive o sagrado no dia a dia.',
           rit + body_with_index(idx, content) + invite(), 'header-rituais')
@@ -217,8 +217,8 @@ def build(g):
         pts = ''.join('<dt>%s</dt><dd>%s</dd>' % (C(p['label']), C(p['text'])) for p in f['points'])
         fr += ('<article class="ficha reveal" data-cat="x"><figure class="photo tall">%s</figure><div class="body"><p class="tag"><i></i>%s</p><h3>%s</h3><p>%s</p>'
                '<details><summary>Como funciona</summary><dl>%s</dl></details></div></article>' % (img(s, a, sizes='(max-width:600px) 100vw, 25vw', pos=pos), C(f['subtitle'].replace(' & ', ' e ')), C(f['title']), C(f['summary']), pts))
-    LEAD = [('joao-lucas', 'Pai João Lucas de Ogum', 'Pai de Santo · Dirigente'), ('hismara', 'Hismara', 'Mãe de Santo'),
-            ('claudio', 'Cláudio', 'Pai Pequeno'), ('mariana', 'Mariana', 'Mãe Pequena'), ('patricia', 'Patrícia', 'Mãe Pequena')]
+    LEAD = [('joao-lucas', 'Pai João Lucas de Ogum', 'Pai de Santo · Dirigente'), ('hismara', 'Mãe Hismara', 'Mãe de Santo'),
+            ('claudio', 'Pai Cláudio', 'Pai Pequeno'), ('mariana', 'Mãe Mariana', 'Mãe Pequena'), ('patricia', 'Mãe Patrícia', 'Mãe Pequena')]
     TEAM = [('joao-caetano', 'João Caetano', 'Ogã Chefe'), ('raphael', 'Raphael', 'Samba Chefe'), ('mariane', 'Mariane', 'Ogã'),
             ('ana-paula', 'Ana Paula', 'Capitã'), ('elis', 'Elis', 'Capitã'), ('emily', 'Emily', 'Capitã'),
             ('daniel', 'Daniel', 'Capitão'), ('matheus', 'Matheus', 'Capitão'), ('miguel', 'Miguel', 'Capitão')]
@@ -232,14 +232,14 @@ def build(g):
                    'fachada', 'A casa da CUCA ao entardecer, com médiuns de branco na varanda', wide=True)
     idx = [('passos', 'Passo a passo'), ('conduta', 'Guia de conduta'), ('frentes', 'Frentes de atendimento'), ('hierarquia', 'Quem cuida da casa'), ('orientacoes', 'Orientações de ouro'), ('limites', 'O que não fazemos')]
     content = chapter('passos', '01 · Sua visita', 'Passo a passo.',
-        '<div class="fig-side passo-side"><div><ol class="steps">'
+        '<div class="fig-side lado-side"><div><ol class="steps">'
         '<li><b>Chegue às 19h.</b><span>As senhas são distribuídas por ordem de chegada. A gira começa às 19h30.</span></li>'
         '<li><b>Peça licença na entrada.</b><span>À esquerda do portão fica a Tronqueira, a casinha dos guardiões da casa. Quem recebe você mostra como saudar.</span></li>'
         '<li><b>Tire os calçados.</b><span>Ao entrar no salão, deixamos o mundo lá fora. Celular no silencioso.</span></li>'
         '<li><b>Acompanhe a abertura.</b><span>Os pontos cantados e o atabaque abrem a gira. Você assiste sentado, em silêncio.</span></li>'
         '<li><b>Receba o atendimento.</b><span>Quando sua senha for chamada, você recebe passe ou consulta com uma entidade. Uma consulta por gira.</span></li>'
         '<li><b>Agradeça e siga em paz.</b><span>Ao sair, agradeça ao Congá. Se receber orientação de banho ou prece, siga com calma.</span></li></ol></div>'
-        '<div class="passo-foto">%s</div></div>' % photo('passo-a-passo', 'Imagem de um Caboclo cacique no Congá da CUCA, com o atabaque ao fundo', 'ratio-34', None, sizes='(max-width:860px) 100vw, 40vw', pos='50% 40%', extra='reveal')
+        '<div class="lado-foto">%s</div></div>' % photo('passo-a-passo', 'Imagem de um Caboclo cacique no Congá da CUCA, com o atabaque ao fundo', 'ratio-34', None, sizes='(max-width:860px) 100vw, 40vw', pos='50% 40%', extra='reveal')
         + tiles([('O que vestir', 'Roupa limpa e discreta, de qualquer cor. Evite perfume forte e bebida alcoólica no dia.'),
                  ('Se sentir algo forte', 'Choro, arrepio ou emoção forte acontecem. Avise com discrição alguém da casa. Você não fica sozinho.'),
                  ('Estacionamento', 'Tem, no local, por R$ 12,00. Estacione onde a equipe indicar.'),
@@ -251,9 +251,7 @@ def build(g):
         '<p class="prose">Todo auxílio mediúnico é caridade gratuita. Na gira, você pode receber uma destas quatro formas de atendimento.</p><div class="fichas" style="grid-template-columns:repeat(auto-fill,minmax(230px,1fr))">%s</div>' % fr)
     content += chapter('hierarquia', '04 · Falando da casa', 'Quem cuida da casa.',
         '<div class="prose"><p>Na gira, cada pessoa tem uma função, e a hierarquia é a sua referência dentro da casa. O manual da casa descreve essa organização como um corpo: cada cargo é uma parte dele, e todos trabalham juntos. Estes são os nomes que você vai ouvir e as pessoas que vão te receber. Se tiver qualquer dúvida, procure uma delas.</p></div>'
-        '%s<div class="people lead">%s</div><div class="people">%s</div>%s' % (
-            hierarquia.hierarquia_corpo(H, img, {s: (n, r) for s, n, r in LEAD + TEAM}),
-            ''.join(person(*p) for p in LEAD), ''.join(person(*p) for p in TEAM), hierarquia.ZOOM))
+        '%s%s' % (hierarquia.hierarquia_corpo(H, img, {s: (n, r) for s, n, r in LEAD + TEAM}), hierarquia.ZOOM))
     content += chapter('orientacoes', '05 · Para quem vai passar por atendimento', 'Quatro orientações de ouro.',
         tiles([('1. Fale com clareza e verdade', 'Ao conversar com a entidade no toco, o lugar da consulta individual, seja honesto. Não tente testar o guia. Vá com o coração aberto.'),
                ('2. Avise sobre alergias a ervas', 'Se a entidade receitar um banho de ervas ou chá e você for alérgico a algum componente, avise na hora.'),
