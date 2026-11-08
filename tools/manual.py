@@ -111,13 +111,14 @@ HIERARQUIA = [
 def medium_extras(H):
     e, chapter, tiles, pull = H['e'], H['chapter'], H['tiles'], H['pull']
     out = chapter('obi', 'Antes do ingresso', 'A Tiragem do Obi.',
-        '<div class="obi-grid"><div class="prose"><p>O Obi não é jogo nem curiosidade, como quem procura o próprio signo. É um oráculo sagrado: sementes que revelam o Orixá de cabeça e mostram as forças que nos espelham, nossas dificuldades, nossas facilidades e o que precisamos trabalhar para alcançar equilíbrio.</p>'
-        '<p>Quem se identificar com a casa e quiser tirar o Obi participa de, no mínimo, cinco giras. Depois, marca a presença com a Cambone, médium auxiliar do Pai de Santo, que fica disponível no espaço de gira. A marcação passa pelo crivo do Pai de Santo ou da entidade, tem número limitado de vagas e recebe uma data para a tiragem.</p></div>%s</div>' % H['photo']('obi', 'A mesa da Tiragem do Obi na CUCA', 'ratio-45', None, sizes='(max-width:860px) 100vw, 30vw', pos='50% 40%', extra='reveal'))
+        '<div class="fig-side lado-side"><div class="prose"><p>O Obi não é jogo nem curiosidade, como quem procura o próprio signo. É um oráculo sagrado: sementes que revelam o Orixá de cabeça e mostram as forças que nos espelham, nossas dificuldades, nossas facilidades e o que precisamos trabalhar para alcançar equilíbrio.</p>'
+        '<p>Quem se identificar com a casa e quiser tirar o Obi participa de, no mínimo, cinco giras. Depois, marca a presença com a Cambone, médium auxiliar do Pai de Santo, que fica disponível no espaço de gira. A marcação passa pelo crivo do Pai de Santo ou da entidade, tem número limitado de vagas e recebe uma data para a tiragem.</p></div><div class="lado-foto">%s</div></div>' % H['photo']('obi', 'A mesa da Tiragem do Obi na CUCA', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', pos='60% 40%', extra='reveal'))
     out += chapter('amaci', 'O selo de pertencimento', 'O Amaci.',
-        '<div class="prose">%s'
+        '<div class="fig-side lado-side"><div class="prose">%s'
         '<p>A Umbanda ensina que a cabeça é o nosso principal receptáculo do sagrado. Na tradição africana ela se chama Ori. A coroa é a energia que vibramos hoje nesse Ori. O Amaci introduz o axé dos Orixás na cabeça espiritual e alinha a coroa com os nossos anseios mais altos.</p>'
-        '<p>Depois do Amaci, o alguidar do médium passa a ficar no Roncó da casa, alimentado com vela e ervas o ano inteiro, e o Caboclo pai de cabeça começa a atuar no caminho do médium.</p></div>'
-        % pull('Amaci é a lavagem de cabeça com ervas das Linhas de Umbanda que inicia a pessoa na religião de Umbanda e na casa por ela escolhida.', 'Pai Léo de Oxóssi')
+        '<p>Depois do Amaci, o alguidar do médium passa a ficar no Roncó da casa, alimentado com vela e ervas o ano inteiro, e o Caboclo pai de cabeça começa a atuar no caminho do médium.</p></div><div class="lado-foto">%s</div></div>'
+        % (pull('Amaci é a lavagem de cabeça com ervas das Linhas de Umbanda que inicia a pessoa na religião de Umbanda e na casa por ela escolhida.', 'Pai Léo de Oxóssi'),
+           H['photo']('amaci', 'Médium sorridente ajoelhada diante da quartinha com as guias, no dia do Amaci', 'ratio-34', None, sizes='(max-width:860px) 100vw, 50vw', pos='62% 45%', extra='reveal'))
         + tiles([('Com a Umbanda', 'Ser umbandista por direito, com conduta condizente e sem fazer parte de outra religião ou casa.'),
                  ('Com o terreiro', 'Seguir as normas, colaborar com a manutenção e estar presente nos trabalhos.'),
                  ('Com a boa conduta', 'Não julgar e respeitar os irmãos.'),

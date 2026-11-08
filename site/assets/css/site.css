@@ -1288,9 +1288,6 @@ body.menu-open .pix-float{display:none}
 .lightbox.pessoa figcaption{text-align:center;background:var(--canvas-light);color:var(--ink);padding:14px 26px;margin-top:-28px;position:relative;border-radius:10px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
 .lightbox.pessoa figcaption b{display:block;font-family:var(--f-display);font-size:1.7rem;letter-spacing:.03em;text-transform:uppercase;line-height:1.1}
 .lightbox.pessoa figcaption span{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.obi-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
-.obi-grid .photo{margin:0}
-@media (max-width:760px){.obi-grid{grid-template-columns:1fr}}
 .chain-rail .cl.oculto{display:none}
 /* citações animadas */
 .q-anim .word{transform:translateY(.45em);filter:blur(4px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease)}
