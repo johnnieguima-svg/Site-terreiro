@@ -89,8 +89,8 @@ def organograma(H, linhas, OIMG, img, nomes_guias):
                    '<span class="l-circ">%s</span><b>%s</b><small>%s</small></button></li>'
                    % (s, s, rs, cor, _svg(ico, anim), e(nome), e(sub)))
         ramos += ('<div class="orga-ramo" data-ramo="%s" style="--c:%s;--n:%d">'
-                  '<p class="orga-cab" data-no="%s" data-pai="raiz"><b>%s</b><span>%s</span></p>'
-                  '<ul class="orga-filhos">%s</ul></div>' % (rs, rc, len(filhos), rs, rn, e(rd), li))
+                  '<p class="orga-cab" data-no="%s" data-pai="raiz"><b>%s</b></p>'
+                  '<ul class="orga-filhos">%s</ul></div>' % (rs, rc, len(filhos), rs, rn, li))
 
     # fichas
     tpls = ''

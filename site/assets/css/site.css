@@ -1301,3 +1301,4 @@ blockquote.pull.q-anim{position:relative;border-left-color:transparent}
 blockquote.pull.q-anim::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform 1s var(--ease)}
 .dark blockquote.pull.q-anim::before{background:var(--accent-on-dark)}
 blockquote.pull.q-anim.arrive::before{transform:none}
+.orga-cab{padding:10px 28px}
